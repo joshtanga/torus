@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "hyp-desmos.html",
+    "href": "hyp-desmos.html",
+    "title": "Hyperbolic Geometry in Desmos",
+    "section": "",
+    "text": "These are models of two-dimensional hyperbolic geometry, implemented in desmos. Click & drag points to see how the lines change."
+  },
+  {
+    "objectID": "hyp-desmos.html#lines-in-the-poincare-half-plane",
+    "href": "hyp-desmos.html#lines-in-the-poincare-half-plane",
+    "title": "Hyperbolic Geometry in Desmos",
+    "section": "lines in the Poincare half plane",
+    "text": "lines in the Poincare half plane\nP and Q are points in the upper half plane model of hyperbolic geometry. The orange curve is the hyperbolic line through P and Q.\n [link]"
+  },
+  {
+    "objectID": "hyp-desmos.html#lines-in-the-poincare-disc-model",
+    "href": "hyp-desmos.html#lines-in-the-poincare-disc-model",
+    "title": "Hyperbolic Geometry in Desmos",
+    "section": "lines in the Poincare disc model",
+    "text": "lines in the Poincare disc model\nThe pink region represents the Poincare disc model of hyperbolic geometry.\nChoose a line and two points not on it. Drag the two points on top of each other. Notice you can draw multiple lines through the points and neither intersects the given line.\n [link]"
+  },
+  {
+    "objectID": "hyp-desmos.html#area-of-hyperbolic-triangles",
+    "href": "hyp-desmos.html#area-of-hyperbolic-triangles",
+    "title": "Hyperbolic Geometry in Desmos",
+    "section": "area of hyperbolic triangles",
+    "text": "area of hyperbolic triangles\nNotice the area of a hyperbolic triangle is determined by its angle sum. Drag the vertices of the triangle to see how the area changes as the angle sum changes.\n [link]"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Josh Thompson’s research",
+    "section": "",
+    "text": "I am interested in geometry and topology and their applications to data analysis, computer vision, and machine learning. I also enjoy mentoring undergraduate research projects in these areas. Below are links to some of my work, software, and resources for students interested in pursuing research in these areas."
+  },
+  {
+    "objectID": "index.html#geometry-topology-and-their-applications",
+    "href": "index.html#geometry-topology-and-their-applications",
+    "title": "Josh Thompson’s research",
+    "section": "geometry, topology and their applications",
+    "text": "geometry, topology and their applications\n\nvisualizing topology (matlab)\nvisualizing geometry\n\nhyperbolic geometry (desmos)\nfrenet frames on helix w/code here (python)\nparallel transport on a torus w/code here (python)\nmore parallel transport along a (1,2)-curve on torus (python)\n\ngeometric and topological data analysis\nhaving fun w/geometry & data (python & plotly and empet\nthe cat map on the torus\nmath education\n\nwhat if ax=b meant ax=me?(prezi)\n\nalgorithms on manifolds\nanomaly detection algorithms"
+  },
+  {
+    "objectID": "index.html#undergraduate-research",
+    "href": "index.html#undergraduate-research",
+    "title": "Josh Thompson’s research",
+    "section": "undergraduate research",
+    "text": "undergraduate research\n\nfun with fourier (slides via quarto & r)"
+  },
+  {
+    "objectID": "index.html#masters-thesis-ive-advised",
+    "href": "index.html#masters-thesis-ive-advised",
+    "title": "Josh Thompson’s research",
+    "section": "master’s thesis i’ve advised",
+    "text": "master’s thesis i’ve advised\n\nvisualizing geometric structures on topological surfaces\nquandles that are knot quandles\nplumbing the depths of the shallow end: exploring persistent homology using small data"
+  },
+  {
+    "objectID": "index.html#reading-list",
+    "href": "index.html#reading-list",
+    "title": "Josh Thompson’s research",
+    "section": "reading list",
+    "text": "reading list\n\nmasters thesis ideas\ndata & cartan’s moving frames"
+  },
+  {
+    "objectID": "index.html#software-and-algorithms",
+    "href": "index.html#software-and-algorithms",
+    "title": "Josh Thompson’s research",
+    "section": "software and algorithms",
+    "text": "software and algorithms\n\nr for matlab users\ntda in r\nmatrix algebra in r\nmass - modern applied statistics in s"
+  },
+  {
+    "objectID": "index.html#papers-and-preprints",
+    "href": "index.html#papers-and-preprints",
+    "title": "Josh Thompson’s research",
+    "section": "papers and preprints",
+    "text": "papers and preprints\n\nPseudo Isometric Surgery with Matt Clay, in Topology Proceedings\n\n\n\n\nadmissible sequence\n\n\n\nCollapsing Maps & Quasi-Isometries with undergraduate Davin Hemmila\nComputing Geographic Distances with undergraduate Chase Ashby. Mathematical Spectrum Vol. 48, No. 3, April 2016\niMath: Digital Images Modeled with Matrices International Research in Education Vol. 3 No. 1, March 2015.\nEvaluating Several Different Web Prediction Algorithms Proc. of the ISCA 29th Int. Conf. on Computers and Their Applications, CATA 2014.\nIdentity Maps and their extensions on Parameter Spaces: Applications to anomaly detection in video, with K. Wang, M. Kirby and C. Peterson. Proceedings of the Science and Information Conference (SAI), pp 345-351, 2015 DOI: 10.1109/SAI.2015.7237167\nAccurate Fault Prediction of BlueGeneP RAS Logs Via Geometric Reduction .pdf Proc. of IEEE/IFIP International Conference on DSN, 2010\n\n\n\nMSET on BlueGeneP Figure\n\n\nGraftings of Complex Projective Structures with Schottky Holonomy .pdf Geometriae Dedicata: Volume 166, Issue 1 (2013), Page 203-232\n\n\n\nGrafting Figure"
+  },
+  {
+    "objectID": "visualize_basis.html",
+    "href": "visualize_basis.html",
+    "title": "Basis element for the induced topology on a genus two surface",
+    "section": "",
+    "text": "A genus two surface embedded in Euclidean space, shown below embedded in \\(\\mathbb{R}^3\\) \\[\\Sigma_2 \\subset \\mathbb{R}^3\\] inherits a topology whose basis elemnts are intersections of the surface with open balls \\[\\mathcal{B}_i = \\Sigma_2 \\cap B(\\epsilon).\\] A random such intersection is shown below on the left. The animation on the right shows three different basis elements.\n\n\n\n\nrotating surface\n\n\n\n\n\n\n\n\nrotaing open set\n\n\n\n\n\n\n\nthree basis elements\n\n\n\n\n\n\nThese animations were created using MATLAB."
+  }
+]

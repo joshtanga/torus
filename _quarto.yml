@@ -1,0 +1,20 @@
+project:
+  type: website
+
+website:
+  title: "research"
+  navbar:
+    left:
+      - href: 'http://euclid.nmu.edu/~joshthom'
+        text: Home
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
