@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torus Visualization</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <style>
+        body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; }
+        header { padding: 20px; text-align: center; }
+        /* 2. Style the viewer container */
+        #container { width: 90vw; height: 70vh; background: #ffffff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Textured Torus</h1>
+        <p>(Built with Open3D)</p>
+    </header>
+
+    <div id="container">
+        <model-viewer 
+            src="assets/anosov.glb" 
+            alt="A 3D textured torus" 
+            auto-rotate 
+            camera-controls 
+            ar 
+            shadow-intensity="1" 
+            exposure="1" 
+            environment-image="neutral">
+        </model-viewer>
+    </div>
+
+    <footer>
+        <p>Use your mouse to rotate • Scroll to zoom</p>
+    </footer>
+
+</body>
+</html>
