@@ -2,6 +2,10 @@
 title: "Torus Automorphisms & Texture Mapping"
 ---
 
+Some examples of torus automorphisms, and their applications to texture mapping.
+
+![texture mapping](../assets/torus1.png)
+
 - [identity](../id_torus.html)
 - [cat map](../anosov/)
 - [bike gang](../bike_tour.html)
