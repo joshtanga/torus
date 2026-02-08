@@ -6,7 +6,7 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 
 
 hey
-![texture mapping](../assets/torus1.png)
+![texture mapping](../assets/torus_1.png)
 after
 
 - [identity](../id_torus.html)
