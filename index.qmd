@@ -4,5 +4,5 @@ title: "Torus Automorphisms & Texture Mapping"
 
 - [identity](../id_torus.html)
 - [cat map](../anosov/)
-- [bike gang](bike_tour.html)
+- [bike gang](../bike_tour.html)
 - [periodic](../periodic/)
