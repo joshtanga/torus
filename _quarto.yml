@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "research"
+  title: "torus visualizations"
   navbar:
     left:
       - href: 'http://euclid.nmu.edu/~joshthom'
