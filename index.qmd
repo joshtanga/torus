@@ -4,7 +4,7 @@ title: "Torus Automorphisms & Texture Mapping"
 
 # Visualations
 
-- [identity](id_torus.html)
-- [cat map](anosov)
-- [octotour](octotour.html)
-- [periodic](periodic/)
+- [identity](../id_torus.html)
+- [cat map](../anosov/)
+- [octotour](../octotour.html)
+- [periodic](../periodic/)
