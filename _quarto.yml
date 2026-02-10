@@ -14,6 +14,7 @@ format:
     theme:
       - cosmo
       - brand
+    html-math-method: mathjax
     css: styles.css
     toc: false
 
