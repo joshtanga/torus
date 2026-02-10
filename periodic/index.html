@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Torus Automorphism Visualization</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com"></script>
-     <script type="text/x-mathjax-config">
-       MathJax.Hub.Config({
-         tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']]}
-       });
-     </script>
-
+    <script src="https://cdnjs.cloudflare.com"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; }
         header { padding: 20px; text-align: center; }
@@ -22,102 +25,103 @@
 </head>
 <body>
 
-    <header>
-        <h1>Torus under the Identity Map</h1>
-        <p>Resolution: 1024x1024</p>
-    </header>
+<header>
+    <h1>Torus under the Identity Map</h1>
+    <p>Resolution: 1024x1024</p>
+</header>
 
-    <p> This image from the open3D docs is mapped onto a torus. </p>
-    <img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-
-
-    <div id="container">
-        <model-viewer 
-            src="../assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb" 
-            alt="A 3D textured torus" 
-            auto-rotate 
-            camera-controls 
-            ar 
-            shadow-intensity="1" 
-            exposure="1" 
-            environment-image="neutral">
-        </model-viewer>
-    </div>
-
-    <p> A periodic map of period 3, specically the one defined by the matrix 
-    $$\begin{bmatrix} 
-     0 & 1 \\ 
-    -1 & -1 
-    \end{bmatrix}$$, 
-    is applied to the torus. The same image as before, which is a UV checkerboard texture commonly used for testing in 3D graphics, is mapped onto the torus. </p>
+<p> This image from the open3D docs is mapped onto a torus. </p>
+<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
 
 
-    from the open3D docs is mapped onto a torus. </p>
-    <img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
+<div id="container">
+    <model-viewer 
+        src="../assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb" 
+        alt="A 3D textured torus" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        shadow-intensity="1" 
+        exposure="1" 
+        environment-image="neutral">
+    </model-viewer>
+</div>
+
+<p> A periodic map of period 3, specically the one defined by the matrix 
+
+$$\begin{bmatrix} 
+ 0 & 1 \\ 
+-1 & -1 
+\end{bmatrix}$$ 
+
+is applied to the same image as before, which is a UV checkerboard texture commonly used for testing in 3D graphics. It is then mapped onto the torus. </p>
 
 
-
-    <header>
-        <h1>Torus after the First Iteration</h1>
-        <p>(Resolution: 256x256)</p>
-    </header>
-
-    <div id="container">
-        <model-viewer 
-            src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
-            alt="A 3D textured torus" 
-            auto-rotate 
-            camera-controls 
-            ar 
-            shadow-intensity="1" 
-            exposure="1" 
-            environment-image="neutral">
-        </model-viewer>
-    </div>
+<img src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
 
 
 
-    <header>
-        <h1>Torus after the Second Iteration</h1>
-        <p>(Resolution: 256x256)</p>
-    </header>
+<header>
+    <h1>Torus after the First Iteration</h1>
+    <p>(Resolution: 256x256)</p>
+</header>
 
-    <div id="container">
-        <model-viewer 
-            src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb" 
-            alt="A 3D textured torus" 
-            auto-rotate 
-            camera-controls 
-            ar 
-            shadow-intensity="1" 
-            exposure="1" 
-            environment-image="neutral">
-        </model-viewer>
-    </div>
-
-
-    <header>
-        <h1>Torus under the Third Iteration</h1>
-        <p>(Resolution: 256x256)</p>
-    </header>
-
-    <div id="container">
-        <model-viewer 
-            src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
-            alt="A 3D textured torus" 
-            auto-rotate 
-            camera-controls 
-            ar 
-            shadow-intensity="1" 
-            exposure="1" 
-            environment-image="neutral">
-        </model-viewer>
-    </div>
+<div id="container">
+    <model-viewer 
+        src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
+        alt="A 3D textured torus" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        shadow-intensity="1" 
+        exposure="1" 
+        environment-image="neutral">
+    </model-viewer>
+</div>
 
 
-    <footer>
-        <p>Use your mouse to rotate • Scroll to zoom</p>
-    </footer>
+
+<header>
+    <h1>Torus after the Second Iteration</h1>
+    <p>(Resolution: 256x256)</p>
+</header>
+
+<div id="container">
+    <model-viewer 
+        src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb" 
+        alt="A 3D textured torus" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        shadow-intensity="1" 
+        exposure="1" 
+        environment-image="neutral">
+    </model-viewer>
+</div>
+
+
+<header>
+    <h1>Torus under the Third Iteration</h1>
+    <p>(Resolution: 256x256)</p>
+</header>
+
+<div id="container">
+    <model-viewer 
+        src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
+        alt="A 3D textured torus" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        shadow-intensity="1" 
+        exposure="1" 
+        environment-image="neutral">
+    </model-viewer>
+</div>
+
+
+<footer>
+    <p>Use your mouse to rotate • Scroll to zoom</p>
+</footer>
 
 </body>
 </html>
