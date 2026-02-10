@@ -6,15 +6,6 @@
     <title>Periodic Torus Automorphism Visualization</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com"></script>
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        }
-      };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; }
         header { padding: 20px; text-align: center; }
@@ -81,6 +72,23 @@ is applied to the same image as before, which is a UV checkerboard texture commo
         exposure="1" 
         environment-image="neutral">
     </model-viewer>
+</div>
+
+
+<p> The periodic map of period 3
+
+$$\begin{bmatrix} 
+ 0 & 1 \\ 
+-1 & -1 
+\end{bmatrix}$$ 
+
+is applied again to the transformed image </p>
+
+
+<div class="image-container">
+<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
+<img src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
+<img src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
 </div>
 
 
