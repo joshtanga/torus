@@ -1,1 +1,13 @@
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centers the images */
+    gap: 10px;              /* Adds space between them */
+  }
+
+  .image-container img {
+    width: 45%;             /* Adjusts size to fit two per row */
+    height: auto;           /* Maintains aspect ratio */
+  }
+</style>
 /* css styles */
