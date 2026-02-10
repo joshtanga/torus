@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torus Visualization</title>
+    <title>Periodic Torus Automorphism Visualization</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    
+     <script src="https://cdnjs.cloudflare.com"></script>
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({
+         tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']]}
+       });
+     </script>
+
     <style>
         body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; }
         header { padding: 20px; text-align: center; }
@@ -37,6 +43,14 @@
             environment-image="neutral">
         </model-viewer>
     </div>
+
+    <p> A periodic map of period 3, specically the one defined by the matrix $\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}$, is applied to the torus. The same image as before, which is a UV checkerboard texture commonly used for testing in 3D graphics, is mapped onto the torus. </p>
+
+
+    from the open3D docs is mapped onto a torus. </p>
+    <img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
+
+
 
     <header>
         <h1>Torus after the First Iteration</h1>

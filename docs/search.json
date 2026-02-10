@@ -5,5 +5,12 @@
     "title": "Torus Automorphisms & Texture Mapping",
     "section": "",
     "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nidentity\ncat map\nbike gang\nperiodic"
+  },
+  {
+    "objectID": "elliptic.html",
+    "href": "elliptic.html",
+    "title": "Torus Automorphisms & Texture Mapping",
+    "section": "",
+    "text": "Torus under the Identity Map\n\n\nResolution: 1024x1024\n\n\n\nThis image from the open3D docs is mapped onto a torus.\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\nA periodic map applied to the image above gives this.\n\n\n\nfirst periodic iteration\n\n\n\n\nTorus after the First Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nTorus after the Second Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nTorus under the Third Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nUse your mouse to rotate • Scroll to zoom"
   }
 ]
