@@ -11,3 +11,4 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 - [cat map](../anosov/)
 - [bike gang](../bike_tour.html)
 - [periodic](../periodic/)
+- [isotopy](../isotopy/)
