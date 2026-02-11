@@ -10,5 +10,6 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 - [identity](../id_torus.html)
 - [isotopy](../isotopy/)
 - [periodic](../periodic/)
+- [dehn twist](../dehn_twist/)
 - [anosov](../anosov/)
 - [bike gang](../bike_tour.html)
