@@ -8,7 +8,7 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 ![screenshot of open3D rendering](../assets/torus_1.png){width=300px}
 
 - [identity](../id_torus.html)
+- [isotopy](../isotopy/)
+- [periodic](../periodic/)
 - [anosov](../anosov/)
 - [bike gang](../bike_tour.html)
-- [periodic](../periodic/)
-- [isotopy](../isotopy/)
