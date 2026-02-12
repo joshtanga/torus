@@ -15,7 +15,7 @@ This study visualizes a continuous deformation $f_t: T^2 \to T^2$. While the top
 
 <model-viewer 
     id="torus-scrubber" 
-    src="step_0.glb" 
+    src="../../assets/sequence/step_0.glb" 
     camera-controls 
     auto-rotate
     rotation-per-second="30deg"
@@ -29,7 +29,7 @@ This study visualizes a continuous deformation $f_t: T^2 \to T^2$. While the top
 ### 2. Distortion Metrics
 The histogram below represents the distribution of area change across all faces. A "perfect" area-preserving map would result in a single spike at **1.0**.
 
-![Area Distortion Histogram](distortion_histogram.png)
+![Area Distortion Histogram](assets/distortion_histogram.png)
 
 :::
 
