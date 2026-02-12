@@ -47,7 +47,7 @@
     
     <model-viewer 
         id="torus-player"
-        src="assets/sequence/torus_0.glb"
+        src="../assets/sequence/torus_0.glb"
         alt="A deforming torus"
         camera-controls
         style="width: 400px; height: 400px; background-color: #ffffff; border: 1px solid #ddd;">
@@ -76,7 +76,7 @@
     slider.addEventListener('input', (event) => {
         const frame = event.target.value;
         // Update the source of the 3D model
-        viewer.src = `assets/sequence/torus_${frame}.glb`;
+        viewer.src = `../assets/sequence/torus_${frame}.glb`;
     });
 </script>
 
