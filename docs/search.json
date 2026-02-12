@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Torus Automorphisms & Texture Mapping",
-    "section": "",
-    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nDeformations of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nDeformations of the torus\n\ndeformed_torus\nisotopy\nchanges to geometry"
-  },
-  {
     "objectID": "elliptic.html",
     "href": "elliptic.html",
     "title": "\nTorus after the First Iteration\n",
@@ -14,11 +7,25 @@
     "text": "This image from the open3D docs is mapped onto a torus.\n\n\n\n \n\nA periodic map applied to the image above gives this.\n\n\n\nfirst periodic iteration\n\n\n\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nTorus after the Second Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nTorus under the Third Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nUse your mouse to rotate • Scroll to zoom"
   },
   {
-    "objectID": "temp.html",
-    "href": "temp.html",
-    "title": "torus visualizations",
+    "objectID": "geometry_changes.html",
+    "href": "geometry_changes.html",
+    "title": "Topological Analysis of Torus Homeomorphisms",
     "section": "",
-    "text": "&lt;model-viewer \n    style=\"width: 100%; height: 500px;\"\n    src=\"assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb\"\n    alt=\"3D Torus\"\n    camera-controls\n    auto-rotate&gt;\n&lt;/model-viewer&gt;"
+    "text": "This study visualizes a continuous deformation \\(f_t: T^2 \\to T^2\\). While the topology remains a torus, we analyze the metric distortion—how much the surface area of each neighborhood stretches or shrinks during the transformation.\n\n\n\n\n\n\n\n\n \n\n\n← Scrub to evolve the Homeomorphism →\n\n\n\n\nThe histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at 1.0.\n\n\n\n\n\n\n\nArea Distortion Histogram\n\n\n\n\n\n\n\nBased on the distribution above, our mapping exhibits a Maximum Stretch Factor of {python} f\"{np.max(final_ratios):.2f}\".\nThe total surface area of the manifold changed from {python} f\"{np.sum(orig_areas):.1f}\" to {python} f\"{np.sum(new_areas):.1f}\" units, representing a total expansion of **{python} f”{((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%“**."
+  },
+  {
+    "objectID": "geometry_changes.html#manifold-deformation-area-preservation",
+    "href": "geometry_changes.html#manifold-deformation-area-preservation",
+    "title": "Topological Analysis of Torus Homeomorphisms",
+    "section": "",
+    "text": "This study visualizes a continuous deformation \\(f_t: T^2 \\to T^2\\). While the topology remains a torus, we analyze the metric distortion—how much the surface area of each neighborhood stretches or shrinks during the transformation.\n\n\n\n\n\n\n\n\n \n\n\n← Scrub to evolve the Homeomorphism →\n\n\n\n\nThe histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at 1.0.\n\n\n\n\n\n\n\nArea Distortion Histogram\n\n\n\n\n\n\n\nBased on the distribution above, our mapping exhibits a Maximum Stretch Factor of {python} f\"{np.max(final_ratios):.2f}\".\nThe total surface area of the manifold changed from {python} f\"{np.sum(orig_areas):.1f}\" to {python} f\"{np.sum(new_areas):.1f}\" units, representing a total expansion of **{python} f”{((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%“**."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Torus Automorphisms & Texture Mapping",
+    "section": "",
+    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nDeformations of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nDeformations of the torus\n\ndeformed_torus\nisotopy\nchanges to geometry"
   },
   {
     "objectID": "analyze_homeo.html",

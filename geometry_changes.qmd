@@ -1,0 +1,48 @@
+---
+title: "Topological Analysis of Torus Homeomorphisms"
+format: html
+---
+
+## Manifold Deformation & Area Preservation
+
+This study visualizes a continuous deformation $f_t: T^2 \to T^2$. While the topology remains a torus, we analyze the **metric distortion**—how much the surface area of each neighborhood stretches or shrinks during the transformation.
+
+::: {layout="[[40, 60]]"}
+
+### 1. Interactive Manifold
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+<model-viewer 
+    id="torus-scrubber" 
+    src="../assets/sequence/torus_0.glb" 
+    camera-controls 
+    auto-rotate
+    rotation-per-second="30deg"
+    style="width: 100%; height: 400px;">
+</model-viewer>
+
+<input type="range" id="frame-slider" min="0" max="19" value="0" style="width: 100%; margin-top: 15px;">
+<p style="text-align: center;"><small>← Scrub to evolve the Homeomorphism →</small></p>
+</div>
+
+### 2. Distortion Metrics
+The histogram below represents the distribution of area change across all faces. A "perfect" area-preserving map would result in a single spike at **1.0**.
+
+![Area Distortion Histogram](assets/distortion_histogram.png)
+
+:::
+
+### Analysis of the Mapping
+Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor** of `{python} f"{np.max(final_ratios):.2f}"`. 
+
+The total surface area of the manifold changed from `{python} f"{np.sum(orig_areas):.1f}"` to `{python} f"{np.sum(new_areas):.1f}"` units, representing a total expansion of **{python} f"{((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%"**.
+
+<script>
+    const viewer = document.querySelector('#torus-scrubber');
+    const slider = document.querySelector('#frame-slider');
+
+    slider.addEventListener('input', (e) => {
+        viewer.src = `../assets/sequence/torus_${e.target.value}.glb`;
+    });
+</script>
