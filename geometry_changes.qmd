@@ -34,11 +34,16 @@ The histogram below represents the distribution of area change across all faces.
 :::
 
 ### Analysis of the Mapping
-Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor** of `{python} f"{np.max(final_ratios):.2f}"`. 
+Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor** of 
+
+```{r, echo = FALSE} 
+final_ratios = 1
+max(final_ratios)
+```
 
 The total surface area of the manifold changed from 
 
-```{r}
+```{r, echo = FALSE}
 library(glue)
 orig_areas <- 1  # Note R uses <- for assignment
 new_areas <- 2
