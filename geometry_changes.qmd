@@ -43,8 +43,8 @@ library(glue)
 orig_areas <- 1  # Note R uses <- for assignment
 new_areas <- 2
 
-# Using glue for "f-string" behavior
 glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansion {((sum(new_areas)/sum(orig_areas))-1)*100}%")
+```
 
 <script>
     const viewer = document.querySelector('#torus-scrubber');
