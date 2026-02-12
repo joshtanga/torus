@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Torus Automorphisms & Texture Mapping",
     "section": "",
-    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nDeformations of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nDeformations of the torus\n\ndeformed_torus"
+    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nDeformations of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nDeformations of the torus\n\ndeformed_torus\nisotopy"
   },
   {
     "objectID": "elliptic.html",
