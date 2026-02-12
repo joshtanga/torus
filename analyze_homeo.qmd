@@ -15,7 +15,7 @@ This study visualizes a continuous deformation $f_t: T^2 \to T^2$. While the top
 
 <model-viewer 
     id="torus-scrubber" 
-    src="../../assets/sequence/step_0.glb" 
+    src="../assets/sequence/torus_0.glb" 
     camera-controls 
     auto-rotate
     rotation-per-second="30deg"
@@ -43,6 +43,6 @@ The total surface area of the manifold changed from `{python} f"{np.sum(orig_are
     const slider = document.querySelector('#frame-slider');
 
     slider.addEventListener('input', (e) => {
-        viewer.src = `torus_area_analysis/step_${e.target.value}.glb`;
+        viewer.src = `../assets/sequence/torus_${e.target.value}.glb`;
     });
 </script>
