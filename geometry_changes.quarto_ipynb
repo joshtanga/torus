@@ -1,0 +1,89 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Topological Analysis of Torus Homeomorphisms\"\n",
+        "format: html\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Manifold Deformation & Area Preservation\n",
+        "\n",
+        "This study visualizes a continuous deformation $f_t: T^2 \\to T^2$. While the topology remains a torus, we analyze the **metric distortion**—how much the surface area of each neighborhood stretches or shrinks during the transformation.\n",
+        "\n",
+        "::: {layout=\"[[40, 60]]\"}\n",
+        "\n",
+        "### 1. Interactive Manifold\n",
+        "<div style=\"background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;\">\n",
+        "<script type=\"module\" src=\"https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js\"></script>\n",
+        "\n",
+        "<model-viewer \n",
+        "    id=\"torus-scrubber\" \n",
+        "    src=\"../assets/sequence/torus_0.glb\" \n",
+        "    camera-controls \n",
+        "    auto-rotate\n",
+        "    rotation-per-second=\"30deg\"\n",
+        "    style=\"width: 100%; height: 400px;\">\n",
+        "</model-viewer>\n",
+        "\n",
+        "<input type=\"range\" id=\"frame-slider\" min=\"0\" max=\"19\" value=\"0\" style=\"width: 100%; margin-top: 15px;\">\n",
+        "<p style=\"text-align: center;\"><small>← Scrub to evolve the Homeomorphism →</small></p>\n",
+        "</div>\n",
+        "\n",
+        "### 2. Distortion Metrics\n",
+        "The histogram below represents the distribution of area change across all faces. A \"perfect\" area-preserving map would result in a single spike at **1.0**.\n",
+        "\n",
+        "![Area Distortion Histogram](../assets/distortion_histogram.png)\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "### Analysis of the Mapping\n",
+        "Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor** of `{python} f\"{np.max(final_ratios):.2f}\"`. \n",
+        "\n",
+        "The total surface area of the manifold changed from \n"
+      ],
+      "id": "6f4c0451"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "orig_area = 1\n",
+        "new_area = 2\n",
+        "f\"{np.sum(orig_areas):.1f} to {np.sum(new_areas):.1f} units, representing a total expansion {((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%\""
+      ],
+      "id": "3dbc34db",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "<script>\n",
+        "    const viewer = document.querySelector('#torus-scrubber');\n",
+        "    const slider = document.querySelector('#frame-slider');\n",
+        "\n",
+        "    slider.addEventListener('input', (e) => {\n",
+        "        viewer.src = `../assets/sequence/torus_${e.target.value}.glb`;\n",
+        "    });\n",
+        "</script>"
+      ],
+      "id": "48c87f84"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/opt/anaconda3/envs/o3d/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

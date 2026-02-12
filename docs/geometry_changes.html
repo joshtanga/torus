@@ -181,7 +181,7 @@ window.Quarto = {
 <div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/distortion_histogram.png" class="img-fluid figure-img"></p>
+<p><img src="../assets/distortion_histogram.png" class="img-fluid figure-img"></p>
 <figcaption>Area Distortion Histogram</figcaption>
 </figure>
 </div>
@@ -191,7 +191,7 @@ window.Quarto = {
 <section id="analysis-of-the-mapping" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-the-mapping">Analysis of the Mapping</h3>
 <p>Based on the distribution above, our mapping exhibits a <strong>Maximum Stretch Factor</strong> of <code>{python} f"{np.max(final_ratios):.2f}"</code>.</p>
-<p>The total surface area of the manifold changed from <code>{python} f"{np.sum(orig_areas):.1f}"</code> to <code>{python} f"{np.sum(new_areas):.1f}"</code> units, representing a total expansion of **{python} f”{((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%“**.</p>
+<p>The total surface area of the manifold changed from</p>
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const slider = document.querySelector('#frame-slider');
