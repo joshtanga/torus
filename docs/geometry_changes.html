@@ -192,6 +192,12 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="analysis-of-the-mapping">Analysis of the Mapping</h3>
 <p>Based on the distribution above, our mapping exhibits a <strong>Maximum Stretch Factor</strong> of <code>{python} f"{np.max(final_ratios):.2f}"</code>.</p>
 <p>The total surface area of the manifold changed from</p>
+<p>library(glue) orig_areas &lt;- 1 # Note R uses &lt;- for assignment new_areas &lt;- 2</p>
+</section>
+</section>
+<section id="using-glue-for-f-string-behavior" class="level1">
+<h1>Using glue for “f-string” behavior</h1>
+<p>glue(“{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansion {((sum(new_areas)/sum(orig_areas))-1)*100}%“)</p>
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const slider = document.querySelector('#frame-slider');
@@ -202,7 +208,6 @@ window.Quarto = {
 </script>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

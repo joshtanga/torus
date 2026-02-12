@@ -38,12 +38,14 @@ Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor
 
 The total surface area of the manifold changed from 
 
-```{=python} 
-import numpy as np
-orig_area = 1
-new_area = 2
-f"{np.sum(orig_areas):.1f} to {np.sum(new_areas):.1f} units, representing a total expansion {((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%"
-```
+```{r}
+library(glue)
+orig_areas <- 1  # Note R uses <- for assignment
+new_areas <- 2
+
+# Using glue for "f-string" behavior
+glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansion {((sum(new_areas)/sum(orig_areas))-1)*100}%")
+
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const slider = document.querySelector('#frame-slider');
