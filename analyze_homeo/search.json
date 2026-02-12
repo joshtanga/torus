@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Torus Automorphisms & Texture Mapping",
-    "section": "",
-    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nDeformations of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nDeformations of the torus\n\ndeformed_torus"
-  },
-  {
-    "objectID": "elliptic.html",
-    "href": "elliptic.html",
-    "title": "\nTorus after the First Iteration\n",
-    "section": "",
-    "text": "This image from the open3D docs is mapped onto a torus.\n\n\n\n \n\nA periodic map applied to the image above gives this.\n\n\n\nfirst periodic iteration\n\n\n\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nTorus after the Second Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nTorus under the Third Iteration\n\n\n(Resolution: 256x256)\n\n\n\n&lt;model-viewer \n    src=\"../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nUse your mouse to rotate • Scroll to zoom"
-  },
-  {
-    "objectID": "temp.html",
-    "href": "temp.html",
-    "title": "torus visualizations",
-    "section": "",
-    "text": "&lt;model-viewer \n    style=\"width: 100%; height: 500px;\"\n    src=\"assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb\"\n    alt=\"3D Torus\"\n    camera-controls\n    auto-rotate&gt;\n&lt;/model-viewer&gt;"
-  },
-  {
     "objectID": "analyze_homeo.html",
     "href": "analyze_homeo.html",
     "title": "Topological Analysis of Torus Homeomorphisms",
