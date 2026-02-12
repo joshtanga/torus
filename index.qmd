@@ -7,9 +7,13 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 
 ![screenshot of open3D rendering](../assets/torus_1.png){width=300px}
 
+# Deformations of the texture
 - [identity](../id_torus.html)
 - [isotopy](../isotopy/)
 - [periodic](../periodic/)
 - [dehn twist](../dehn_twist/)
 - [anosov](../anosov/)
 - [bike gang](../bike_tour.html)
+
+# Deformations of the torus
+- [deformed_torus](deformed_torus.html)
