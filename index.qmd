@@ -18,3 +18,4 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 # Deformations of the torus
 - [deformed_torus](deformed_torus.html)
 - [isotopy](../isotopy/)
+- [changes to geometry](../analyze_homeo/)
