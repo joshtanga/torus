@@ -1,6 +1,8 @@
 ---
 title: "Quantifying Geometric Change in a Torus Homeomorphism"
-format: html
+format: 
+    html:
+        page-layout: full
 ---
 
 
