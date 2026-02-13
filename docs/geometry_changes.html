@@ -161,19 +161,19 @@ window.Quarto = {
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[[40, 60]]">
+<div class="quarto-layout-panel" data-layout="[40, 60]">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer id="torus-scrubber" src="../torus_area_analysis/step_0.glb" camera-controls="" auto-rotate="" rotation-per-second="10deg" style="width: 100%; height: 400px;"> </model-viewer></p>
+<p><model-viewer id="torus-scrubber" src="../assets/torus_area_analysis/step_0.glb" camera-controls="" auto-rotate="" rotation-per-second="10deg" style="width: 100%; height: 400px;"> </model-viewer></p>
 <input type="range" id="frame-slider" min="0" max="19" value="0" style="width: 100%; margin-top: 15px;">
 <p style="text-align: center;">
 <small>← Scrub to evolve the Homeomorphism →</small>
 </p>
 </div>
 </div>
-</div>
-</section>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
 <section id="geometric-distortion" class="level3">
 <h3 class="anchored" data-anchor-id="geometric-distortion">2. Geometric Distortion</h3>
 <p>The histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
@@ -196,6 +196,10 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>1 to 2 units, representing a total expansion 100%</code></pre>
+</div>
+</div>
+</section>
+</div>
 </div>
 </div>
 <script>

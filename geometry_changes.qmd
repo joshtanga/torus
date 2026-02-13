@@ -7,14 +7,15 @@ format: html
 
 Here we attempt to view an isotopy; a continuous deformation through time $f_t: T^2 \to T^2$, where each step is a homeomorphism.  The topology remains the same but the geometry changes.   We display the **metric distortion**—how much the surface area of small neighborhoods stretches or shrinks during the transformation.
 
-::: {layout="[[40, 60]]"}
+:::: {layout="[40, 60]"}
+::: {#first-column}
 
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
 <model-viewer 
     id="torus-scrubber" 
-    src="../torus_area_analysis/step_0.glb"
+    src="../assets/torus_area_analysis/step_0.glb"
     camera-controls 
     auto-rotate
     rotation-per-second="10deg"
@@ -26,6 +27,7 @@ Here we attempt to view an isotopy; a continuous deformation through time $f_t: 
 </div>
 
 :::
+::: {#second-column}
 
 ### 2. Geometric Distortion
 The histogram below represents the distribution of area change across all faces. A "perfect" area-preserving map would result in a single spike at **1.0**.
@@ -50,6 +52,8 @@ new_areas <- 2
 
 glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansion {((sum(new_areas)/sum(orig_areas))-1)*100}%")
 ```
+:::
+::::
 
 <script>
     const viewer = document.querySelector('#torus-scrubber');
