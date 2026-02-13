@@ -3,22 +3,9 @@ title: "Quantifying Geometric Change in a Torus Homeomorphism"
 format: html
 ---
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; width: 100%;">
-
-</div>
-
-<div style="width: 80%; text-align: center;">
-  <input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
-  <p><strong>Slide to evolve Homeomorphism:</strong> <span id="frame-val">0</span></p>
-</div>
-
-</div>
-
 <script>
     const viewer = document.querySelector('#torus-scrubber');
-    const histImg = document.querySelector('#hist-scrubber');
+    const histImg = document.querySelector('#master-slider');
     const slider = document.querySelector('#master-slider');
     const label = document.querySelector('#frame-val');
 
