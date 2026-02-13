@@ -14,7 +14,6 @@ Here we attempt to view an isotopy; a continuous deformation through time $f_t: 
 
 <model-viewer 
     id="torus-scrubber" 
-#    src="../assets/sequence/torus_0.glb" 
     src="../torus_area_analysis/step_0.glb"
     camera-controls 
     auto-rotate
