@@ -155,25 +155,6 @@ window.Quarto = {
 </header>
 
 
-<script>
-    const viewer = document.querySelector('#torus-scrubber');
-    const histImg = document.querySelector('#master-slider');
-    const slider = document.querySelector('#master-slider');
-    const label = document.querySelector('#frame-val');
-
-    slider.addEventListener('input', (e) => {
-        const val = e.target.value;
-        
-        // Update 3D Model
-        viewer.src = '../assets/torus_area_analysis/step_${val}.glb';
-        
-        // Update Histogram Image
-        histImg.src = '../dist_hist/plot_${val}.png';
-        
-        // Update label
-        label.innerText = val;
-    });
-</script>
 <section id="geometric-topology" class="level3">
 <h3 class="anchored" data-anchor-id="geometric-topology">Geometric Topology</h3>
 <p>Here we attempt to view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. We display the <strong>metric distortion</strong>—how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
@@ -218,6 +199,25 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<script>
+    const viewer = document.querySelector('#torus-scrubber');
+    const histImg = document.querySelector('#hist-scrubber');
+    const slider = document.querySelector('#master-slider');
+    const label = document.querySelector('#frame-val');
+
+    slider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        
+        // Update 3D Model
+        viewer.src = `../assets/torus_area_analysis/step_${val}.glb`;
+        
+        // Update Histogram Image
+        histImg.src = `../dist_hist/plot_${val}.png`;
+        
+        // Update label
+        label.innerText = val;
+    });
+</script>
 
 
 </section>
