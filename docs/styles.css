@@ -1,0 +1,31 @@
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centers the images */
+    gap: 50px;              /* Adds space between them */
+  }
+
+  .image-container img {
+    width: 45%;             /* Adjusts size to fit two per row */
+    height: auto;           /* Maintains aspect ratio */
+  }
+</style>
+
+<style>
+  model-viewer {
+    width: 100%;
+    height: 500px; /* Or whatever height you prefer */
+    background-color: #f0f0f0;
+  }
+</style>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+/* css styles */
