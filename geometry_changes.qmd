@@ -11,10 +11,6 @@ format: html
   <model-viewer id="torus-scrubber" src="../assets/torus_area_analysis/step_0.glb" camera-controls style="width: 100%; height: 350px;"></model-viewer>
 </div>
 
-<div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="hist-scrubber" src="../assets/torus_area_analysis/hist_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
-</div>
-
 </div>
 
 <div style="width: 80%; text-align: center;">
@@ -37,7 +33,7 @@ format: html
         viewer.src = '../assets/torus_area_analysis/step_${val}.glb';
         
         // Update Histogram Image
-        histImg.src = '../assets/torus_area_analysis/hist_${val}.png';
+        histImg.src = '../dist_hist/plot_${val}.png';
         
         // Update label
         label.innerText = val;
@@ -75,7 +71,11 @@ Here we attempt to view an isotopy; a continuous deformation through time $f_t: 
 ### 2. Geometric Distortion
 The histogram below represents the distribution of area change across all faces. A "perfect" area-preserving map would result in a single spike at **1.0**.
 
-![Area Distortion Histogram](../assets/distortion_histogram.png)
+
+<div style="flex: 1; min-width: 300px; text-align: center;">
+  <img id="hist-scrubber" src="../dist_hist/plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
+</div>
+
 
 
 ### Analysis of the Mapping

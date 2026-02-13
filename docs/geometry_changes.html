@@ -160,9 +160,6 @@ window.Quarto = {
 <div style="flex: 1; min-width: 300px;">
 <p><model-viewer id="torus-scrubber" src="../assets/torus_area_analysis/step_0.glb" camera-controls="" style="width: 100%; height: 350px;"></model-viewer></p>
 </div>
-<div style="flex: 1; min-width: 300px; text-align: center;">
-<p><img id="hist-scrubber" src="../assets/torus_area_analysis/hist_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
-</div>
 </div>
 <div style="width: 80%; text-align: center;">
 <input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
@@ -184,7 +181,7 @@ window.Quarto = {
         viewer.src = '../assets/torus_area_analysis/step_${val}.glb';
         
         // Update Histogram Image
-        histImg.src = '../assets/torus_area_analysis/hist_${val}.png';
+        histImg.src = '../dist_hist/plot_${val}.png';
         
         // Update label
         label.innerText = val;
@@ -212,11 +209,8 @@ window.Quarto = {
 <section id="geometric-distortion" class="level3">
 <h3 class="anchored" data-anchor-id="geometric-distortion">2. Geometric Distortion</h3>
 <p>The histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/distortion_histogram.png" class="img-fluid figure-img"></p>
-<figcaption>Area Distortion Histogram</figcaption>
-</figure>
+<div style="flex: 1; min-width: 300px; text-align: center;">
+<p><img id="hist-scrubber" src="../dist_hist/plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
 </div>
 </section>
 <section id="analysis-of-the-mapping" class="level3">
