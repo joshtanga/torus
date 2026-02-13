@@ -155,6 +155,41 @@ window.Quarto = {
 </header>
 
 
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; width: 100%;">
+<div style="flex: 1; min-width: 300px;">
+<p><model-viewer id="torus-scrubber" src="../assets/torus_area_analysis/step_0.glb" camera-controls="" style="width: 100%; height: 350px;"></model-viewer></p>
+</div>
+<div style="flex: 1; min-width: 300px; text-align: center;">
+<p><img id="hist-scrubber" src="../assets/torus_area_analysis/hist_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
+</div>
+</div>
+<div style="width: 80%; text-align: center;">
+<input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
+<p>
+<strong>Slide to evolve Homeomorphism:</strong> <span id="frame-val">0</span>
+</p>
+</div>
+</div>
+<script>
+    const viewer = document.querySelector('#torus-scrubber');
+    const histImg = document.querySelector('#hist-scrubber');
+    const slider = document.querySelector('#master-slider');
+    const label = document.querySelector('#frame-val');
+
+    slider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        
+        // Update 3D Model
+        viewer.src = '../assets/torus_area_analysis/step_${val}.glb';
+        
+        // Update Histogram Image
+        histImg.src = '../assets/torus_area_analysis/hist_${val}.png';
+        
+        // Update label
+        label.innerText = val;
+    });
+</script>
 <section id="geometric-topology" class="level3">
 <h3 class="anchored" data-anchor-id="geometric-topology">Geometric Topology</h3>
 <p>Here we attempt to view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. We display the <strong>metric distortion</strong>—how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
@@ -207,7 +242,7 @@ window.Quarto = {
     const slider = document.querySelector('#frame-slider');
 
     slider.addEventListener('input', (e) => {
-        viewer.src = `../torus_area_analysis/step_${e.target.value}.glb`;
+        viewer.src = `../assets/torus_area_analysis/step_${e.target.value}.glb`;
     });
 </script>
 
