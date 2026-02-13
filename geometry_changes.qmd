@@ -60,6 +60,6 @@ glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansio
     const slider = document.querySelector('#frame-slider');
 
     slider.addEventListener('input', (e) => {
-        viewer.src = `../torus_area_analysis/step_${e.target.value}.glb`;
+        viewer.src = `../assets/torus_area_analysis/step_${e.target.value}.glb`;
     });
 </script>
