@@ -1,15 +1,14 @@
 ---
-title: "Topological Analysis of Torus Homeomorphisms"
+title: "Quantifying Geometric Change in a Torus Homeomorphism"
 format: html
 ---
 
-## Manifold Deformation & Area Preservation
+## Geometric Topology
 
-This study visualizes a continuous deformation $f_t: T^2 \to T^2$. While the topology remains a torus, we analyze the **metric distortion**—how much the surface area of each neighborhood stretches or shrinks during the transformation.
+Here we attempt to view an isotopy; a continuous deformation through time $f_t: T^2 \to T^2$, where each step is a homeomorphism.  The topology remains the same but the geometry changes.   We display the **metric distortion**—how much the surface area of small neighborhoods stretches or shrinks during the transformation.
 
 ::: {layout="[[40, 60]]"}
 
-### 1. Interactive Manifold
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
@@ -18,11 +17,11 @@ This study visualizes a continuous deformation $f_t: T^2 \to T^2$. While the top
     src="../assets/sequence/torus_0.glb" 
     camera-controls 
     auto-rotate
-    rotation-per-second="30deg"
+    rotation-per-second="10deg"
     style="width: 100%; height: 400px;">
 </model-viewer>
 
-<input type="range" id="frame-slider" min="0" max="19" value="0" style="width: 100%; margin-top: 15px;">
+<input type="range" id="frame-slider" min="0" max="9" value="0" style="width: 100%; margin-top: 15px;">
 <p style="text-align: center;"><small>← Scrub to evolve the Homeomorphism →</small></p>
 </div>
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Topological Analysis of Torus Homeomorphisms – torus visualizations</title>
+<title>Quantifying Geometric Change in a Torus Homeomorphism – torus visualizations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,7 +138,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Topological Analysis of Torus Homeomorphisms</h1>
+<h1 class="title">Quantifying Geometric Change in a Torus Homeomorphism</h1>
 </div>
 
 
@@ -155,23 +155,22 @@ window.Quarto = {
 </header>
 
 
-<section id="manifold-deformation-area-preservation" class="level2">
-<h2 class="anchored" data-anchor-id="manifold-deformation-area-preservation">Manifold Deformation &amp; Area Preservation</h2>
-<p>This study visualizes a continuous deformation <span class="math inline">\(f_t: T^2 \to T^2\)</span>. While the topology remains a torus, we analyze the <strong>metric distortion</strong>—how much the surface area of each neighborhood stretches or shrinks during the transformation.</p>
+<section id="geometric-topology" class="level2">
+<h2 class="anchored" data-anchor-id="geometric-topology">Geometric Topology</h2>
+<p>Here we attempt to view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. We display the <strong>metric distortion</strong>—how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
 <div>
 
 </div>
 <div class="quarto-layout-panel" data-layout="[[40, 60]]">
 <div class="quarto-layout-row">
-<section id="interactive-manifold" class="level3 quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
-<h3 class="anchored" data-anchor-id="interactive-manifold">1. Interactive Manifold</h3>
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer id="torus-scrubber" src="../assets/sequence/torus_0.glb" camera-controls="" auto-rotate="" rotation-per-second="30deg" style="width: 100%; height: 400px;"> </model-viewer></p>
-<input type="range" id="frame-slider" min="0" max="19" value="0" style="width: 100%; margin-top: 15px;">
+<p><model-viewer id="torus-scrubber" src="../assets/sequence/torus_0.glb" camera-controls="" auto-rotate="" rotation-per-second="10deg" style="width: 100%; height: 400px;"> </model-viewer></p>
+<input type="range" id="frame-slider" min="0" max="9" value="0" style="width: 100%; margin-top: 15px;">
 <p style="text-align: center;">
 <small>← Scrub to evolve the Homeomorphism →</small>
 </p>
-</section>
+</div>
 <section id="distortion-metrics" class="level3 quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
 <h3 class="anchored" data-anchor-id="distortion-metrics">2. Distortion Metrics</h3>
 <p>The histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
