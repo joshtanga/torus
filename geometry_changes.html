@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>elliptic – torus visualizations</title>
+<title>Quantifying Geometric Change in a Torus Homeomorphism – torus visualizations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -105,97 +134,81 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">
-Torus after the First Iteration
-</h1></header>
+<main class="content" id="quarto-document-content">
 
-
-
-
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<style>
-  #container { width: 100%; display: flex; justify-content: center; }
-  model-viewer { width: 800px; height: 600px; }
-</style>
-<p>
-This image from the open3D docs is mapped onto a torus.
-</p>
-<p><img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;"></p>
-<div id="container">
-<p><model-viewer style="width: 100%; height: 400px; background-color: #eee;" src="../assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb" alt="A 3D textured torus" auto-rotate="" camera-controls="" ar="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Quantifying Geometric Change in a Torus Homeomorphism</h1>
 </div>
-<p>A periodic map applied to the image above gives this.</p>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="geometric-topology" class="level3">
+<h3 class="anchored" data-anchor-id="geometric-topology">Geometric Topology</h3>
+<p>Here we attempt to view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. We display the <strong>metric distortion</strong>—how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[40, 60]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<p><model-viewer id="torus-scrubber" src="../torus_area_analysis/step_0.glb" camera-controls="" auto-rotate="" rotation-per-second="10deg" style="width: 100%; height: 400px;"> </model-viewer></p>
+<input type="range" id="frame-slider" min="0" max="19" value="0" style="width: 100%; margin-top: 15px;">
+<p style="text-align: center;">
+<small>← Scrub to evolve the Homeomorphism →</small>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section id="geometric-distortion" class="level3">
+<h3 class="anchored" data-anchor-id="geometric-distortion">2. Geometric Distortion</h3>
+<p>The histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../assets/uv_checkerboard.png" class="img-fluid figure-img" width="300"></p>
-<figcaption>first periodic iteration</figcaption>
+<p><img src="../assets/distortion_histogram.png" class="img-fluid figure-img"></p>
+<figcaption>Area Distortion Histogram</figcaption>
 </figure>
 </div>
-<header>
+</section>
+<section id="analysis-of-the-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-the-mapping">Analysis of the Mapping</h3>
+<p>Based on the distribution above, our mapping exhibits a <strong>Maximum Stretch Factor</strong> of</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>The total surface area of the manifold changed from</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>1 to 2 units, representing a total expansion 100%</code></pre>
+</div>
+</div>
+<script>
+    const viewer = document.querySelector('#torus-scrubber');
+    const slider = document.querySelector('#frame-slider');
 
-<p>
-(Resolution: 256x256)
-</p>
-</header>
-<div id="container">
-<pre><code>&lt;model-viewer 
-    src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
-    alt="A 3D textured torus" 
-    auto-rotate 
-    camera-controls 
-    ar 
-    shadow-intensity="1" 
-    exposure="1" 
-    environment-image="neutral"&gt;
-&lt;/model-viewer&gt;</code></pre>
-</div>
-<header>
-<h1>
-Torus after the Second Iteration
-</h1>
-<p>
-(Resolution: 256x256)
-</p>
-</header>
-<div id="container">
-<pre><code>&lt;model-viewer 
-    src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb" 
-    alt="A 3D textured torus" 
-    auto-rotate 
-    camera-controls 
-    ar 
-    shadow-intensity="1" 
-    exposure="1" 
-    environment-image="neutral"&gt;
-&lt;/model-viewer&gt;</code></pre>
-</div>
-<header>
-<h1>
-Torus under the Third Iteration
-</h1>
-<p>
-(Resolution: 256x256)
-</p>
-</header>
-<div id="container">
-<pre><code>&lt;model-viewer 
-    src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
-    alt="A 3D textured torus" 
-    auto-rotate 
-    camera-controls 
-    ar 
-    shadow-intensity="1" 
-    exposure="1" 
-    environment-image="neutral"&gt;
-&lt;/model-viewer&gt;</code></pre>
-</div>
-<footer>
-<p>
-Use your mouse to rotate • Scroll to zoom
-</p>
-</footer>
+    slider.addEventListener('input', (e) => {
+        viewer.src = `../torus_area_analysis/step_${e.target.value}.glb`;
+    });
+</script>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

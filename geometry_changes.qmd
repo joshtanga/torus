@@ -27,7 +27,7 @@ Here we attempt to view an isotopy; a continuous deformation through time $f_t: 
 
 :::
 
-### 2. Distortion Statistics
+### 2. Geometric Distortion
 The histogram below represents the distribution of area change across all faces. A "perfect" area-preserving map would result in a single spike at **1.0**.
 
 ![Area Distortion Histogram](../assets/distortion_histogram.png)
