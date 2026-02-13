@@ -14,14 +14,15 @@ Here we attempt to view an isotopy; a continuous deformation through time $f_t: 
 
 <model-viewer 
     id="torus-scrubber" 
-    src="../assets/sequence/torus_0.glb" 
+#    src="../assets/sequence/torus_0.glb" 
+    src="../torus_area_analysis/step_0.glb"
     camera-controls 
     auto-rotate
     rotation-per-second="10deg"
     style="width: 100%; height: 400px;">
 </model-viewer>
 
-<input type="range" id="frame-slider" min="0" max="9" value="0" style="width: 100%; margin-top: 15px;">
+<input type="range" id="frame-slider" min="0" max="19" value="0" style="width: 100%; margin-top: 15px;">
 <p style="text-align: center;"><small>← Scrub to evolve the Homeomorphism →</small></p>
 </div>
 
@@ -55,6 +56,6 @@ glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansio
     const slider = document.querySelector('#frame-slider');
 
     slider.addEventListener('input', (e) => {
-        viewer.src = `../assets/sequence/torus_${e.target.value}.glb`;
+        viewer.src = `../torus_area_analysis/step_${e.target.value}.glb`;
     });
 </script>
