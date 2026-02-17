@@ -44,18 +44,90 @@ The histogram below represents the distribution of area change across all faces.
 Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor** of 
 
 ```{r, echo = FALSE} 
-final_ratios = 1
-max(final_ratios)
+library(tidyverse)
+face_data <- read_csv("dist_hist/ratios.csv") |> janitor::clean_names()
+max(face_data)
 ```
+<style>
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .stat-box {
+    text-align: center;
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #3498db; /* A nice highlight blue */
+  }
+  #max-val { color: #e74c3c; } /* Red for Max stretch */
+  #min-val { color: #f1c40f; } /* Yellow for Min squeeze */
+</style>
 
-The total surface area of the manifold changed from 
+<div class="stats-container">
+  <div class="stat-box">
+    <span class="stat-label">Min Ratio</span>
+    <span id="min-val" class="stat-value">1.000</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-label">Mean Ratio</span>
+    <span id="mean-val" class="stat-value">1.000</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-label">Max Ratio</span>
+    <span id="max-val" class="stat-value">1.000</span>
+  </div>
+</div>
 
 ```{r, echo = FALSE}
-library(glue)
-orig_areas <- 1  # Note R uses <- for assignment
-new_areas <- 2
+library(tidyverse)
+library(jsonlite)
 
-glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansion {((sum(new_areas)/sum(orig_areas))-1)*100}%")
+orig_areas <- read_csv('dist_hist/og_areas.csv') |> janitor::clean_names()
+face_data <- read_csv("dist_hist/ratios.csv") |> janitor::clean_names()
+
+# Calculate stats for all columns
+dist_stats <- face_data |> 
+  summarise(across(
+    everything(), 
+    list(
+      mean = \(x) mean(x, na.rm = TRUE),
+      max  = \(x) max(x, na.rm = TRUE),
+      min  = \(x) min(x, na.rm = TRUE)
+    ),
+    .names = "{.col}_{.fn}" # Creates names like "step_0_max"
+  ))
+
+# Pivot to make it readable (Long format)
+dist_stats_tidy <- dist_stats |> 
+  pivot_longer(
+    everything(), 
+    names_to = c("frame", "stat"), 
+    names_pattern = "(.*)_(.*)"
+  ) |> 
+  pivot_wider(names_from = stat, values_from = value)
+
+# Convert the tidy table to a JSON object where 'frame' is the key
+stats_json <- jsonlite::toJSON(dist_stats_tidy)
+cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
+
 ```
 :::
 :::
@@ -77,6 +149,11 @@ glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansio
         
         // Update label
         label.innerText = val;
+
+        // Access the stats for the current frame
+        document.querySelector('#max-val').innerText  = frameStats[val].max.toFixed(3);
+        document.querySelector('#mean-val').innerText = frameStats[val].mean.toFixed(3);
+        document.querySelector('#min-val').innerText  = frameStats[val].min.toFixed(3);
     });
 </script>
 
