@@ -8,7 +8,7 @@ format:
 
 ### Isotopy
 
-Here we view an isotopy; a continuous deformation through time $f_t: T^2 \to T^2$, where each step is a homeomorphism.  The topology remains the same but the geometry changes.   We display the **metric distortion**—how much the surface area of small neighborhoods stretches or shrinks during the transformation.
+Here we view an isotopy; a continuous deformation through time $f_t: T^2 \to T^2$, where each step is a homeomorphism.  The topology remains the same but the geometry changes.   One aspect of this change is the **metric distortion** — how much the surface area of small neighborhoods stretches or shrinks during the transformation.  This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching.  The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.
 
 ::: {layout="[60, 40]"}
 ::: {#first-column}
@@ -35,7 +35,7 @@ The histogram below represents the distribution of area change across all faces.
 
 
 <div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="hist-scrubber" src="../dist_hist/plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
+  <img id="hist-scrubber" src="../dist_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 
 
@@ -73,7 +73,7 @@ glue("{sum(orig_areas)} to {sum(new_areas)} units, representing a total expansio
         viewer.src = `../assets/torus_area_analysis/step_${val}.glb`;
         
         // Update Histogram Image
-        histImg.src = `../dist_hist/plot_${val}.png`;
+        histImg.src = `../dist_hist/histogram_${val}.png`;
         
         // Update label
         label.innerText = val;
