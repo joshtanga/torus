@@ -96,7 +96,8 @@ max(face_data)
   </div>
 </div>
 
-```{r, echo = FALSE}
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(jsonlite)
 
@@ -127,7 +128,6 @@ dist_stats_tidy <- dist_stats |>
 # Convert the tidy table to a JSON object where 'frame' is the key
 stats_json <- jsonlite::toJSON(dist_stats_tidy)
 cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
-
 ```
 :::
 :::
