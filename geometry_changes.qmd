@@ -40,7 +40,6 @@ The histogram below represents the distribution of area change across all faces.
 :::
 
 ### Analysis of the Mapping
-
 <style>
   .stats-container {
     display: flex;
@@ -74,6 +73,7 @@ The histogram below represents the distribution of area change across all faces.
   #min-val { color: #f1c40f; } /* Yellow for Min squeeze */
 </style>
 
+```{=html}
 <div class="stats-container">
 <div class="stat-box">
     <span class="stat-label">Min Ratio</span>
@@ -88,7 +88,7 @@ The histogram below represents the distribution of area change across all faces.
     <span id="max-val" class="stat-value">1.000</span>
 </div>
 </div>
-
+```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results = 'asis'}
 library(tidyverse)
