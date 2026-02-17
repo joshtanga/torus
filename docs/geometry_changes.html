@@ -157,13 +157,13 @@ window.Quarto = {
 
 <section id="isotopy" class="level3">
 <h3 class="anchored" data-anchor-id="isotopy">Isotopy</h3>
-<p>Here we attempt to view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. We display the <strong>metric distortion</strong>—how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
+<p>Here we view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation. This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[40, 60]">
+<div class="quarto-layout-panel" data-layout="[60, 40]">
 <div class="quarto-layout-row">
-<div id="first-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 <p><model-viewer id="torus-scrubber" src="../assets/torus_area_analysis/step_0.glb" camera-controls="" style="width: 100%; height: 400px;"> </model-viewer></p>
@@ -173,12 +173,12 @@ window.Quarto = {
 </p>
 </div>
 </div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
 <section id="geometric-distortion" class="level3">
 <h3 class="anchored" data-anchor-id="geometric-distortion">Geometric Distortion</h3>
 <p>The histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
 <div style="flex: 1; min-width: 300px; text-align: center;">
-<p><img id="hist-scrubber" src="../dist_hist/plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
+<p><img id="hist-scrubber" src="../dist_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
 </div>
 </section>
 <section id="analysis-of-the-mapping" class="level3">
@@ -212,7 +212,7 @@ window.Quarto = {
         viewer.src = `../assets/torus_area_analysis/step_${val}.glb`;
         
         // Update Histogram Image
-        histImg.src = `../dist_hist/plot_${val}.png`;
+        histImg.src = `../dist_hist/histogram_${val}.png`;
         
         // Update label
         label.innerText = val;
