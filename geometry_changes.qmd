@@ -33,7 +33,6 @@ Here we view an isotopy; a continuous deformation through time $f_t: T^2 \to T^2
 ### Geometric Distortion
 The histogram below represents the distribution of area change across all faces. A "perfect" area-preserving map would result in a single spike at **1.0**.
 
-
 <div style="flex: 1; min-width: 300px; text-align: center;">
   <img id="hist-scrubber" src="../dist_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
@@ -73,18 +72,18 @@ The histogram below represents the distribution of area change across all faces.
 </style>
 
 <div class="stats-container">
-  <div class="stat-box">
+<div class="stat-box">
     <span class="stat-label">Min Ratio</span>
     <span id="min-val" class="stat-value">1.000</span>
-  </div>
-  <div class="stat-box">
+</div>
+<div class="stat-box">
     <span class="stat-label">Mean Ratio</span>
     <span id="mean-val" class="stat-value">1.000</span>
-  </div>
-  <div class="stat-box">
+</div>
+<div class="stat-box">
     <span class="stat-label">Max Ratio</span>
     <span id="max-val" class="stat-value">1.000</span>
-  </div>
+</div>
 </div>
 
 
