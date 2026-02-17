@@ -38,16 +38,7 @@ The histogram below represents the distribution of area change across all faces.
   <img id="hist-scrubber" src="../dist_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 
-
-
 ### Analysis of the Mapping
-Based on the distribution above, our mapping exhibits a **Maximum Stretch Factor** of 
-
-```{r, echo = FALSE} 
-library(tidyverse)
-face_data <- read_csv("dist_hist/ratios.csv") |> janitor::clean_names()
-max(face_data)
-```
 <style>
   .stats-container {
     display: flex;
