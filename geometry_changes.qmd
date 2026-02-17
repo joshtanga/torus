@@ -40,6 +40,7 @@ The histogram below represents the distribution of area change across all faces.
 :::
 
 ### Analysis of the Mapping
+
 <style>
   .stats-container {
     display: flex;
@@ -89,7 +90,7 @@ The histogram below represents the distribution of area change across all faces.
 </div>
 
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = 'asis'}
 library(tidyverse)
 library(jsonlite)
 
