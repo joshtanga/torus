@@ -163,6 +163,31 @@ Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
 
 <p> The transformed image is mapped onto the torus below. </p>
 
+
+::: {layout="[60, 40]"}
+::: {#first-column}
+
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+<model-viewer 
+    id="torus-scrubber" 
+    src="../assets/torus_area_analysis/step_0.glb"
+    camera-controls 
+    style="width: 100%; height: 400px;">
+</model-viewer>
+
+<input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
+<p><strong>Slide to evolve Homeomorphism:</strong> <span id="frame-val">0</span></p>
+</div>
+
+:::
+::: {#second-column}
+
+
+
+
+```{=html}
 <div id="container">
 <model-viewer 
         src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" 
@@ -175,7 +200,7 @@ Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
         environment-image="neutral">
 </model-viewer>
 </div>
-
+```
 
 <footer>
     <p>Use your mouse to rotate • Scroll to zoom</p>
