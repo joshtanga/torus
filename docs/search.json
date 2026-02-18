@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "Torus Automorphisms & Texture Mapping",
     "section": "",
-    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nDeformations of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nDeformations of the torus\n\ndeformed_torus\nisotopy\nchanges to geometry"
+    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and open3D.\n\n\n\nscreenshot of open3D rendering\n\n\n\nHomeomorphisms of the texture\n\nidentity\nisotopy\nperiodic\ndehn twist\nanosov\nbike gang\n\n\n\nOther Deformations of the torus\n\ndeformed_torus\nisotopy\nchanges to geometry\n\n\n\n\\begin{algorithm} \\caption{Quicksort} \\begin{algorithmic} \\Procedure{Quicksort}{$A, p, r$} \\If{$p &lt; r$} \\State $q = $ \\Call{Partition}{$A, p, r$} \\State \\Call{Quicksort}{$A, p, q - 1$} \\State \\Call{Quicksort}{$A, q + 1, r$} \\EndIf \\EndProcedure \\end{algorithmic} \\end{algorithm}"
   },
   {
     "objectID": "analyze_homeo.html",
@@ -33,5 +33,47 @@
     "title": "Topological Analysis of Torus Homeomorphisms",
     "section": "",
     "text": "This study visualizes a continuous deformation \\(f_t: T^2 \\to T^2\\). While the topology remains a torus, we analyze the metric distortion—how much the surface area of each neighborhood stretches or shrinks during the transformation.\n\n\n\n\n\n\n\n\n \n\n\n← Scrub to evolve the Homeomorphism →\n\n\n\n\nThe histogram below represents the distribution of area change across all faces. A “perfect” area-preserving map would result in a single spike at 1.0.\n\n\n\n\n\n\n\nArea Distortion Histogram\n\n\n\n\n\n\n\nBased on the distribution above, our mapping exhibits a Maximum Stretch Factor of {python} f\"{np.max(final_ratios):.2f}\".\nThe total surface area of the manifold changed from {python} f\"{np.sum(orig_areas):.1f}\" to {python} f\"{np.sum(new_areas):.1f}\" units, representing a total expansion of **{python} f”{((np.sum(new_areas)/np.sum(orig_areas))-1)*100:.1f}%“**."
+  },
+  {
+    "objectID": "cat_slides.html#deformations-of-a-torus",
+    "href": "cat_slides.html#deformations-of-a-torus",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Deformations of a Torus",
+    "text": "Deformations of a Torus\n\nHomeomorphismsIsotopies\n\n\nDefinition\n\nTopology preserving deformation\nContinuous with continuous inverse\nBend, stretch, twist but no tearing or joining\nCutting is ok, as long as you glue it back the same way\n\nExamples\n\nThe circle is homeomorphic to a knot.\n\nThe torus is homeomorphic to a coffee mug.\nThe torus is homeomorphic to a square with opposite edges identified. \nThe torus is homeomorphic to a hexagon with opposite edges identified. \nThe torus is homeomorphic to a surgered square with opposite edges\n\n\n\nDefinition\n\nA continuous deformation through time\nEach step is a homeomorphism\n\nExamples\n\nThe torus is isotopic to a coffee mug.\nA thin torus is isotopic to a thick torus.\nPhotoBooth/App effects are isotopies of pixel coordinates\nThe square torus is not isotopic to the hexagonal torus."
+  },
+  {
+    "objectID": "cat_slides.html#deformations-of-a-torus-1",
+    "href": "cat_slides.html#deformations-of-a-torus-1",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Deformations of a Torus",
+    "text": "Deformations of a Torus\n\nHomeomorphismsIsotopies\n\n\nDefinition\n\nTopology preserving deformation\nContinuous with continuous inverse\nBend, stretch, twist but no tearing or joining\nCutting is ok, as long as you glue it back the same way\n\nExamples\n\nThe circle is homeomorphic to a knot.\n\nThe torus is homeomorphic to a coffee mug.\nThe torus is homeomorphic to a square with opposite edges identified. \nThe torus is homeomorphic to a hexagon with opposite edges identified. \nThe torus is homeomorphic to a surgered square with opposite edges\n\n\n\nDefinition\n\nA continuous deformation through time\nEach step is a homeomorphism\n\nExamples\n\nThe torus is isotopic to a coffee mug.\nA thin torus is isotopic to a thick torus.\nPhotoBooth/App effects are isotopies of pixel coordinates\nThe square torus is not isotopic to the hexagonal torus."
+  },
+  {
+    "objectID": "cat_slides.html#homeomorphisms",
+    "href": "cat_slides.html#homeomorphisms",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Homeomorphisms",
+    "text": "Homeomorphisms\n\nDefinitionExamples\n\n\n\nTopology preserving deformation\nContinuous with continuous inverse\nBend, stretch, twist but no tearing or joining\nCutting is ok, as long as you glue it back the same way\n\n\n\n\nThe circle is homeomorphic to a knot.\n\nThe torus is homeomorphic to a coffee mug.\nThe torus is homeomorphic to a square with opposite edges identified. \nThe torus is homeomorphic to a hexagon with opposite edges identified. \nThe torus is homeomorphic to a surgered square with opposite edges"
+  },
+  {
+    "objectID": "cat_slides.html#isotopies",
+    "href": "cat_slides.html#isotopies",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Isotopies",
+    "text": "Isotopies\n\nDefinitionExamples\n\n\n\nA continuous deformation through time\nEach step is a homeomorphism\n\n\n\n\nThe torus is isotopic to a coffee mug.\nA thin torus is isotopic to a thick torus.\nPhotoBooth/App effects are isotopies of pixel coordinates\nThe square torus is not isotopic to the hexagonal torus.\nlink to 3D model"
+  },
+  {
+    "objectID": "swirl/..html",
+    "href": "swirl/..html",
+    "title": "Isotopy of Image",
+    "section": "",
+    "text": "&lt;!DOCTYPE html&gt;\n\n\n\n\n\nVisualizing an Isotopy\n\n\n\n\n\n\n\n\n\n\n\nIsotopy: continuous deformation homeomorphisms\n\n\n\n\nAn isotopy is first applied to the image, then the resulting image is mapped onto the torus. The isotopy is defined by:\n\n\n \n\n\nThe transformed image is mapped onto the torus below.\n\n\n&lt;model-viewer \n    src=\"../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nUse your mouse to rotate • Scroll to zoom"
+  },
+  {
+    "objectID": "swirl/main.html",
+    "href": "swirl/main.html",
+    "title": "Isotopy: continuous deformation of homeomorphisms",
+    "section": "",
+    "text": "An isotopy is first applied to the image, then the resulting image is mapped onto the torus. The isotopy is defined by:\n\n#| html-line-number: true\n\\begin{algorithm}\n  \\caption{Quicksort}\n  \\begin{algorithmic}\n    \\Procedure{Quicksort}{$A, p, r$}\n      \\If{$p &lt; r$}\n        \\State $q = $ \\Call{Partition}{$A, p, r$}\n        \\State \\Call{Quicksort}{$A, p, q - 1$}\n        \\State \\Call{Quicksort}{$A, q + 1, r$}\n      \\EndIf\n    \\EndProcedure\n  \\end{algorithmic}\n\\end{algorithm}\n\n \n\n\nThe transformed image is mapped onto the torus below.\n\n\n&lt;model-viewer \n    src=\"../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb\" \n    alt=\"A 3D textured torus\" \n    auto-rotate \n    camera-controls \n    ar \n    shadow-intensity=\"1\" \n    exposure=\"1\" \n    environment-image=\"neutral\"&gt;\n&lt;/model-viewer&gt;\n\n\n\nUse your mouse to rotate • Scroll to zoom"
   }
 ]

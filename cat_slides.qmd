@@ -1,0 +1,55 @@
+---
+title: "Cat Dynamics are Manifold"
+toc: false
+format:
+  revealjs:
+    smaller: true
+    scrollable: true
+    transition: slide
+    header-includes: |
+        <link href="fp.css" rel="stylesheet"> 
+execute:
+  warning: false
+  message: false
+---
+
+# Deformations of a Torus
+
+## Homeomorphisms {.smaller .scrollable}
+
+::: panel-tabset
+### Definition
+- Topology preserving deformation
+- Continuous with continuous inverse
+- Bend, stretch, twist but no tearing or joining
+- Cutting is ok, as long as you glue it back the same way
+
+
+### Examples
+- The circle is homeomorphic to a knot.  
+![7-1-knot](assets/7-1-knot.png){width=20%}
+- The torus is homeomorphic to a coffee mug.
+- The torus is homeomorphic to a square with opposite edges identified.
+![square torus](assets/square-torus.png){width=50%}
+- The torus is homeomorphic to a hexagon with opposite edges identified.
+![hexagonal torus](assets/hex-torus.png){width=50%}
+- The torus is homeomorphic to a *surgered* square with opposite edges 
+
+:::
+
+## Isotopies
+
+::: panel-tabset
+
+### Definition
+- A continuous deformation through time
+- Each step is a homeomorphism
+
+### Examples
+- The torus is isotopic to a coffee mug.
+- A thin torus is isotopic to a thick torus.
+- PhotoBooth/App effects are isotopies of pixel coordinates
+- The square torus is not isotopic to the hexagonal torus.
+- [link to 3D model](https://joshtanga.github.io/torus/swirl/)
+
+:::

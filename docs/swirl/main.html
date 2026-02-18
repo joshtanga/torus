@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Torus Automorphisms &amp; Texture Mapping – torus visualizations</title>
+<title>Isotopy: continuous deformation of homeomorphisms – torus visualizations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -86,17 +86,17 @@ ul.task-list li input[type="checkbox"] {
     
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">torus visualizations</span>
     </a>
   </div>
@@ -118,21 +118,21 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Torus Automorphisms &amp; Texture Mapping</h1>
+<h1 class="title">Isotopy: continuous deformation of homeomorphisms</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -144,39 +144,92 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Some examples of torus automorphisms, and their applications to texture mapping. These were made using python and <a href="http://www.open3d.org/">open3D</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/torus_1.png" class="img-fluid figure-img" width="300"></p>
-<figcaption>screenshot of open3D rendering</figcaption>
-</figure>
-</div>
-<section id="homeomorphisms-of-the-texture" class="level1">
-<h1>Homeomorphisms of the texture</h1>
-<ul>
-<li><a href="../id_torus.html">identity</a></li>
-<li><a href="../swirl/">isotopy</a></li>
-<li><a href="../periodic/">periodic</a></li>
-<li><a href="../dehn_twist/">dehn twist</a></li>
-<li><a href="../anosov/">anosov</a></li>
-<li><a href="../bike_tour.html">bike gang</a></li>
-</ul>
-</section>
-<section id="other-deformations-of-the-torus" class="level1">
-<h1>Other Deformations of the torus</h1>
-<ul>
-<li><a href="deformed_torus.html">deformed_torus</a></li>
-<li><a href="../isotopy/">isotopy</a></li>
-<li><a href="geometry_changes.html">changes to geometry</a></li>
-</ul>
-<div class="pseudocode-container quarto-float" data-line-number-punc=":" data-line-number="true" data-comment-delimiter="//" data-indent-size="1.2em" data-no-end="false" data-caption-prefix="Algorithm" data-pseudocode-number="1">
-<div class="pseudocode">
-\begin{algorithm} \caption{Quicksort} \begin{algorithmic} \Procedure{Quicksort}{$A, p, r$} \If{$p &lt; r$} \State $q = $ \Call{Partition}{$A, p, r$} \State \Call{Quicksort}{$A, p, q - 1$} \State \Call{Quicksort}{$A, q + 1, r$} \EndIf \EndProcedure \end{algorithmic} \end{algorithm}
-</div>
-</div>
 
 
-</section>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com"></script>
+<style>
+        body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; }
+        header { padding: 20px; text-align: center; }
+        /* 2. Style the viewer container */
+        #container { width: 90vw; height: 70vh; background: #ffffff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+    </style>
+<script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../styles.css">
+
+
+<header>
+</header>
+<!--
+
+<div id="container">
+    <model-viewer 
+        src="../assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb" 
+        alt="A 3D textured torus" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        shadow-intensity="1" 
+        exposure="1" 
+        environment-image="neutral">
+    </model-viewer>
+</div>
+
+-->
+<p>
+An isotopy is first applied to the image, then the resulting image is mapped onto the torus. The isotopy is defined by:
+</p>
+<pre class="{pseudocode}"><code>#| html-line-number: true
+\begin{algorithm}
+  \caption{Quicksort}
+  \begin{algorithmic}
+    \Procedure{Quicksort}{$A, p, r$}
+      \If{$p &lt; r$}
+        \State $q = $ \Call{Partition}{$A, p, r$}
+        \State \Call{Quicksort}{$A, p, q - 1$}
+        \State \Call{Quicksort}{$A, q + 1, r$}
+      \EndIf
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}</code></pre>
+<div class="image-container">
+<p><img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;"> <img src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;"></p>
+</div>
+<p>
+The transformed image is mapped onto the torus below.
+</p>
+<div id="container">
+<pre><code>&lt;model-viewer 
+    src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" 
+    alt="A 3D textured torus" 
+    auto-rotate 
+    camera-controls 
+    ar 
+    shadow-intensity="1" 
+    exposure="1" 
+    environment-image="neutral"&gt;
+&lt;/model-viewer&gt;</code></pre>
+</div>
+<footer>
+<p>
+Use your mouse to rotate • Scroll to zoom
+</p>
+</footer>
+
+
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
