@@ -245,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The pseudocode for the isotopy is below. The swirl is more intense near the center, and decays exponentially as you approach the border.</p>
-<div id="3923aac2" class="cell" data-execution_count="1">
+<div id="fc886e21" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> load_image</span>
@@ -273,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>show(img, map_x, map_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="597c2e25" class="cell" data-execution_count="2">
+<div id="efebfb14" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -341,6 +341,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>The transformed image is mapped onto the torus below.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[60, 40]">
+<div class="quarto-layout-row">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<p><model-viewer id="torus-scrubber" src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" camera-controls="" style="width: 100%; height: 400px;"> </model-viewer></p>
+<input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
+<p>
+<strong>Slide to evolve Homeomorphism:</strong> <span id="frame-val">0</span>
+</p>
+</div>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
 <div id="container">
 <p><model-viewer src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" alt="A 3D textured torus" auto-rotate="" camera-controls="" ar="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
 </div>
@@ -353,6 +369,9 @@ Use your mouse to rotate • Scroll to zoom
 
 
 
+</div>
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
