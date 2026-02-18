@@ -29,3 +29,15 @@
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 /* css styles */
+
+/* Target the container of the images in a layout grid */
+.quarto-layout-cell img {
+  margin-bottom: 20px !important;
+  border: 1px solid #eee; /* Optional: adds a nice subtle border to see the edges */
+}
+
+/* Ensure the figure captions don't hug the next section */
+.quarto-figure {
+  margin-top: 20px;
+  margin-bottom: 30px !important;
+}

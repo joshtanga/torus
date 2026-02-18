@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -188,23 +222,125 @@ ul.task-list li input[type="checkbox"] {
 
 -->
 <p>
-An isotopy is first applied to the image, then the resulting image is mapped onto the torus. The isotopy is defined by:
+An isotopy is first applied to the image, then the resulting image is mapped onto the torus.
 </p>
-<pre class="{pseudocode}"><code>#| html-line-number: true
-\begin{algorithm}
-  \caption{Quicksort}
-  \begin{algorithmic}
-    \Procedure{Quicksort}{$A, p, r$}
-      \If{$p &lt; r$}
-        \State $q = $ \Call{Partition}{$A, p, r$}
-        \State \Call{Quicksort}{$A, p, q - 1$}
-        \State \Call{Quicksort}{$A, q + 1, r$}
-      \EndIf
-    \EndProcedure
-  \end{algorithmic}
-\end{algorithm}</code></pre>
-<div class="image-container">
-<p><img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;"> <img src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;"></p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/uv_checkerboard.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>UV Checkerboard Texture</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Swirled</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="7925c766" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> load_image</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> pixel_coordinates(img)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r,t <span class="op">=</span> convert_to_polar(x,y)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> r<span class="op">/</span>rmax</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>swirl <span class="op">=</span> <span class="dv">2</span><span class="er">pi</span> <span class="op">/</span> exp(radius)  <span class="co"># more intense near center</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>near_border <span class="op">=</span> where(r <span class="op">&gt;</span> <span class="fl">0.6</span><span class="op">*</span>rmax)  <span class="co"># threshold for "near the border"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># swirl less near the border</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>swirl[near_border] <span class="op">*=</span> exp(<span class="op">-</span><span class="dv">40</span><span class="op">*</span>(radius <span class="op">-</span> <span class="fl">0.6</span>))  <span class="co"># Decay factor for near the border</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># linear homotopy b/w swirl and minor swirl</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>minor_swirl <span class="op">=</span> <span class="fl">0.0000001</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>swirl_strength <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>radius)<span class="op">*</span>swirl  <span class="op">+</span> radius<span class="op">*</span>minor_swirl</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>theta <span class="op">+=</span> swirl_strength</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># convert back to Cartesian coordinates</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>map_x <span class="op">=</span> r <span class="op">*</span> np.cos(theta) <span class="op">+</span> center_x</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>map_y <span class="op">=</span> r <span class="op">*</span> np.sin(theta) <span class="op">+</span> center_y</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>show(img, map_x, map_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="c2411df2" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load image and convert to float32 numpy array</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> np.array(Image.<span class="bu">open</span>(<span class="st">'uv_checkerboard.png'</span>).convert(<span class="st">'RGB'</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>rows, cols <span class="op">=</span> img.shape[:<span class="dv">2</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create the coordinate grids</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># These MUST be float32 for cv2.remap</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>x_grid, y_grid <span class="op">=</span> np.meshgrid(np.arange(cols), np.arange(rows))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>map_x <span class="op">=</span> x_grid.astype(np.float32)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>map_y <span class="op">=</span> y_grid.astype(np.float32)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># convert map_x, map_y to polar coordinates</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># center the coordinates around the middle of the image</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>center_x <span class="op">=</span> cols <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>center_y <span class="op">=</span> rows <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># shift the grid to be centered around (0, 0)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>shifted_x <span class="op">=</span> map_x <span class="op">-</span> center_x</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>shifted_y <span class="op">=</span> map_y <span class="op">-</span> center_y</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to polar coordinates</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.sqrt(shifted_x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> shifted_y<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.arctan2(shifted_y, shifted_x)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># swirl the image by adding a function of r to theta</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># create a swirl effect that increases with distance from the center</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>rmax <span class="op">=</span> r.<span class="bu">max</span>()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>img_id <span class="op">=</span> <span class="st">'1'</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>main_swirl <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.pi <span class="op">/</span> np.exp(r<span class="op">/</span>rmax)  <span class="co"># more intense near center</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>near_border <span class="op">=</span> np.where(r <span class="op">&gt;</span> <span class="fl">0.6</span><span class="op">*</span>rmax)  <span class="co"># Define a threshold for "near the border"</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># gradually reduce the swirl strength as you approach the border</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>main_swirl[near_border] <span class="op">*=</span> np.exp(<span class="op">-</span><span class="dv">40</span><span class="op">*</span>(r[near_border]<span class="op">/</span>rmax <span class="op">-</span> <span class="fl">0.6</span>))  <span class="co"># Decay factor for near the border</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># swirl that decays exponentially as you approach the border, creating a more natural swirl effect</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>minor_swirl <span class="op">=</span> <span class="fl">0.0000001</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>swirl_strength <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>r<span class="op">/</span>rmax)<span class="op">*</span>main_swirl  <span class="op">+</span> r<span class="op">/</span>rmax<span class="op">*</span>minor_swirl</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>theta <span class="op">+=</span> swirl_strength</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># convert back to Cartesian coordinates</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>map_x <span class="op">=</span> r <span class="op">*</span> np.cos(theta) <span class="op">+</span> center_x</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>map_y <span class="op">=</span> r <span class="op">*</span> np.sin(theta) <span class="op">+</span> center_y</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># remap call</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># using BORDER_WRAP makes the pixels that fall off the left side</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co"># appear on the right side </span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> cv2.remap(</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    img,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    map_x,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    map_y,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    interpolation<span class="op">=</span>cv2.INTER_LINEAR,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    borderMode<span class="op">=</span>cv2.BORDER_WRAP</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co"># show it</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>Image.fromarray(result).show()</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co"># save the image</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>Image.fromarray(result).save(<span class="ss">f'swirled_checkerboard_</span><span class="sc">{</span>img_id<span class="sc">}</span><span class="ss">.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>
 The transformed image is mapped onto the torus below.

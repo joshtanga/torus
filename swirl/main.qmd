@@ -82,7 +82,7 @@ swirl[near_border] *= exp(-40*(radius - 0.6))  # Decay factor for near the borde
 minor_swirl = 0.0000001
 swirl_strength = (1-radius)*swirl  + radius*minor_swirl
 
-theta += swirl_strength
+theta += swirl_strength # add swirl to theta
 
 # convert back to Cartesian coordinates
 map_x = r * np.cos(theta) + center_x
