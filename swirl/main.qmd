@@ -166,7 +166,7 @@ The transformed image is mapped onto the torus below.
 
 <div id="container">
 <model-viewer 
-        src="../../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" 
+        src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" 
         alt="A 3D textured torus" 
         auto-rotate 
         camera-controls 
