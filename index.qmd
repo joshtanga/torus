@@ -9,7 +9,7 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 
 # Homeomorphisms of the texture
 - [identity](../id_torus.html)
-- [isotopy](../swirl/main.html)
+- [isotopy](swirl/main.html)
 - [periodic](../periodic/)
 - [dehn twist](../dehn_twist/)
 - [anosov](../anosov/)
