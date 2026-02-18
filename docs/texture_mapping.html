@@ -208,9 +208,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../assets/uv_checkerboard.png" class="img-fluid figure-img" style="width:60.0%"></p>
@@ -218,10 +218,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<p><model-viewer src="../assets/anosov.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
+</div>
 </div>
 </div>
 <p>The pseudocode for the texture mapping is below.</p>
-<div id="4a8e33cd" class="cell" data-execution_count="1">
+<div id="f03aa9b0" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> load_image</span>
@@ -249,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>show(img, map_x, map_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="64ae0969" class="cell" data-execution_count="2">
+<div id="5251a7ec" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -318,15 +322,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The swirled image is mapped onto the torus below.</p>
 <!-- N O T E: the ar (augmented reality) attribute made the model-viewer appear blank -->
-<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer src="../assets/anosov.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
-</div>
-<footer>
-<p>
-Use your mouse to rotate - Scroll to zoom - Or click and use arrow keys
-</p>
-</footer>
 
 
 
