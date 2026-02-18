@@ -53,8 +53,6 @@ toc: false
 
 -->
 
-<p> An isotopy is first applied to the image, then the resulting image is mapped onto the torus. 
-</p>
 
 :::{layout-ncol=2}
 ![UV Checkerboard Texture](../assets/uv_checkerboard.png){width=60%}
