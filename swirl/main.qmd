@@ -53,30 +53,112 @@ toc: false
 
 -->
 
-<p> An isotopy is first applied to the image, then the resulting image is mapped onto the torus.  The isotopy is defined by:
+<p> An isotopy is first applied to the image, then the resulting image is mapped onto the torus. 
 </p>
 
-```{pseudocode}
-#| html-line-number: true
-\begin{algorithm}
-  \caption{Quicksort}
-  \begin{algorithmic}
-    \Procedure{Quicksort}{$A, p, r$}
-      \If{$p < r$}
-        \State $q = $ \Call{Partition}{$A, p, r$}
-        \State \Call{Quicksort}{$A, p, q - 1$}
-        \State \Call{Quicksort}{$A, q + 1, r$}
-      \EndIf
-    \EndProcedure
-  \end{algorithmic}
-\end{algorithm}
+:::{layout-ncol=2}
+![UV Checkerboard Texture](../assets/uv_checkerboard.png){width=60%}
+
+![Swirled](../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.png){width=60%}
+:::
+
+```{python}
+#| eval: false
+#| code-fold: true
+
+img = load_image
+x,y = pixel_coordinates(img)
+
+r,t = convert_to_polar(x,y)
+radius = r/rmax
+
+swirl = 2pi / exp(radius)  # more intense near center
+near_border = where(r > 0.6*rmax)  # threshold for "near the border"
+
+# swirl less near the border
+swirl[near_border] *= exp(-40*(radius - 0.6))  # Decay factor for near the border
+
+# linear homotopy b/w swirl and minor swirl
+minor_swirl = 0.0000001
+swirl_strength = (1-radius)*swirl  + radius*minor_swirl
+
+theta += swirl_strength
+
+# convert back to Cartesian coordinates
+map_x = r * np.cos(theta) + center_x
+map_y = r * np.sin(theta) + center_y
+
+show(img, map_x, map_y)
 ```
 
 
-<div class="image-container">
-<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-<img src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-</div>
+```{python}
+#| eval: false
+#| code-fold: true
+
+import cv2
+import numpy as np
+from PIL import Image
+
+# load image and convert to float32 numpy array
+img = np.array(Image.open('uv_checkerboard.png').convert('RGB'))
+rows, cols = img.shape[:2]
+
+# create the coordinate grids
+# These MUST be float32 for cv2.remap
+x_grid, y_grid = np.meshgrid(np.arange(cols), np.arange(rows))
+map_x = x_grid.astype(np.float32)
+map_y = y_grid.astype(np.float32)
+
+
+# convert map_x, map_y to polar coordinates
+# center the coordinates around the middle of the image
+center_x = cols / 2
+center_y = rows / 2
+# shift the grid to be centered around (0, 0)
+shifted_x = map_x - center_x
+shifted_y = map_y - center_y
+# convert to polar coordinates
+r = np.sqrt(shifted_x**2 + shifted_y**2)
+theta = np.arctan2(shifted_y, shifted_x)
+
+# swirl the image by adding a function of r to theta
+# create a swirl effect that increases with distance from the center
+rmax = r.max()
+img_id = '1'
+
+main_swirl = 2*np.pi / np.exp(r/rmax)  # more intense near center
+near_border = np.where(r > 0.6*rmax)  # Define a threshold for "near the border"
+
+# gradually reduce the swirl strength as you approach the border
+main_swirl[near_border] *= np.exp(-40*(r[near_border]/rmax - 0.6))  # Decay factor for near the border
+# swirl that decays exponentially as you approach the border, creating a more natural swirl effect
+minor_swirl = 0.0000001
+swirl_strength = (1-r/rmax)*main_swirl  + r/rmax*minor_swirl
+
+theta += swirl_strength
+
+# convert back to Cartesian coordinates
+map_x = r * np.cos(theta) + center_x
+map_y = r * np.sin(theta) + center_y
+
+# remap call
+# using BORDER_WRAP makes the pixels that fall off the left side
+# appear on the right side 
+result = cv2.remap(
+    img,
+    map_x,
+    map_y,
+    interpolation=cv2.INTER_LINEAR,
+    borderMode=cv2.BORDER_WRAP
+)
+
+# show it
+Image.fromarray(result).show()
+
+# save the image
+Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
+```
 
 <p> The transformed image is mapped onto the torus below. </p>
 
