@@ -185,9 +185,6 @@ Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
 ::: {#second-column}
 
 
-
-
-```{=html}
 <div id="container">
 <model-viewer 
         src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" 
@@ -200,7 +197,6 @@ Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
         environment-image="neutral">
 </model-viewer>
 </div>
-```
 
 <footer>
     <p>Use your mouse to rotate • Scroll to zoom</p>
