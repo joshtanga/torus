@@ -164,7 +164,6 @@ Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
 The transformed image is mapped onto the torus below.
 
 ::: {layout="[60, 40]"}
-::: {#first-column}
 
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -180,10 +179,6 @@ The transformed image is mapped onto the torus below.
 <p><strong>Slide to evolve Homeomorphism:</strong> <span id="frame-val">0</span></p>
 </div>
 
-:::
-::: {#second-column}
-
-
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
@@ -198,7 +193,6 @@ The transformed image is mapped onto the torus below.
     environment-image="neutral">
 </model-viewer>
 </div>
-:::
 :::
 
 <footer>
