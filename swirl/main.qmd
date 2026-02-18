@@ -161,7 +161,7 @@ Image.fromarray(result).show()
 Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
 ```
 
-The transformed image is mapped onto the torus below.
+The swirled image is mapped onto the torus below.
 
 <!-- N O T E: the ar (augmented reality) attribute made the model-viewer appear blank -->
 
@@ -181,7 +181,7 @@ The transformed image is mapped onto the torus below.
 </div>
 
 <footer>
-    <p>Use your mouse to rotate • Scroll to zoom</p>
+    <p>Use your mouse to rotate - Scroll to zoom - Or click and use arrow keys</p>
 </footer>
 
 
