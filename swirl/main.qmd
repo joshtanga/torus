@@ -185,6 +185,7 @@ The transformed image is mapped onto the torus below.
 <model-viewer 
     src="../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.glb" 
     alt="A 3D textured torus" 
+    style="width: 100%; height: 400px;"
     auto-rotate 
     camera-controls 
     ar 
