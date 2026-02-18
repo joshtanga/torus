@@ -188,10 +188,7 @@ The transformed image is mapped onto the torus below.
     style="width: 100%; height: 400px;"
     auto-rotate 
     camera-controls 
-    ar 
-    shadow-intensity="1" 
-    exposure="1" 
-    environment-image="neutral">
+    ar>
 </model-viewer>
 </div>
 :::
