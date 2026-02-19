@@ -1,5 +1,5 @@
 ---
-title: "Isotopy: continuous deformation of homeomorphisms"
+title: "Texture Mapping"
 format: 
     html:
         page-layout: full
@@ -19,16 +19,6 @@ toc: false
         #container { width: 90vw; height: 70vh; background: #ffffff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
         model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
     </style>
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        }
-      };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -53,6 +43,7 @@ toc: false
     environment-image="neutral">
 </model-viewer>
 </div>
+<!-- N O T E: the ar (augmented reality) attribute made the model-viewer appear blank -->
 
 :::
 
@@ -66,100 +57,45 @@ The pseudocode for the texture mapping is below.
 img = load_image
 x,y = pixel_coordinates(img)
 
-r,t = convert_to_polar(x,y)
-radius = r/rmax
-
-swirl = 2pi / exp(radius)  # more intense near center
-near_border = where(r > 0.6*rmax)  # threshold for "near the border"
-
-# swirl less near the border
-swirl[near_border] *= exp(-40*(radius - 0.6))  # Decay factor for near the border
-
-# linear homotopy b/w swirl and minor swirl
-minor_swirl = 0.0000001
-swirl_strength = (1-radius)*swirl  + radius*minor_swirl
-
-theta += swirl_strength # add swirl to theta
-
-# convert back to Cartesian coordinates
-map_x = r * np.cos(theta) + center_x
-map_y = r * np.sin(theta) + center_y
-
 show(img, map_x, map_y)
 ```
 
+# Troubleshooting
 
-```{python}
-#| eval: false
-#| code-fold: true
+Getting UV-coordinates right is hard.  The UV-coordinates are the coordinates of the texture image that correspond to each vertex of the 3D model.  If the UV-coordinates are wrong, the texture will be distorted or not appear at all.  This is what it looks like when they are off:
 
-import cv2
-import numpy as np
-from PIL import Image
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<model-viewer 
+    src="../assets/anosov.glb" 
+    alt="A 3D textured torus" 
+    style="width: 100%; height: 600px;"
+    auto-rotate 
+    camera-controls 
+    shadow-intensity="1" 
+    exposure="1" 
+    environment-image="neutral">
+</model-viewer>
+</div>
 
-# load image and convert to float32 numpy array
-img = np.array(Image.open('uv_checkerboard.png').convert('RGB'))
-rows, cols = img.shape[:2]
+Below we have the UV-coordinates almost right, but the seam is blurry.  This is a 'seam crosser' problem.  The UV-coordinates are in [0,1]x[0,1] so on the torus 0.9 is actually close to 0.1, but the texture mapping doesn't know that, so it stretches the texture across the seam.  This can be fixed by snapping the UV-coordinates to 0 or 1 when they are close to the seam, but this can cause other problems if not done carefully.
 
-# create the coordinate grids
-# These MUST be float32 for cv2.remap
-x_grid, y_grid = np.meshgrid(np.arange(cols), np.arange(rows))
-map_x = x_grid.astype(np.float32)
-map_y = y_grid.astype(np.float32)
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<model-viewer 
+    src="../assets/no_snap_uv_checkerboard_res_1024_iter_1_period_3_map" 
+    alt="A 3D textured torus" 
+    style="width: 100%; height: 600px;"
+    auto-rotate 
+    camera-controls 
+    shadow-intensity="1" 
+    exposure="1" 
+    environment-image="neutral">
+</model-viewer>
+</div>
 
 
-# convert map_x, map_y to polar coordinates
-# center the coordinates around the middle of the image
-center_x = cols / 2
-center_y = rows / 2
-# shift the grid to be centered around (0, 0)
-shifted_x = map_x - center_x
-shifted_y = map_y - center_y
-# convert to polar coordinates
-r = np.sqrt(shifted_x**2 + shifted_y**2)
-theta = np.arctan2(shifted_y, shifted_x)
 
-# swirl the image by adding a function of r to theta
-# create a swirl effect that increases with distance from the center
-rmax = r.max()
-img_id = '1'
-
-main_swirl = 2*np.pi / np.exp(r/rmax)  # more intense near center
-near_border = np.where(r > 0.6*rmax)  # Define a threshold for "near the border"
-
-# gradually reduce the swirl strength as you approach the border
-main_swirl[near_border] *= np.exp(-40*(r[near_border]/rmax - 0.6))  # Decay factor for near the border
-# swirl that decays exponentially as you approach the border, creating a more natural swirl effect
-minor_swirl = 0.0000001
-swirl_strength = (1-r/rmax)*main_swirl  + r/rmax*minor_swirl
-
-theta += swirl_strength
-
-# convert back to Cartesian coordinates
-map_x = r * np.cos(theta) + center_x
-map_y = r * np.sin(theta) + center_y
-
-# remap call
-# using BORDER_WRAP makes the pixels that fall off the left side
-# appear on the right side 
-result = cv2.remap(
-    img,
-    map_x,
-    map_y,
-    interpolation=cv2.INTER_LINEAR,
-    borderMode=cv2.BORDER_WRAP
-)
-
-# show it
-Image.fromarray(result).show()
-
-# save the image
-Image.fromarray(result).save(f'swirled_checkerboard_{img_id}.png')
-```
-
-The swirled image is mapped onto the torus below.
-
-<!-- N O T E: the ar (augmented reality) attribute made the model-viewer appear blank -->
 </body>
 </html>
 
