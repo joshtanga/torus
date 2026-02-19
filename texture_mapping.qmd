@@ -67,7 +67,7 @@ Getting UV-coordinates right is hard.  The UV-coordinates are the coordinates of
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 <model-viewer 
-    src="../assets/anosov.glb" 
+    src="../assets/no_bump_uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
     alt="A 3D textured torus" 
     style="width: 100%; height: 600px;"
     auto-rotate 
