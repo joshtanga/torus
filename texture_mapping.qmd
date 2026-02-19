@@ -113,7 +113,7 @@ Below we have the UV-coordinates almost right, but the seam is blurry.  This is 
 </div>
 
 <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; text-align: right;">
-    <a href="../index.html" style="text-decoration: none; color: #666;">🏠 Home</a>
+<a href="../index.html" style="text-decoration: none; color: #666;">Home</a>
 </div>
 
 </body>
