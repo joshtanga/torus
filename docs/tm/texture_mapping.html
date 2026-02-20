@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../assets/uv_checkerboard.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="../../assets/uv_checkerboard.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption>UV Checkerboard Texture</figcaption>
 </figure>
 </div>
@@ -221,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The pseudocode for the texture mapping is below.</p>
-<div id="f3e098c7" class="cell" data-execution_count="1">
+<div id="21d16675" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> load_image</span>
@@ -235,17 +235,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Getting UV-coordinates right is hard. The UV-coordinates are the coordinates of the texture image that correspond to each vertex of the 3D model. If the UV-coordinates are wrong, the texture will be distorted or not appear at all. This is what it looks like when they are off:</p>
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer src="../assets/no_bump_uv_checkerboard_res_1024_iter_0_period_3_map.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
+<p><model-viewer src="../../assets/no_bump_uv_checkerboard_res_1024_iter_0_period_3_map.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
 </div>
 <p>Or this one where the V coordinate is linearly increasing</p>
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer src="../assets/linear_uv_checkerboard_res_1024_iter_0_period_3_map.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
+<p><model-viewer src="../../assets/linear_uv_checkerboard_res_1024_iter_0_period_3_map.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
 </div>
 <p>Below we have the UV-coordinates almost right, but the seam is blurry. This is a ‘seam crosser’ problem. The UV-coordinates are in [0,1]x[0,1] so on the torus 0.9 is actually close to 0.1, but the texture mapping doesn’t know that, so it stretches the texture across the seam. This can be fixed by snapping the UV-coordinates to 0 or 1 when they are close to the seam, but this can cause other problems if not done carefully.</p>
 <div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer src="../assets/no_snap_uv_checkerboard_res_1024_iter_1_period_3_map.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
+<p><model-viewer src="../../assets/no_snap_uv_checkerboard_res_1024_iter_1_period_3_map.glb" alt="A 3D textured torus" style="width: 100%; height: 600px;" auto-rotate="" camera-controls="" shadow-intensity="1" exposure="1" environment-image="neutral"> </model-viewer></p>
 </div>
 <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; text-align: right;">
 <p><a href="../docs/index.html" style="text-decoration: none; color: #666;">Home</a></p>

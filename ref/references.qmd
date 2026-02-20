@@ -1,0 +1,24 @@
+---
+title: "Where to Learn More"
+format: 
+    html:
+        page-layout: full
+toc: false
+---
+
+
+
+![screenshot of 3D model of torus](../../assets/torus_1.png){width=300px}
+
+::: {layout-ncol=2}
+
+# Math
+- [Period of the Discrete Cat Map](https://www.aquila.infn.it/ciuchi/didattica/MS/Notes/02_Foundations/references/Dyson-PeriodOfADiscreteCatMapping.pdf)
+
+# Computing
+- [open3D](https://www.open3d.org/) 
+- [openCV](https://opencv.org)
+
+:::
+
+
