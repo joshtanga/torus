@@ -55,7 +55,7 @@ toc: false
 
 
 :::{layout-ncol=2}
-![UV Checkerboard Texture](../assets/fuck.png){width=60%}
+![UV Checkerboard Texture](../assets/uv_checkerboard.png){width=60%}
 
 ![Swirled](../assets/swirled_checkerboard_coolest_res_1024_iter_0_period_3_map.png){width=60%}
 :::

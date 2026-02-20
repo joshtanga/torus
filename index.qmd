@@ -7,6 +7,8 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 
 ![screenshot of 3D model of torus](../assets/torus_1.png){width=300px}
 
+::: {layout-ncol=2}
+
 # Homeomorphisms of the texture
 - [texture_mapping](texture_mapping.html)
 - [isotopy](swirl/main.html)
@@ -19,5 +21,7 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 - [deformed_torus](deformed_torus.html)
 - [isotopy](../isotopy/)
 - [changes to geometry](geometry_changes.html)
+
+:::
 
 
