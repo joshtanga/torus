@@ -7,10 +7,10 @@ format:
 ---
 
 
-![screenshot of 3D model of torus](../../assets/torus_1.png){width=10%}
+<img src="../../assets/torus_1.png" style="float:left; width: 10%; margin-left: 20px;" alt="3D model of torus"></img>
 
 ::: {layout="[30,70]"}
-# Math
+# Math 
 - [Period of the Discrete Cat Map](https://www.aquila.infn.it/ciuchi/didattica/MS/Notes/02_Foundations/references/Dyson-PeriodOfADiscreteCatMapping.pdf)
 
 # Computing
@@ -19,7 +19,7 @@ format:
 - [quarto](https://quarto.org/)
   + software for creating websites, blogs, and documents with code and text.  This website is made with quarto.
 - obj2gltf
-  + for converting .obj files to .glb files that can be displayed in the browser with model-viewer.  This is a command line tool that can be installed with npm.
+  + for converting .obj files to .glb files that can be displayed in a web browser with Google's model-viewer or other tool.  This is a command line tool that can be installed with npm.
 
 :::
 

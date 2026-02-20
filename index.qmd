@@ -9,7 +9,7 @@ format:
 Some examples of torus automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
 
 
-![screenshot of 3D model of torus](../assets/torus_1.png){width=300px}
+![torus in open3D](../assets/torus_1.png){width=300px}
 
 ::: {layout-ncol=2}
 
@@ -23,7 +23,7 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 - [changes to geometry](geometry_changes.html)
 
 # Related
-- [texture_mapping](tm/texture_mapping.html)
+- [texture mapping](tm/texture_mapping.html)
 - [python code](tm/tm_code.html)
 - [slides](cat_slides.html)
 - [bike gang](../bike_tour.html)

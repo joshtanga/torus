@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Torus Automorphisms & Texture Mapping",
     "section": "",
-    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using these tools.\n\n\n\nscreenshot of 3D model of torus\n\n\n\n\n\n\n\n\nHomeomorphisms\n\nisotopy\nperiodic\ndehn twist\nanosov\ndeformed_torus\nisotopy\nchanges to geometry\n\n\n\nRelated\n\ntexture_mapping\npython code\nslides\nbike gang"
+    "text": "Some examples of torus automorphisms, and their applications to texture mapping. These were made using these tools.\n\n\n\ntorus in open3D\n\n\n\n\n\n\n\n\nHomeomorphisms\n\nisotopy\nperiodic\ndehn twist\nanosov\ndeformed_torus\nisotopy\nchanges to geometry\n\n\n\nRelated\n\ntexture mapping\npython code\nslides\nbike gang"
   },
   {
     "objectID": "swirl/main.html",
@@ -46,7 +46,7 @@
     "href": "ref/references.html",
     "title": "Where to Learn More",
     "section": "",
-    "text": "screenshot of 3D model of torus\n\n\n\n\n\n\n\n\nMath\n\nPeriod of the Discrete Cat Map\n\n\n\nComputing\n\nopen3D\nopenCV\nquarto\n\nsoftware for creating websites, blogs, and documents with code and text. This website is made with quarto.\n\nobj2gltf\n\nfor converting .obj files to .glb files that can be displayed in the browser with model-viewer. This is a command line tool that can be installed with npm."
+    "text": "Math\n\nPeriod of the Discrete Cat Map\n\n\n\nComputing\n\nopen3D\nopenCV\nquarto\n\nsoftware for creating websites, blogs, and documents with code and text. This website is made with quarto.\n\nobj2gltf\n\nfor converting .obj files to .glb files that can be displayed in a web browser with Google’s model-viewer or other tool. This is a command line tool that can be installed with npm."
   },
   {
     "objectID": "tm/tm_code.html",
