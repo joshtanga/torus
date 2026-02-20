@@ -3,9 +3,7 @@ title: "Where to Learn More"
 ---
 
 
-::: {.column-margin}
 ![screenshot of 3D model of torus](../../assets/torus_1.png){width=30%}
-:::
 
 ::: {layout="[40,60]"}
 # Math
