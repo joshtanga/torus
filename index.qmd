@@ -1,5 +1,9 @@
 ---
 title: "Torus Automorphisms & Texture Mapping"
+format: 
+    html:
+        page-layout: full
+toc: false
 ---
 
 Some examples of torus automorphisms, and their applications to texture mapping. These were made using the python packages [open3D](https://www.open3d.org/), [openCV](https://opencv.org), et al.
