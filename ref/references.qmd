@@ -18,6 +18,10 @@ toc: false
 # Computing
 - [open3D](https://www.open3d.org/) 
 - [openCV](https://opencv.org)
+- [quarto](https://quarto.org/)
+  + software for creating websites, blogs, and documents with code and text.  This website is made with quarto.
+- obj2gltf
+  + for converting .obj files to .glb files that can be displayed in the browser with model-viewer.  This is a command line tool that can be installed with npm.
 
 :::
 

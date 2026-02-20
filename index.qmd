@@ -6,7 +6,7 @@ format:
 toc: false
 ---
 
-Some examples of torus automorphisms, and their applications to texture mapping. These were made using the python packages [open3D](https://www.open3d.org/), [openCV](https://opencv.org), et al.
+Some examples of torus automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
 
 
 ![screenshot of 3D model of torus](../assets/torus_1.png){width=300px}
@@ -25,6 +25,7 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 - [deformed_torus](deformed_torus.html)
 - [isotopy](../isotopy/)
 - [changes to geometry](geometry_changes.html)
+- [python code](texture_mapping_torus.html)
 
 :::
 
