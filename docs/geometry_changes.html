@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Torus Automorphisms &amp; Texture Mapping – torus visualizations</title>
+<title>Quantifying Geometric Change in an Isotopy – torus visualizations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,11 +85,40 @@ ul.task-list li input[type="checkbox"] {
       </style>
     
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -118,21 +147,21 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Torus Automorphisms &amp; Texture Mapping</h1>
+<h1 class="title">Quantifying Geometric Change in an Isotopy</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -144,31 +173,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Some examples of torus automorphisms, and their applications to texture mapping. These were made using the python packages <a href="https://www.open3d.org/">open3D</a>, <a href="https://opencv.org">openCV</a>, et al.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/torus_1.png" class="img-fluid figure-img" width="300"></p>
-<figcaption>screenshot of open3D rendering</figcaption>
-</figure>
+<section id="isotopy" class="level3">
+<h3 class="anchored" data-anchor-id="isotopy">Isotopy</h3>
+<p>Here we view an isotopy; a continuous deformation through time <span class="math inline">\(f_t: T^2 \to T^2\)</span>, where each step is a homeomorphism. The topology remains the same but the geometry changes. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation. This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
+<div>
+
 </div>
-<section id="homeomorphisms-of-the-texture" class="level1">
-<h1>Homeomorphisms of the texture</h1>
-<ul>
-<li><a href="texture_mapping.html">texture_mapping</a></li>
-<li><a href="swirl/main.html">isotopy</a></li>
-<li><a href="../periodic/">periodic</a></li>
-<li><a href="../dehn_twist/">dehn twist</a></li>
-<li><a href="../anosov/">anosov</a></li>
-<li><a href="../bike_tour.html">bike gang</a></li>
-</ul>
+<div class="quarto-layout-panel" data-layout="[60, 40]">
+<div class="quarto-layout-row">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<p><model-viewer id="torus-scrubber" src="../assets/torus_area_analysis/step_0.glb" camera-controls="" style="width: 100%; height: 400px;"> </model-viewer></p>
+<input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
+<p>
+<strong>Slide to evolve Homeomorphism:</strong> <span id="frame-val">0</span>
+</p>
+</div>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<section id="geometric-distortion" class="level3">
+<h3 class="anchored" data-anchor-id="geometric-distortion">Geometric Distortion</h3>
+<p>The histogram below represents the distribution of area change across all faces. An area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
+<div style="flex: 1; min-width: 300px; text-align: center;">
+<p><img id="hist-scrubber" src="../dist_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
+</div>
 </section>
-<section id="other-deformations-of-the-torus" class="level1">
-<h1>Other Deformations of the torus</h1>
-<ul>
-<li><a href="deformed_torus.html">deformed_torus</a></li>
-<li><a href="../isotopy/">isotopy</a></li>
-<li><a href="geometry_changes.html">changes to geometry</a></li>
-</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-statistics-of-the-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics-of-the-mapping">Summary Statistics of the Mapping</h3>
+<style>
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .stat-box {
+    text-align: center;
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #3498db; /* A nice highlight blue */
+  }
+  #max-val { color: #e74c3c; } /* Red for Max stretch */
+  #min-val { color: #f1c40f; } /* Yellow for Min squeeze */
+</style>
+<div class="stats-container">
+<div class="stat-box">
+    <span class="stat-label">Min Ratio</span>
+    <span id="min-val" class="stat-value">1.000</span>
+</div>
+<div class="stat-box">
+    <span class="stat-label">Mean Ratio</span>
+    <span id="mean-val" class="stat-value">1.000</span>
+</div>
+<div class="stat-box">
+    <span class="stat-label">Max Ratio</span>
+    <span id="max-val" class="stat-value">1.000</span>
+</div>
+</div>
+<script>var frameStats = [{"frame":"x0","mean":1,"max":1,"min":1},{"frame":"x1","mean":1.0021,"max":1.0105,"min":0.9995},{"frame":"x2","mean":1.0084,"max":1.0381,"min":0.9995},{"frame":"x3","mean":1.0187,"max":1.0817,"min":0.9995},{"frame":"x4","mean":1.0327,"max":1.1394,"min":0.9995},{"frame":"x5","mean":1.0501,"max":1.2092,"min":0.9995},{"frame":"x6","mean":1.0707,"max":1.2891,"min":0.9995},{"frame":"x7","mean":1.0941,"max":1.3773,"min":0.9995},{"frame":"x8","mean":1.1199,"max":1.4725,"min":0.9995},{"frame":"x9","mean":1.148,"max":1.5732,"min":0.9995},{"frame":"x10","mean":1.178,"max":1.6785,"min":0.9995},{"frame":"x11","mean":1.2098,"max":1.7877,"min":0.9995},{"frame":"x12","mean":1.2431,"max":1.8999,"min":0.9995},{"frame":"x13","mean":1.2778,"max":2.0148,"min":0.9995},{"frame":"x14","mean":1.3138,"max":2.1319,"min":0.9995},{"frame":"x15","mean":1.3508,"max":2.2508,"min":0.9995},{"frame":"x16","mean":1.3889,"max":2.3713,"min":0.9995},{"frame":"x17","mean":1.4278,"max":2.4931,"min":0.9995},{"frame":"x18","mean":1.4676,"max":2.6161,"min":0.9995},{"frame":"x19","mean":1.5081,"max":2.7403,"min":0.9995}];</script>
+<script>
+    const viewer = document.querySelector('#torus-scrubber');
+    const histImg = document.querySelector('#hist-scrubber');
+    const slider = document.querySelector('#master-slider');
+    const label = document.querySelector('#frame-val');
+
+    slider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        
+        // Update 3D Model
+        viewer.src = `../assets/torus_area_analysis/step_${val}.glb`;
+        
+        // Update Histogram Image
+        histImg.src = `../dist_hist/histogram_${val}.png`;
+        
+        // Update label
+        label.innerText = val;
+
+        // Access the stats for the current frame
+        document.querySelector('#max-val').innerText  = frameStats[val].max.toFixed(3);
+        document.querySelector('#mean-val').innerText = frameStats[val].mean.toFixed(3);
+        document.querySelector('#min-val').innerText  = frameStats[val].min.toFixed(3);
+    });
+</script>
 
 
 </section>

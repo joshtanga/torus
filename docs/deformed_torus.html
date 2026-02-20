@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torus Visualization</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <style>
+        body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f5f5f5; }
+        header { padding: 20px; text-align: center; }
+        /* 2. Style the viewer container */
+        #container { width: 90vw; height: 70vh; background: #ffffff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Deformation of a torus</h1>
+
+    </header>
+
+<p> This image from the open3D docs is mapped onto a torus. </p>
+<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
+
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+    
+    <model-viewer 
+        id="torus-player"
+        src="../assets/sequence/torus_0.glb"
+        alt="A deforming torus"
+        camera-controls
+        style="width: 400px; height: 400px; background-color: #ffffff; border: 1px solid #ddd;">
+    </model-viewer>
+
+    <div style="width: 80%;">
+        <label for="deform-slider" style="font-family: sans-serif; font-weight: bold;">
+            Deformation Progress
+        </label>
+        <input 
+            type="range" 
+            id="deform-slider" 
+            min="0" max="10" value="0" step="1"
+            style="width: 100%; cursor: pointer;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
+            <span>Square-ish</span>
+            <span>Fully Deformed</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const viewer = document.querySelector('#torus-player');
+    const slider = document.querySelector('#deform-slider');
+
+    slider.addEventListener('input', (event) => {
+        const frame = event.target.value;
+        // Update the source of the 3D model
+        viewer.src = `../assets/sequence/torus_${frame}.glb`;
+    });
+</script>
+
+</body>
+</html>
