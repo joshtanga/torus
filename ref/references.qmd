@@ -4,11 +4,10 @@ title: "Where to Learn More"
 
 
 ::: {.column-margin}
-![screenshot of 3D model of torus](../../assets/torus_1.png){width=300px}
+![screenshot of 3D model of torus](../../assets/torus_1.png){width=30%}
 :::
 
-::: {layout-ncol=2}
-
+::: {layout="[40,60]"}
 # Math
 - [Period of the Discrete Cat Map](https://www.aquila.infn.it/ciuchi/didattica/MS/Notes/02_Foundations/references/Dyson-PeriodOfADiscreteCatMapping.pdf)
 
