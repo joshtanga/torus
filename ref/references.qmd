@@ -7,9 +7,9 @@ format:
 ---
 
 
-![screenshot of 3D model of torus](../../assets/torus_1.png){width=30%}
+![screenshot of 3D model of torus](../../assets/torus_1.png){width=10%}
 
-::: {layout="[40,60]"}
+::: {layout="[30,70]"}
 # Math
 - [Period of the Discrete Cat Map](https://www.aquila.infn.it/ciuchi/didattica/MS/Notes/02_Foundations/references/Dyson-PeriodOfADiscreteCatMapping.pdf)
 
