@@ -39,8 +39,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,25 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-    <style type="text/css">
-    .ps-root .ps-algorithm {
-      border-top: 2px solid;
-      border-bottom: 2px solid;
-    }
-    .pseudocode-container {
-      text-align: left;
-    }
-    </style>
-  
-      <style type="text/css">
-      .ps-algorithm > .ps-line {
-        text-align: left;
-      }
-      </style>
-    
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="./styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -159,22 +141,22 @@ ul.task-list li input[type="checkbox"] {
 <section id="homeomorphisms" class="level1 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <h1>Homeomorphisms</h1>
 <ul>
-<li><a href="tm/texture_mapping.html">texture_mapping</a></li>
 <li><a href="swirl/main.html">isotopy</a></li>
 <li><a href="../periodic/">periodic</a></li>
 <li><a href="../dehn_twist/">dehn twist</a></li>
 <li><a href="../anosov/">anosov</a></li>
+<li><a href="deformed_torus.html">deformed_torus</a></li>
+<li><a href="../isotopy/">isotopy</a></li>
+<li><a href="geometry_changes.html">changes to geometry</a></li>
 </ul>
 </section>
 <section id="related" class="level1 quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <h1>Related</h1>
 <ul>
-<li><a href="deformed_torus.html">deformed_torus</a></li>
-<li><a href="../isotopy/">isotopy</a></li>
-<li><a href="geometry_changes.html">changes to geometry</a></li>
-<li><a href="../bike_tour.html">bike gang</a></li>
-<li><a href="texture_mapping_torus.html">python code</a></li>
+<li><a href="tm/texture_mapping.html">texture_mapping</a></li>
+<li><a href="tm/tm_code.html">python code</a></li>
 <li><a href="cat_slides.html">slides</a></li>
+<li><a href="../bike_tour.html">bike gang</a></li>
 </ul>
 </section>
 </div>
@@ -601,38 +583,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-    <script type="text/javascript">
-    (function(d) {
-      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
-        let pseudocodeOptions = {
-          indentSize: el.dataset.indentSize,
-          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
-          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
-          lineNumberPunc: el.dataset.lineNumberPunc,
-          noEnd: el.dataset.noEnd.toLowerCase() === "true",
-          titlePrefix: el.dataset.captionPrefix,
-        };
-        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
-      });
-    })(document);
-    (function(d) {
-      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
-        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
-        if (captionSpan !== null) {
-          let captionPrefix = el.dataset.captionPrefix + " ";
-          let captionNumber = "";
-          if (el.dataset.pseudocodeNumber) {
-            captionNumber = el.dataset.pseudocodeNumber + " ";
-            if (el.dataset.chapterLevel) {
-              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
-            }
-          }
-          captionSpan.innerHTML = captionPrefix + captionNumber;
-        }
-      });
-    })(document);
-    </script>
-  
 
 
 

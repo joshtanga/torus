@@ -1,9 +1,5 @@
 ---
 title: "Isotopy: continuous deformation of homeomorphisms"
-format: 
-    html:
-        page-layout: full
-toc: false
 ---
 
 <html lang="en">

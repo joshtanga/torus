@@ -2,8 +2,8 @@
 title: "Torus Automorphisms & Texture Mapping"
 format: 
     html:
-        page-layout: full
-toc: false
+      page-layout: full
+      toc: false
 ---
 
 Some examples of torus automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
@@ -14,19 +14,19 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 ::: {layout-ncol=2}
 
 # Homeomorphisms
-- [texture_mapping](tm/texture_mapping.html)
 - [isotopy](swirl/main.html)
 - [periodic](../periodic/)
 - [dehn twist](../dehn_twist/)
 - [anosov](../anosov/)
-
-# Related
 - [deformed_torus](deformed_torus.html)
 - [isotopy](../isotopy/)
 - [changes to geometry](geometry_changes.html)
-- [bike gang](../bike_tour.html)
-- [python code](texture_mapping_torus.html)
+
+# Related
+- [texture_mapping](tm/texture_mapping.html)
+- [python code](tm/tm_code.html)
 - [slides](cat_slides.html)
+- [bike gang](../bike_tour.html)
 
 :::
 

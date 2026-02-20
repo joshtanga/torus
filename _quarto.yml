@@ -11,13 +11,7 @@ website:
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-    html-math-method: mathjax
-    css: styles.css
     toc: false
-
-filters:
-  - pseudocode
-
+    theme: cosmo
+    html-math-method: mathjax
+    css: /styles.css

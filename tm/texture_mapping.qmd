@@ -1,9 +1,5 @@
 ---
 title: "Texture Mapping"
-format: 
-    html:
-        page-layout: full
-toc: false
 ---
 
 <html lang="en">
