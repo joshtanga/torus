@@ -1,5 +1,9 @@
 ---
 title: "Where to Learn More"
+format: 
+    html:
+      page-layout: full
+      toc: false
 ---
 
 
