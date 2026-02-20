@@ -6,7 +6,9 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
   <title>torus visualizations – Cat Dynamics are Manifold</title>
@@ -122,6 +124,22 @@
     }
   </style>
   <link href="fp.css" rel="stylesheet">
+      <style type="text/css">
+      .ps-root .ps-algorithm {
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+      }
+      .pseudocode-container {
+        text-align: left;
+      }
+      </style>
+    
+        <style type="text/css">
+        .ps-algorithm > .ps-line {
+          text-align: left;
+        }
+        </style>
+      
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -137,7 +155,9 @@
 <section>
 <section id="deformations-of-a-torus" class="title-slide slide level1 center">
 <h1>Deformations of a Torus</h1>
+<!--The Arnold principle: "Discoveries are rarely attributed to the correct person" is also named after him.[1]
 
+see: https://en.wikipedia.org/wiki/Stigler%27s_law_of_eponymy-->
 </section>
 <section id="homeomorphisms" class="slide level2 smaller scrollable">
 <h2>Homeomorphisms</h2>
@@ -153,14 +173,45 @@
 </ul>
 </div>
 <div id="tabset-1-2">
-<ul>
-<li>The circle is homeomorphic to a knot.<br>
-<img data-src="assets/7-1-knot.png" style="width:20.0%" alt="7-1-knot"></li>
-<li>The torus is homeomorphic to a coffee mug.</li>
-<li>The torus is homeomorphic to a square with opposite edges identified. <img data-src="assets/square-torus.png" style="width:50.0%" alt="square torus"></li>
-<li>The torus is homeomorphic to a hexagon with opposite edges identified. <img data-src="assets/hex-torus.png" style="width:50.0%" alt="hexagonal torus"></li>
-<li>The torus is homeomorphic to a <em>surgered</em> square with opposite edges</li>
-</ul>
+<div id="fig-circle" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-circle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/circle.png" style="width:20.0%"></p>
+<figcaption>circle</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/7-1-knot.png" style="width:20.0%"></p>
+<figcaption>7-1-knot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Homeomorphic
+</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/square-torus.png" style="width:50.0%"></p>
+<figcaption>square torus</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hex-torus.png" style="width:50.0%"></p>
+<figcaption>hexagonal torus</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -184,6 +235,111 @@
 <li>The square torus is not isotopic to the hexagonal torus.</li>
 <li><a href="https://joshtanga.github.io/torus/swirl/">link to 3D model</a></li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+<section id="arnolds-cat-map" class="slide level2">
+<h2>Arnold’s Cat Map</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Vladimir</a></li><li><a href="#tabset-3-2">Arnold</a></li><li><a href="#tabset-3-3">Innumumarcy &amp; the Fires of the Inquisition</a></li><li><a href="#tabset-3-4">The Map</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Russian, father studied under Emmy Noether.</li>
+<li>geometry, dynamical systems, catastrophe theory, math education, et al.</li>
+<li>Studied under:
+<ul>
+<li>Kolmogorov</li>
+<li>Pontryagin (totally blind @ 14)</li>
+<li>Alexandrov</li>
+</ul></li>
+<li>Arnold’s principle:
+<ul>
+<li>“Discoveries are rarely attributed to the correct person”</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/arnold.jpg" style="width:70.0%"></p>
+<figcaption>Vladimir Arnold - (1937 - 2010)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/gomboc.png" style="width:50.0%"></p>
+<figcaption>gomboc</figcaption>
+</figure>
+</div>
+</div></div>
+</div>
+<div id="tabset-3-2">
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Solved Hilbert’s 13th problem at age 19.</li>
+<li>Critic of Bourbaki, 1900’s trend toward higher abstraction in mathematics.</li>
+<li>1974: nominated for Field’s Medal, but then …</li>
+<li>1999: bike accident in Paris, TBI, amnesia, then full recovery.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/arnold_2.png" style="width:90.0%"></p>
+<figcaption>Vladimir Arnold - (1937 - 2010)</figcaption>
+</figure>
+</div>
+</div></div>
+</div>
+<div id="tabset-3-3">
+<div style="font-family: 'Courier New', monospace; font-size: 1em;">
+<blockquote>
+<p>“We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance.”</p>
+</blockquote>
+<blockquote>
+<p>“Even more important than the ability to add fractions is the fact that <u>a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one</u>. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s.”</p>
+</blockquote>
+<blockquote>
+<p>— Vladimir Arnold</p>
+</blockquote>
+</div>
+<p>Read the full article <a href="https://mat.fsv.cvut.cz/soukenkam/ArnoldInquisition.pdf">here</a></p>
+</div>
+<div id="tabset-3-4">
+<p><span class="math display">\[\begin{bmatrix}x' \\
+y'\end{bmatrix} = \begin{bmatrix}1 &amp; 1 \\
+1 &amp; 2\end{bmatrix} \begin{bmatrix}x \\
+y\end{bmatrix} \mod 1\]</span></p>
+<div title="Theorem">
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>A point on the cat map is periodic if and only if its coordinates are rational.</strong></p>
+<p>Let <span class="math inline">\(A\)</span> be the matrix above. If a point <span class="math inline">\(x\)</span> is periodic, then there exist a positive integer <span class="math inline">\(n\)</span> such that <span class="math display">\[A^n x - x \in \mathbb{Z}^2, \mbox{ i.e., } (A^n - I)x  = y \in \mathbb{Z}^2.\]</span><br>
+Since <span class="math inline">\(A\)</span> has integer entries, the matrix <span class="math inline">\(M = A^n - I\)</span> does too. Furthermore the determinant <span class="math display">\[\det(M) = \det(A^n - I) = \prod_{i=1}^2 (\lambda_i^n - 1)\]</span> where <span class="math inline">\(\lambda_i\)</span> are the eigenvalues of <span class="math inline">\(A\)</span>. The eigenvalues of <span class="math inline">\(A\)</span> are real and irrational, thus <span class="math inline">\(\lambda_i^n - 1 \neq 0\)</span> for all <span class="math inline">\(n\)</span>, so <span class="math inline">\(\det(M) \neq 0\)</span>.</p>
+<p>Since <span class="math inline">\(M\)</span> is an integer matrix with nonzero determinant, it is invertible over the rationals, so <span class="math inline">\(x = M^{-1} y\)</span> so <span class="math inline">\(x\)</span> is rational.</p>
+<p>o</p>
+<p>oo</p>
+<p>o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o-</p>
+<p>oo</p>
+<p>o</p>
+<p>Conversely, if <span class="math inline">\(x\)</span> is rational, we can factor out the common denominator <span class="math inline">\(d\)</span> to get <span class="math inline">\(x = \frac{1}{d} z\)</span> for some <span class="math inline">\(z \in \mathbb{Z}\)</span>. We want to show that there exist a positive integer <span class="math inline">\(n\)</span> such that <span class="math display">\[A^n x - x \in \mathbb{Z}^2, \mbox{ i.e., } A^n x \equiv x  \mod 1. \]</span></p>
+<p>We’ll use the pigeonhold principle.</p>
+<p><strong>Pigeons</strong>: matrices <span class="math inline">\(A^{n_i}\)</span></p>
+<p><strong>Pigeonholes</strong>: matrices <span class="math inline">\(A^{n_i}\)</span> modulo <span class="math inline">\(d\)</span></p>
+<p>Each entry of <span class="math inline">\(A^{n_i}\)</span> modulo <span class="math inline">\(d\)</span> gives <span class="math inline">\(d\)</span> possible values, so there are <span class="math inline">\(d^4\)</span> possible pigeonholes. The entries of <span class="math inline">\(A^{n_i}\)</span> are (increasing) Fibonacci numbers so clearly there are more pigeons than pigeonholes, so by the pigeonhole principle there must be exist a pair of integers <span class="math inline">\(n_i\)</span> and <span class="math inline">\(n_j\)</span> such that <span class="math inline">\(A^{n_i} \equiv A^{n_j} \mod d\)</span>.</p>
+<p>Since <span class="math inline">\(A\)</span> is invertible, we can multiply both sides by <span class="math inline">\(A^{-n_j}\)</span> to get <span class="math inline">\(A^{n_i - n_j} \equiv I \mod d\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Visualize the cat map using this <a href="https://joshtanga.github.io/torus/anosov/">link to a 3D model</a></p>
 </div>
 </div>
 </div>
@@ -590,6 +746,38 @@
       }
     });
     </script>
+        <script type="text/javascript">
+        (function(d) {
+          d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            let pseudocodeOptions = {
+              indentSize: el.dataset.indentSize,
+              commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+              lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+              lineNumberPunc: el.dataset.lineNumberPunc,
+              noEnd: el.dataset.noEnd.toLowerCase() === "true",
+              titlePrefix: el.dataset.captionPrefix,
+            };
+            pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+          });
+        })(document);
+        (function(d) {
+          d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+            if (captionSpan !== null) {
+              let captionPrefix = el.dataset.captionPrefix + " ";
+              let captionNumber = "";
+              if (el.dataset.pseudocodeNumber) {
+                captionNumber = el.dataset.pseudocodeNumber + " ";
+                if (el.dataset.chapterLevel) {
+                  captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+                }
+              }
+              captionSpan.innerHTML = captionPrefix + captionNumber;
+            }
+          });
+        })(document);
+        </script>
+      
     
 
 </body></html>

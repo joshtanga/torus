@@ -15,9 +15,15 @@ execute:
 
 # Deformations of a Torus
 
+<!--The Arnold principle: "Discoveries are rarely attributed to the correct person" is also named after him.[1]
+
+see: https://en.wikipedia.org/wiki/Stigler%27s_law_of_eponymy-->
+
+
 ## Homeomorphisms {.smaller .scrollable}
 
-::: panel-tabset
+::: {.panel-tabset}
+
 ### Definition
 - Topology preserving deformation
 - Continuous with continuous inverse
@@ -26,20 +32,24 @@ execute:
 
 
 ### Examples
-- The circle is homeomorphic to a knot.  
+::: {#fig-circle layout-ncol=2}
+
+![circle](assets/circle.png){width=20%}
+
 ![7-1-knot](assets/7-1-knot.png){width=20%}
-- The torus is homeomorphic to a coffee mug.
-- The torus is homeomorphic to a square with opposite edges identified.
+
+Homeomorphic
+:::
+
 ![square torus](assets/square-torus.png){width=50%}
-- The torus is homeomorphic to a hexagon with opposite edges identified.
+
 ![hexagonal torus](assets/hex-torus.png){width=50%}
-- The torus is homeomorphic to a *surgered* square with opposite edges 
 
 :::
 
 ## Isotopies
 
-::: panel-tabset
+::: {.panel-tabset}
 
 ### Definition
 - A continuous deformation through time
@@ -52,4 +62,106 @@ execute:
 - The square torus is not isotopic to the hexagonal torus.
 - [link to 3D model](https://joshtanga.github.io/torus/swirl/)
 
+:::
+
+## Arnold's Cat Map
+
+::: {.panel-tabset}
+
+### Vladimir
+
+::: {.columns}
+
+::: {.column width="60%"}
+- Russian, father studied under Emmy Noether.
+- geometry, dynamical systems, catastrophe theory, math education, et al.
+- Studied under:
+  + Kolmogorov 
+  + Pontryagin (totally blind @ 14)
+  + Alexandrov
+- Arnold's principle: 
+  + "Discoveries are rarely attributed to the correct person"
+:::
+
+::: {.column width="40%"}
+![Vladimir Arnold - (1937 - 2010)](assets/arnold.jpg){width=70%}
+
+![gomboc](assets/gomboc.png){width=50%}
+:::
+:::
+
+### Arnold
+
+:::: {.columns}
+::: {.column width="60%"}
+- Solved Hilbert's 13th problem at age 19.
+- Critic of Bourbaki, 1900's trend toward higher abstraction in mathematics.
+- 1974: nominated for Field's Medal, but then ...
+- 1999: bike accident in Paris, TBI, amnesia, then full recovery.
+
+:::
+
+::: {.column width="40%"}
+![Vladimir Arnold - (1937 - 2010)](assets/arnold_2.png){width=90%}
+
+:::
+::::
+
+### Innumumarcy & the Fires of the Inquisition
+
+
+::: {style="font-family: 'Courier New', monospace; font-size: 1em;"}
+> "We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance."
+
+> "Even more important than the ability to add fractions is the fact that <u>a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one</u>. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s."
+
+> — Vladimir Arnold
+:::
+
+Read the full article [here](https://mat.fsv.cvut.cz/soukenkam/ArnoldInquisition.pdf) 
+
+
+### The Map
+
+$$\begin{bmatrix}x' \\
+y'\end{bmatrix} = \begin{bmatrix}1 & 1 \\
+1 & 2\end{bmatrix} \begin{bmatrix}x \\
+y\end{bmatrix} \mod 1$$ 
+
+::: {.callout-note title="Theorem" appearance="simple" icon=false}
+**A point on the cat map is periodic if and only if its coordinates are rational.**
+
+Let $A$ be the matrix above.  If a point $x$ is periodic, then there exist a positive integer $n$ such that 
+$$A^n x - x \in \mathbb{Z}^2, \mbox{ i.e., } (A^n - I)x  = y \in \mathbb{Z}^2.$$  
+Since $A$ has integer entries, the matrix $M = A^n - I$ does too.  Furthermore the determinant
+$$\det(M) = \det(A^n - I) = \prod_{i=1}^2 (\lambda_i^n - 1)$$ where $\lambda_i$ are the eigenvalues of $A$.  The eigenvalues of $A$ are real and irrational, thus $\lambda_i^n - 1 \neq 0$ for all $n$, so $\det(M) \neq 0$.  
+
+Since $M$ is an integer matrix with nonzero determinant, it is invertible over the rationals, so $x = M^{-1} y$  so $x$ is rational.
+
+
+o
+
+oo
+
+o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- 
+
+oo
+
+o
+
+Conversely, if $x$ is rational, we can factor out the common denominator $d$ to get $x = \frac{1}{d} z$ for some $z \in \mathbb{Z}$. We want to show that there exist a positive integer $n$ such that $$A^n x - x \in \mathbb{Z}^2, \mbox{ i.e., } A^n x \equiv x  \mod 1. $$  
+
+We'll use the pigeonhold principle.  
+
+**Pigeons**: matrices $A^{n_i}$
+
+**Pigeonholes**: matrices $A^{n_i}$ modulo $d$
+
+Each entry of $A^{n_i}$ modulo $d$ gives $d$ possible values, so there are $d^4$ possible pigeonholes.  The entries of $A^{n_i}$ are (increasing) Fibonacci numbers so clearly there are more pigeons than pigeonholes, so by the pigeonhole principle there must be exist a pair of integers $n_i$ and $n_j$ such that $A^{n_i} \equiv A^{n_j} \mod d$.  
+
+Since $A$ is invertible, we can multiply both sides by $A^{-n_j}$ to get $A^{n_i - n_j} \equiv I \mod d$. 
+
+:::
+
+Visualize the cat map using this [link to a 3D model](https://joshtanga.github.io/torus/anosov/)
 :::

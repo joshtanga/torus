@@ -41,3 +41,12 @@
   margin-top: 20px;
   margin-bottom: 30px !important;
 }
+
+/* custom.css */
+.reveal blockquote {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  color: #333;
+  border-left: 5px solid #ccc; /* optional customization */
+}
+
