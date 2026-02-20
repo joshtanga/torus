@@ -19,13 +19,14 @@ Some examples of torus automorphisms, and their applications to texture mapping.
 - [periodic](../periodic/)
 - [dehn twist](../dehn_twist/)
 - [anosov](../anosov/)
-- [bike gang](../bike_tour.html)
 
-# Other Deformations of the torus
+# Related
 - [deformed_torus](deformed_torus.html)
 - [isotopy](../isotopy/)
 - [changes to geometry](geometry_changes.html)
+- [bike gang](../bike_tour.html)
 - [python code](texture_mapping_torus.html)
+- [slides](cat_slides.html)
 
 :::
 
