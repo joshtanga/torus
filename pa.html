@@ -1,0 +1,71 @@
+<div id="container" style="width: 100%; height: 600px; background: #111; border-radius: 8px;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+<script>
+// Wait for the library to load
+window.addEventListener('load', () => {
+    const container = document.getElementById('container');
+    
+    // 1. SCENE SETUP
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    // 2. SIMPLE SHADER (Fixed for compatibility)
+    const _VS = `
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `;
+
+    const _FS = `
+        uniform float uTime;
+        varying vec2 vUv;
+        void main() {
+            // Simplified grid logic to ensure visibility
+            vec2 warpedUv = fract(vUv * 5.0 + uTime * 0.2);
+            float line = step(0.9, warpedUv.x) + step(0.9, warpedUv.y);
+            gl_FragColor = vec4(0.2, 0.5, 1.0, 1.0) * line;
+            
+            // Add a faint background color so we know the mesh exists
+            if(line < 0.1) gl_FragColor = vec4(0.1, 0.1, 0.2, 1.0);
+        }
+    `;
+
+    // 3. GEOMETRY
+    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+    const material = new THREE.ShaderMaterial({
+        uniforms: { uTime: { value: 0.0 } },
+        vertexShader: _VS,
+        fragmentShader: _FS,
+        side: THREE.DoubleSide
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    camera.position.z = 30;
+
+    // 4. ANIMATION
+    const clock = new THREE.Clock();
+    function animate() {
+        requestAnimationFrame(animate);
+        material.uniforms.uTime.value = clock.getElapsedTime();
+        mesh.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
+    
+    animate();
+
+    // 5. RESIZE HANDLER
+    window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+});
+</script>
