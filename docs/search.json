@@ -4,7 +4,7 @@
     "href": "cat_slides.html#homeomorphisms",
     "title": "Cat Dynamics are Manifold",
     "section": "Homeomorphisms",
-    "text": "Homeomorphisms\n\nDefinitionExamples\n\n\n\nTopology preserving deformation\nContinuous with continuous inverse\nBend, stretch, twist but no tearing or joining\nCutting is ok, as long as you glue it back the same way\n\n\n\n\n\n\n\n\n\n\n\ncircle\n\n\n\n\n\n\n\n7-1-knot\n\n\n\n\n\n\nFigure 1: Homeomorphic\n\n\n\n\n\n\nsquare torus\n\n\n\n\n\nhexagonal torus"
+    "text": "Homeomorphisms\n\nIndira Chatterji: https://chatterj.perso.math.cnrs.fr/"
   },
   {
     "objectID": "cat_slides.html#isotopies",
@@ -18,7 +18,7 @@
     "href": "cat_slides.html#arnolds-cat-map",
     "title": "Cat Dynamics are Manifold",
     "section": "Arnold’s Cat Map",
-    "text": "Arnold’s Cat Map\n\nVladimirArnoldInnumumarcy & the Fires of the InquisitionThe Map\n\n\n\n\n\nRussian, father studied under Emmy Noether.\ngeometry, dynamical systems, catastrophe theory, math education, et al.\nStudied under:\n\nKolmogorov\nPontryagin (totally blind @ 14)\nAlexandrov\n\nArnold’s principle:\n\n“Discoveries are rarely attributed to the correct person”\n\n\n\n\n\n\nVladimir Arnold - (1937 - 2010)\n\n\n\n\n\ngomboc\n\n\n\n\n\n\n\n\nSolved Hilbert’s 13th problem at age 19.\nCritic of Bourbaki, 1900’s trend toward higher abstraction in mathematics.\n1974: nominated for Field’s Medal, but then …\n1999: bike accident in Paris, TBI, amnesia, then full recovery.\n\n\n\n\n\nVladimir Arnold - (1937 - 2010)\n\n\n\n\n\n\n\n“We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance.”\n\n\n“Even more important than the ability to add fractions is the fact that a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s.”\n\n\n— Vladimir Arnold\n\n\nRead the full article here\n\n\n\\[\\begin{bmatrix}x' \\\\\ny'\\end{bmatrix} = \\begin{bmatrix}1 & 1 \\\\\n1 & 2\\end{bmatrix} \\begin{bmatrix}x \\\\\ny\\end{bmatrix} \\mod 1\\]\n\n\n\n\nTheorem\n\n\nA point on the cat map is periodic if and only if its coordinates are rational.\nLet \\(A\\) be the matrix above. If a point \\(x\\) is periodic, then there exist a positive integer \\(n\\) such that \\[A^n x - x \\in \\mathbb{Z}^2, \\mbox{ i.e., } (A^n - I)x  = y \\in \\mathbb{Z}^2.\\]\nSince \\(A\\) has integer entries, the matrix \\(M = A^n - I\\) does too. Furthermore the determinant \\[\\det(M) = \\det(A^n - I) = \\prod_{i=1}^2 (\\lambda_i^n - 1)\\] where \\(\\lambda_i\\) are the eigenvalues of \\(A\\). The eigenvalues of \\(A\\) are real and irrational, thus \\(\\lambda_i^n - 1 \\neq 0\\) for all \\(n\\), so \\(\\det(M) \\neq 0\\).\nSince \\(M\\) is an integer matrix with nonzero determinant, it is invertible over the rationals, so \\(x = M^{-1} y\\) so \\(x\\) is rational.\no\noo\no+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o-\noo\no\nConversely, if \\(x\\) is rational, we can factor out the common denominator \\(d\\) to get \\(x = \\frac{1}{d} z\\) for some \\(z \\in \\mathbb{Z}\\). We want to show that there exist a positive integer \\(n\\) such that \\[A^n x - x \\in \\mathbb{Z}^2, \\mbox{ i.e., } A^n x \\equiv x  \\mod 1. \\]\nWe’ll use the pigeonhold principle.\nPigeons: matrices \\(A^{n_i}\\)\nPigeonholes: matrices \\(A^{n_i}\\) modulo \\(d\\)\nEach entry of \\(A^{n_i}\\) modulo \\(d\\) gives \\(d\\) possible values, so there are \\(d^4\\) possible pigeonholes. The entries of \\(A^{n_i}\\) are (increasing) Fibonacci numbers so clearly there are more pigeons than pigeonholes, so by the pigeonhole principle there must be exist a pair of integers \\(n_i\\) and \\(n_j\\) such that \\(A^{n_i} \\equiv A^{n_j} \\mod d\\).\nSince \\(A\\) is invertible, we can multiply both sides by \\(A^{-n_j}\\) to get \\(A^{n_i - n_j} \\equiv I \\mod d\\).\n\n\n\n\nVisualize the cat map using this link to a 3D model"
+    "text": "Arnold’s Cat Map\n\nVladimir Arnold - (1937 - 2010)"
   },
   {
     "objectID": "index.html",
@@ -75,5 +75,138 @@
     "title": "Pseudo-Anosov Dynamics",
     "section": "",
     "text": "This visualization uses a custom GLSL shader to apply a stretching transformation to the surface coordinates in real-time.\n&lt;div id=\"container\" style=\"width: 100%; height: 600px; background: #111; border-radius: 8px;\"&gt;&lt;/div&gt;\n\n&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js\"&gt;&lt;/script&gt;\n\n&lt;script&gt;\n// Wait for the library to load\nwindow.addEventListener('load', () =&gt; {\n    const container = document.getElementById('container');\n    \n    // 1. SCENE SETUP\n    const scene = new THREE.Scene();\n    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);\n    const renderer = new THREE.WebGLRenderer({ antialias: true });\n    renderer.setSize(container.clientWidth, container.clientHeight);\n    container.appendChild(renderer.domElement);\n\n    // 2. SIMPLE SHADER (Fixed for compatibility)\n    const _VS = `\n        varying vec2 vUv;\n        void main() {\n            vUv = uv;\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }\n    `;\n\n    const _FS = `\n        uniform float uTime;\n        varying vec2 vUv;\n        void main() {\n            // Simplified grid logic to ensure visibility\n            vec2 warpedUv = fract(vUv * 5.0 + uTime * 0.2);\n            float line = step(0.9, warpedUv.x) + step(0.9, warpedUv.y);\n            gl_FragColor = vec4(0.2, 0.5, 1.0, 1.0) * line;\n            \n            // Add a faint background color so we know the mesh exists\n            if(line &lt; 0.1) gl_FragColor = vec4(0.1, 0.1, 0.2, 1.0);\n        }\n    `;\n\n    // 3. GEOMETRY\n    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);\n    const material = new THREE.ShaderMaterial({\n        uniforms: { uTime: { value: 0.0 } },\n        vertexShader: _VS,\n        fragmentShader: _FS,\n        side: THREE.DoubleSide\n    });\n\n    const mesh = new THREE.Mesh(geometry, material);\n    scene.add(mesh);\n    camera.position.z = 30;\n\n    // 4. ANIMATION\n    const clock = new THREE.Clock();\n    function animate() {\n        requestAnimationFrame(animate);\n        material.uniforms.uTime.value = clock.getElapsedTime();\n        mesh.rotation.y += 0.01;\n        renderer.render(scene, camera);\n    }\n    \n    animate();\n\n    // 5. RESIZE HANDLER\n    window.addEventListener('resize', () =&gt; {\n        camera.aspect = container.clientWidth / container.clientHeight;\n        camera.updateProjectionMatrix();\n        renderer.setSize(container.clientWidth, container.clientHeight);\n    });\n});\n&lt;/script&gt;"
+  },
+  {
+    "objectID": "cat_slides.html#march-is-womens-history-month",
+    "href": "cat_slides.html#march-is-womens-history-month",
+    "title": "Cat Dynamics are Manifold",
+    "section": "March is Women’s History Month",
+    "text": "March is Women’s History Month\n\nMarch is Women’s History Month"
+  },
+  {
+    "objectID": "cat_slides.html#section",
+    "href": "cat_slides.html#section",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "March is Women’s History Month"
+  },
+  {
+    "objectID": "cat_slides.html#homeomorphisms-1",
+    "href": "cat_slides.html#homeomorphisms-1",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Homeomorphisms",
+    "text": "Homeomorphisms\n\nIndira Chatterji: https://chatterj.perso.math.cnrs.fr/"
+  },
+  {
+    "objectID": "cat_slides.html#homeomorphisms-2",
+    "href": "cat_slides.html#homeomorphisms-2",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Homeomorphisms",
+    "text": "Homeomorphisms\n\nIndira Chatterji: https://chatterj.perso.math.cnrs.fr/"
+  },
+  {
+    "objectID": "cat_slides.html#section-1",
+    "href": "cat_slides.html#section-1",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Indira Chatterji: https://chatterj.perso.math.cnrs.fr/"
+  },
+  {
+    "objectID": "cat_slides.html#section-2",
+    "href": "cat_slides.html#section-2",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Indira Chatterji: https://chatterj.perso.math.cnrs.fr/"
+  },
+  {
+    "objectID": "cat_slides.html#section-3",
+    "href": "cat_slides.html#section-3",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Indira Chatterji: https://chatterj.perso.math.cnrs.fr/"
+  },
+  {
+    "objectID": "cat_slides.html#section-5",
+    "href": "cat_slides.html#section-5",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Image: Workshop on Max Dehn"
+  },
+  {
+    "objectID": "cat_slides.html#section-4",
+    "href": "cat_slides.html#section-4",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "photo: Jalowetz Aronson Family Collection."
+  },
+  {
+    "objectID": "cat_slides.html#max-dehn",
+    "href": "cat_slides.html#max-dehn",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Max Dehn",
+    "text": "Max Dehn\n\nphoto: Jalowetz Aronson Family Collection."
+  },
+  {
+    "objectID": "cat_slides.html#black-mountain-college",
+    "href": "cat_slides.html#black-mountain-college",
+    "title": "Cat Dynamics are Manifold",
+    "section": "[Black Mountain College]",
+    "text": "[Black Mountain College]\n\nphoto: Notices of AMS, Vol. 64, No. 11"
+  },
+  {
+    "objectID": "cat_slides.html#max-dehn-1",
+    "href": "cat_slides.html#max-dehn-1",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Max Dehn",
+    "text": "Max Dehn\n\nphoto: Jalowetz Aronson Family Collection."
+  },
+  {
+    "objectID": "cat_slides.html#section-6",
+    "href": "cat_slides.html#section-6",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Black Mountain College (Notices of AMS, Vol. 64, No. 11)"
+  },
+  {
+    "objectID": "cat_slides.html#section-7",
+    "href": "cat_slides.html#section-7",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Max Dehn (photo: Online Journal of BMC Studies (16))"
+  },
+  {
+    "objectID": "cat_slides.html#arnolds-cat-map-.background-imageassetsarnold.jpg-background-sizecover-background-positioncenter",
+    "href": "cat_slides.html#arnolds-cat-map-.background-imageassetsarnold.jpg-background-sizecover-background-positioncenter",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Arnold’s Cat Map {.background-image=“assets/arnold.jpg” background-size=“cover” background-position=“center”}",
+    "text": "Arnold’s Cat Map {.background-image=“assets/arnold.jpg” background-size=“cover” background-position=“center”}\n\nVladimir Arnold - (1937 - 2010)"
+  },
+  {
+    "objectID": "cat_slides.html#section-8",
+    "href": "cat_slides.html#section-8",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Vladimir Arnold - (1937 - 2010)"
+  },
+  {
+    "objectID": "cat_slides.html#innumumarcy-the-fires-of-the-inquisition",
+    "href": "cat_slides.html#innumumarcy-the-fires-of-the-inquisition",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Innumumarcy & the Fires of the Inquisition",
+    "text": "Innumumarcy & the Fires of the Inquisition\n\n\n“We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance.”\n\n\n“Even more important than the ability to add fractions is the fact that a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one . Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s.”\n\n\n— Vladimir Arnold\n\n\nRead the full article here"
+  },
+  {
+    "objectID": "cat_slides.html#the-map",
+    "href": "cat_slides.html#the-map",
+    "title": "Cat Dynamics are Manifold",
+    "section": "The Map",
+    "text": "The Map\n\\[\\begin{bmatrix}x' \\\\\ny'\\end{bmatrix} = \\begin{bmatrix}1 & 1 \\\\\n1 & 2\\end{bmatrix} \\begin{bmatrix}x \\\\\ny\\end{bmatrix} \\mod 1\\]\n\n\n\n\nTheorem\n\n\nA point on the cat map is periodic if and only if its coordinates are rational.\nLet \\(A\\) be the matrix above. If a point \\(x\\) is periodic, then there exist a positive integer \\(n\\) such that \\[A^n x - x \\in \\mathbb{Z}^2, \\mbox{ i.e., } (A^n - I)x  = y \\in \\mathbb{Z}^2.\\]\nSince \\(A\\) has integer entries, the matrix \\(M = A^n - I\\) does too. Furthermore the determinant \\[\\det(M) = \\det(A^n - I) = \\prod_{i=1}^2 (\\lambda_i^n - 1)\\] where \\(\\lambda_i\\) are the eigenvalues of \\(A\\). The eigenvalues of \\(A\\) are real and irrational, thus \\(\\lambda_i^n - 1 \\neq 0\\) for all \\(n\\), so \\(\\det(M) \\neq 0\\).\nSince \\(M\\) is an integer matrix with nonzero determinant, it is invertible over the rationals, so \\(x = M^{-1} y\\) so \\(x\\) is rational.\n\n\n\n\n\n\n\nConversely, if \\(x\\) is rational, we can factor out the common denominator \\(d\\) of the entries of \\(z\\) to get \\(x = \\frac{1}{d} z\\) for some \\(z \\in \\mathbb{Z}\\). Then by linearity \\[A^n x - x = \\frac{1}{d} (A^n z - z) = \\frac{1}{d} (A^n - I) z.\\] If the entries of \\(A^n - I\\) are all multiples of \\(d\\), then this becomes an integer vector, thus congruent to 0 modulo 1 implying that \\(x\\) is periodic. So we want to show that there exist a positive integer \\(n\\) such that \\[A^n \\equiv I \\mod d.\\]\nWe’ll use the pigeonhole principle.\nPigeons: matrices \\(A^{n_i}\\)\nPigeonholes: matrices \\(A^{n_i}\\) modulo \\(d\\)\nEach entry of \\(A^{n_i}\\) modulo \\(d\\) gives \\(d\\) possible values, so there are \\(d^4\\) possible pigeonholes. The entries of \\(A^{n_i}\\) are (increasing) Fibonacci numbers so clearly there are more pigeons than pigeonholes, so by the pigeonhole principle there must be exist a pair of integers \\(n_i\\) and \\(n_j\\) such that \\(A^{n_i} \\equiv A^{n_j} \\mod d\\).\nSince \\(A\\) is invertible, we can multiply both sides by \\(A^{-n_j}\\) to get \\(A^{n_i - n_j} \\equiv I \\mod d\\).\n\n\n\n\n\n\n\nExample\n\n\nFor example, if \\[x = \\begin{bmatrix} \\frac{2}{3} \\\\ \\frac{7}{5} \\end{bmatrix}\\] then we rewrite \\[x = \\frac{1}{15} \\begin{bmatrix} 10 \\\\ 21 \\end{bmatrix}\\] so \\(d = 15\\).\nWe want to find \\(n\\) such that \\[A^n \\equiv I \\mod 15.\\]\nFor then \\[A^n = \\begin{bmatrix} 15k + 1 & 15m \\\\ 15p & 15q + 1 \\end{bmatrix}\\] for some integers \\(k, m, p, q\\) and thus \\[A^n x =\n\\frac{1}{15} \\begin{bmatrix} 10(15k + 1) + 21(15m) \\\\ 10(15p) + 21(15q + 1) \\end{bmatrix} =\n\\frac{1}{15} \\begin{bmatrix} 150k + 10 + 315m \\\\ 150p + 315q + 21 \\end{bmatrix}\\] so \\[A^n x - x = \\frac{1}{15} \\begin{bmatrix} 150k + 315m \\\\ 150p + 315q \\end{bmatrix} = \\begin{bmatrix} 10k + 21m \\\\ 10p + 21q \\end{bmatrix}\\] as desired.\n\n\n\n\nFollow this link visualize the cat map."
+  },
+  {
+    "objectID": "cat_slides.html#section-9",
+    "href": "cat_slides.html#section-9",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "gomboc"
   }
 ]

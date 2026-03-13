@@ -13,12 +13,22 @@
         #container { width: 90vw; height: 70vh; background: #ffffff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
         model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
     </style>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
 </head>
 <body>
 
     <header>
         <h1>Torus under the Identity Map</h1>
-        <p>Resolution: 1024x1024</p>
     </header>
 
     <div id="container">
@@ -36,7 +46,15 @@
 
     <header>
         <h1>Torus after the First Iteration</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+\end{array}\right] 
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
     </header>
 
     <div id="container">
@@ -56,7 +74,16 @@
 
     <header>
         <h1>Torus after the Second Iteration</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+\end{array}\right]^2
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
     </header>
 
     <div id="container">
@@ -75,7 +102,17 @@
 
     <header>
         <h1>Torus under the Third Iteration</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+\end{array}\right]^3
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">
@@ -93,8 +130,18 @@
 
 
     <header>
-        <h1>Torus under the Iteration 12</h1>
-        <p>(Resolution: 1024x1024)</p>
+        <h1>Torus under Iteration 12</h1>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{12}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">
@@ -114,7 +161,17 @@
 
     <header>
         <h1>Torus under the Iteration 24</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{24}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">
@@ -133,7 +190,18 @@
 
     <header>
         <h1>Torus under the Iteration 48</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{48}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
+
     </header>
 
     <div id="container">
@@ -152,7 +220,17 @@
 
     <header>
         <h1>Torus under the Iteration 96</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{96}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">
@@ -170,7 +248,17 @@
 
     <header>
         <h1>Torus under the Iteration 192</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{192}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">
@@ -189,7 +277,17 @@
 
     <header>
         <h1>Torus under the Iteration 384</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{384}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">
@@ -208,7 +306,17 @@
 
     <header>
         <h1>Torus under the Iteration 768</h1>
-        <p>(Resolution: 1024x1024)</p>
+<p> 
+$$\left[\begin{array}[c]{rr}
+  0 &  1 \\ 
+ -1 & -1 
+ \end{array}\right]^{768}
+\begin{bmatrix}
+x \\ y 
+\end{bmatrix} ( \mbox{ mod } 1024 ) $$ 
+</p>
+
+
     </header>
 
     <div id="container">

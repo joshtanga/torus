@@ -6,9 +6,7 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
   <title>torus visualizations – Cat Dynamics are Manifold</title>
@@ -31,6 +29,7 @@
     }
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -124,22 +123,6 @@
     }
   </style>
   <link href="fp.css" rel="stylesheet">
-      <style type="text/css">
-      .ps-root .ps-algorithm {
-        border-top: 2px solid;
-        border-bottom: 2px solid;
-      }
-      .pseudocode-container {
-        text-align: left;
-      }
-      </style>
-    
-        <style type="text/css">
-        .ps-algorithm > .ps-line {
-          text-align: left;
-        }
-        </style>
-      
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -152,163 +135,175 @@
 </div>
 
 </section>
-<section>
-<section id="deformations-of-a-torus" class="title-slide slide level1 center">
-<h1>Deformations of a Torus</h1>
-<!--The Arnold principle: "Discoveries are rarely attributed to the correct person" is also named after him.[1]
-
-see: https://en.wikipedia.org/wiki/Stigler%27s_law_of_eponymy-->
-</section>
-<section id="homeomorphisms" class="slide level2 smaller scrollable">
-<h2>Homeomorphisms</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Definition</a></li><li><a href="#tabset-1-2">Examples</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<ul>
-<li>Topology preserving deformation</li>
-<li>Continuous with continuous inverse</li>
-<li>Bend, stretch, twist but no tearing or joining</li>
-<li>Cutting is ok, as long as you glue it back the same way</li>
-</ul>
+<section id="section" class="slide level2 center" data-background-image="assets/maryam.png">
+<h2></h2>
+<div style="margin-top: 500px; font-size: 2em; color: white; text-shadow: 2px 2px 4px #000000; position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+<p>March is Women’s History Month</p>
 </div>
-<div id="tabset-1-2">
-<div id="fig-circle" class="quarto-layout-panel">
+</section>
+<section id="maryam-mirzakhani" class="title-slide slide level1 center">
+<h1>Maryam Mirzakhani</h1>
+<ul>
+<li>Iranian mathematician, born in 1977, died in 2017 (cancer)</li>
+<li>First woman and first Iranian to win the Fields Medal (2014) for: “her outstanding contributions to the dynamics and geometry of Riemann surfaces and their moduli spaces”</li>
+<li><a href="https://www.zalafilms.com/secrets/production.html">film: secrets of the surface</a></li>
+</ul>
+</section>
+
+<section id="deformations-of-a-torus" class="title-slide slide level1 center" data-background-video="assets/deform_torus.mov" data-background-size="cover" data-background-position="center" data-background-video-loop="true">
+<h1>Deformations of a Torus</h1>
+
+</section>
+
+<section id="deformations-of-a-torus-1" class="title-slide slide level1 center">
+<h1>Deformations of a Torus</h1>
+<div>
+<ul>
+<li class="fragment">First, a riddle:</li>
+<li class="fragment">How is this talk like - <em>publically stating that Gauss, <strong>born on April 30, 1777</strong> was called the “Prince of Mathematicians” because he lived in a castle and has a theorem called Purple Rain?</em></li>
+</ul>
+<div id="fig-gauss" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-circle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/circle.png" style="width:20.0%"></p>
-<figcaption>circle</figcaption>
+<p><img data-src="assets/gauss.png" style="width:50.0%"></p>
+<figcaption>Gauss</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/7-1-knot.png" style="width:20.0%"></p>
-<figcaption>7-1-knot</figcaption>
+<p><img data-src="assets/prince.png" style="width:60.0%"></p>
+<figcaption>Prince</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Homeomorphic
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
 </figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/square-torus.png" style="width:50.0%"></p>
-<figcaption>square torus</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/hex-torus.png" style="width:50.0%"></p>
-<figcaption>hexagonal torus</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </div>
 </section>
-<section id="isotopies" class="slide level2">
-<h2>Isotopies</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Definition</a></li><li><a href="#tabset-2-2">Examples</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
+
+<section>
+<section id="defamations-of-a-taurus" class="title-slide slide level1 center">
+<h1>Defamations of a Taurus</h1>
+<p>Or …</p>
 <ul>
-<li>A continuous deformation through time</li>
-<li>Each step is a homeomorphism</li>
+<li><em>publically stating that Henri Poincaré, <strong>born April 29, 1854</strong> was too clumsy to draw accurately - so he invented topology; and was so careless he actually had to pay to have his own error-laden papers suppressed.</em></li>
 </ul>
-</div>
-<div id="tabset-2-2">
-<ul>
-<li>The torus is isotopic to a coffee mug.</li>
-<li>A thin torus is isotopic to a thick torus.</li>
-<li>PhotoBooth/App effects are isotopies of pixel coordinates</li>
-<li>The square torus is not isotopic to the hexagonal torus.</li>
-<li><a href="https://joshtanga.github.io/torus/swirl/">link to 3D model</a></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="arnolds-cat-map" class="slide level2">
-<h2>Arnold’s Cat Map</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Vladimir</a></li><li><a href="#tabset-3-2">Arnold</a></li><li><a href="#tabset-3-3">Innumumarcy &amp; the Fires of the Inquisition</a></li><li><a href="#tabset-3-4">The Map</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li>Russian, father studied under Emmy Noether.</li>
-<li>geometry, dynamical systems, catastrophe theory, math education, et al.</li>
-<li>Studied under:
-<ul>
-<li>Kolmogorov</li>
-<li>Pontryagin (totally blind @ 14)</li>
-<li>Alexandrov</li>
-</ul></li>
-<li>Arnold’s principle:
-<ul>
-<li>“Discoveries are rarely attributed to the correct person”</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:40%;">
+<div id="fig-gauss" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/arnold.jpg" style="width:70.0%"></p>
-<figcaption>Vladimir Arnold - (1937 - 2010)</figcaption>
+<p><img data-src="assets/poincare.png" style="width:50.0%"></p>
+<figcaption>Poincaré</figcaption>
 </figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/gomboc.png" style="width:50.0%"></p>
+<p><img data-src="assets/chaos2.png" style="width:50.0%"></p>
+<figcaption>Chaos</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-gauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+<!--The Arnold principle: "Discoveries are rarely attributed to the correct person" is also named after him.[1]
+
+see: https://en.wikipedia.org/wiki/Stigler%27s_law_of_eponymy-->
+</section>
+<section id="section-1" class="slide level2" data-background-video="assets/indiras_torus.mp4" data-background-size="contain" data-background-position="center" data-background-video-loop="true">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; left: 30px; font-size: 0.5em; color: #7f8c8d;">
+<p>Indira Chatterji: <a href="https://chatterj.perso.math.cnrs.fr/">https://chatterj.perso.math.cnrs.fr/</a></p>
+</div>
+</section>
+<section id="section-2" class="slide level2" data-background-video="assets/indiras_g2surf.mp4" data-background-size="contain" data-background-position="center" data-background-video-loop="true">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; left: 30px; font-size: 0.5em; color: #7f8c8d;">
+<p>Indira Chatterji: <a href="https://chatterj.perso.math.cnrs.fr/">https://chatterj.perso.math.cnrs.fr/</a></p>
+</div>
+</section>
+<section id="section-3" class="slide level2" data-background-video="assets/dehn_twist_indiras.mov" data-background-size="contain" data-background-position="center" data-background-video-loop="true">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; left: 30px; font-size: 0.5em; color: #7f8c8d;">
+<p>Indira Chatterji: <a href="https://chatterj.perso.math.cnrs.fr/">https://chatterj.perso.math.cnrs.fr/</a></p>
+</div>
+</section>
+<section id="section-4" class="slide level2" data-background-image="assets/math_people.jpg" data-background-size="cover" data-background-position="center">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; left: 150px; font-size: 0.5em; color: white;">
+<p>photo: Jalowetz Aronson Family Collection.</p>
+</div>
+</section>
+<section id="section-5" class="slide level2" data-background-image="assets/max_dehn_bio.png" data-background-size="contain" data-background-position="center">
+<h2></h2>
+<div style="position: absolute; top: 10px; left: 0px; font-size: 0.5em; color: #7f8c8d;">
+<p>Image: <a href="https://ems.press/content/serial-article-files/46662">Workshop on Max Dehn</a></p>
+</div>
+</section>
+<section id="section-6" class="slide level2" data-background-image="assets/max_dehn_bmc.png" data-background-size="contain" data-background-position="center">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; left: 150px; font-size: 0.5em; color: white;">
+<p>Black Mountain College (<a href="https://www.ams.org/publications/journals/notices/201711/rnoti-p1313.pdf" style="color: white;">Notices of AMS, Vol. 64, No.&nbsp;11</a>)</p>
+</div>
+</section>
+<section id="section-7" class="slide level2" data-background-image="assets/max_dehn1.png" data-background-size="contain" data-background-position="center">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; left: 150px; font-size: 0.5em; color: white;">
+<p><a href="https://joshtanga.github.io/torus/dehn_twist/" style="color: white;">Max Dehn</a> (photo: Online Journal of BMC Studies (16))</p>
+</div>
+</section>
+<section id="section-8" class="slide level2" data-background-image="assets/arnold.jpg" data-background-size="cover" data-background-position="center">
+<h2></h2>
+<div style="position: absolute; bottom: 10px; right: 0px; font-size: 1em; color: white">
+<p>Vladimir Arnold - (1937 - 2010)</p>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.youtube.com/shorts/0rPoSkOkcbo"><img data-src="assets/gomboc.png" style="width:50.0%" alt="gomboc"></a></p>
 <figcaption>gomboc</figcaption>
 </figure>
 </div>
-</div></div>
-</div>
-<div id="tabset-3-2">
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li>Solved Hilbert’s 13th problem at age 19.</li>
-<li>Critic of Bourbaki, 1900’s trend toward higher abstraction in mathematics.</li>
-<li>1974: nominated for Field’s Medal, but then …</li>
-<li>1999: bike accident in Paris, TBI, amnesia, then full recovery.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/arnold_2.png" style="width:90.0%"></p>
-<figcaption>Vladimir Arnold - (1937 - 2010)</figcaption>
-</figure>
-</div>
-</div></div>
-</div>
-<div id="tabset-3-3">
+</section>
+<section id="innumumarcy-the-fires-of-the-inquisition" class="slide level2">
+<h2>Innumumarcy &amp; the Fires of the Inquisition</h2>
 <div style="font-family: 'Courier New', monospace; font-size: 1em;">
 <blockquote>
 <p>“We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance.”</p>
 </blockquote>
 <blockquote>
-<p>“Even more important than the ability to add fractions is the fact that <u>a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one</u>. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s.”</p>
+<p>“Even more important than the ability to add fractions is the fact that <span class="highlighted">a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one </span>. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s.”</p>
 </blockquote>
 <blockquote>
 <p>— Vladimir Arnold</p>
 </blockquote>
 </div>
 <p>Read the full article <a href="https://mat.fsv.cvut.cz/soukenkam/ArnoldInquisition.pdf">here</a></p>
-</div>
-<div id="tabset-3-4">
+</section>
+<section id="the-map" class="slide level2">
+<h2>The Map</h2>
 <p><span class="math display">\[\begin{bmatrix}x' \\
 y'\end{bmatrix} = \begin{bmatrix}1 &amp; 1 \\
 1 &amp; 2\end{bmatrix} \begin{bmatrix}x \\
@@ -324,13 +319,15 @@ y\end{bmatrix} \mod 1\]</span></p>
 <p>Let <span class="math inline">\(A\)</span> be the matrix above. If a point <span class="math inline">\(x\)</span> is periodic, then there exist a positive integer <span class="math inline">\(n\)</span> such that <span class="math display">\[A^n x - x \in \mathbb{Z}^2, \mbox{ i.e., } (A^n - I)x  = y \in \mathbb{Z}^2.\]</span><br>
 Since <span class="math inline">\(A\)</span> has integer entries, the matrix <span class="math inline">\(M = A^n - I\)</span> does too. Furthermore the determinant <span class="math display">\[\det(M) = \det(A^n - I) = \prod_{i=1}^2 (\lambda_i^n - 1)\]</span> where <span class="math inline">\(\lambda_i\)</span> are the eigenvalues of <span class="math inline">\(A\)</span>. The eigenvalues of <span class="math inline">\(A\)</span> are real and irrational, thus <span class="math inline">\(\lambda_i^n - 1 \neq 0\)</span> for all <span class="math inline">\(n\)</span>, so <span class="math inline">\(\det(M) \neq 0\)</span>.</p>
 <p>Since <span class="math inline">\(M\)</span> is an integer matrix with nonzero determinant, it is invertible over the rationals, so <span class="math inline">\(x = M^{-1} y\)</span> so <span class="math inline">\(x\)</span> is rational.</p>
-<p>o</p>
-<p>oo</p>
-<p>o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o- -o+o-</p>
-<p>oo</p>
-<p>o</p>
-<p>Conversely, if <span class="math inline">\(x\)</span> is rational, we can factor out the common denominator <span class="math inline">\(d\)</span> to get <span class="math inline">\(x = \frac{1}{d} z\)</span> for some <span class="math inline">\(z \in \mathbb{Z}\)</span>. We want to show that there exist a positive integer <span class="math inline">\(n\)</span> such that <span class="math display">\[A^n x - x \in \mathbb{Z}^2, \mbox{ i.e., } A^n x \equiv x  \mod 1. \]</span></p>
-<p>We’ll use the pigeonhold principle.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Conversely, if <span class="math inline">\(x\)</span> is rational, we can factor out the common denominator <span class="math inline">\(d\)</span> of the entries of <span class="math inline">\(z\)</span> to get <span class="math inline">\(x = \frac{1}{d} z\)</span> for some <span class="math inline">\(z \in \mathbb{Z}\)</span>. Then by linearity <span class="math display">\[A^n x - x = \frac{1}{d} (A^n z - z) = \frac{1}{d} (A^n - I) z.\]</span> If the entries of <span class="math inline">\(A^n - I\)</span> are all multiples of <span class="math inline">\(d\)</span>, then this becomes an integer vector, thus congruent to 0 modulo 1 implying that <span class="math inline">\(x\)</span> is periodic. So we want to show that there exist a positive integer <span class="math inline">\(n\)</span> such that <span class="math display">\[A^n \equiv I \mod d.\]</span></p>
+<p>We’ll use the pigeonhole principle.</p>
 <p><strong>Pigeons</strong>: matrices <span class="math inline">\(A^{n_i}\)</span></p>
 <p><strong>Pigeonholes</strong>: matrices <span class="math inline">\(A^{n_i}\)</span> modulo <span class="math inline">\(d\)</span></p>
 <p>Each entry of <span class="math inline">\(A^{n_i}\)</span> modulo <span class="math inline">\(d\)</span> gives <span class="math inline">\(d\)</span> possible values, so there are <span class="math inline">\(d^4\)</span> possible pigeonholes. The entries of <span class="math inline">\(A^{n_i}\)</span> are (increasing) Fibonacci numbers so clearly there are more pigeons than pigeonholes, so by the pigeonhole principle there must be exist a pair of integers <span class="math inline">\(n_i\)</span> and <span class="math inline">\(n_j\)</span> such that <span class="math inline">\(A^{n_i} \equiv A^{n_j} \mod d\)</span>.</p>
@@ -338,11 +335,23 @@ Since <span class="math inline">\(A\)</span> has integer entries, the matrix <sp
 </div>
 </div>
 </div>
+<div title="Example">
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example</strong></p>
 </div>
-<p>Visualize the cat map using this <a href="https://joshtanga.github.io/torus/anosov/">link to a 3D model</a></p>
+<div class="callout-content">
+<p>For example, if <span class="math display">\[x = \begin{bmatrix} \frac{2}{3} \\ \frac{7}{5} \end{bmatrix}\]</span> then we rewrite <span class="math display">\[x = \frac{1}{15} \begin{bmatrix} 10 \\ 21 \end{bmatrix}\]</span> so <span class="math inline">\(d = 15\)</span>.<br>
+We want to find <span class="math inline">\(n\)</span> such that <span class="math display">\[A^n \equiv I \mod 15.\]</span><br>
+For then <span class="math display">\[A^n = \begin{bmatrix} 15k + 1 &amp; 15m \\ 15p &amp; 15q + 1 \end{bmatrix}\]</span> for some integers <span class="math inline">\(k, m, p, q\)</span> and thus <span class="math display">\[A^n x =
+\frac{1}{15} \begin{bmatrix} 10(15k + 1) + 21(15m) \\ 10(15p) + 21(15q + 1) \end{bmatrix} =
+\frac{1}{15} \begin{bmatrix} 150k + 10 + 315m \\ 150p + 315q + 21 \end{bmatrix}\]</span> so <span class="math display">\[A^n x - x = \frac{1}{15} \begin{bmatrix} 150k + 315m \\ 150p + 315q \end{bmatrix} = \begin{bmatrix} 10k + 21m \\ 10p + 21q \end{bmatrix}\]</span> as desired.</p>
 </div>
 </div>
 </div>
+</div>
+<p>Follow this <a href="https://joshtanga.github.io/torus/anosov/">link</a> visualize the cat map.</p>
 
 
 </section></section>
@@ -746,38 +755,6 @@ Since <span class="math inline">\(A\)</span> has integer entries, the matrix <sp
       }
     });
     </script>
-        <script type="text/javascript">
-        (function(d) {
-          d.querySelectorAll(".pseudocode-container").forEach(function(el) {
-            let pseudocodeOptions = {
-              indentSize: el.dataset.indentSize,
-              commentDelimiter: " " + el.dataset.commentDelimiter + " ",
-              lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
-              lineNumberPunc: el.dataset.lineNumberPunc,
-              noEnd: el.dataset.noEnd.toLowerCase() === "true",
-              titlePrefix: el.dataset.captionPrefix,
-            };
-            pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
-          });
-        })(document);
-        (function(d) {
-          d.querySelectorAll(".pseudocode-container").forEach(function(el) {
-            let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
-            if (captionSpan !== null) {
-              let captionPrefix = el.dataset.captionPrefix + " ";
-              let captionNumber = "";
-              if (el.dataset.pseudocodeNumber) {
-                captionNumber = el.dataset.pseudocodeNumber + " ";
-                if (el.dataset.chapterLevel) {
-                  captionNumber = el.dataset.chapterLevel + "." + captionNumber;
-                }
-              }
-              captionSpan.innerHTML = captionPrefix + captionNumber;
-            }
-          });
-        })(document);
-        </script>
-      
     
 
 </body></html>
