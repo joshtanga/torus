@@ -8,7 +8,7 @@ format:
     transition: slide
     header-includes: |
         <link href="fp.css" rel="stylesheet"> 
-css: styles.css
+css: slide_style.css
 execute:
   warning: false
   message: false

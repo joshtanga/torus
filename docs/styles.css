@@ -50,15 +50,7 @@
   border-left: 5px solid #ccc; /* optional customization */
 }
 
-/* allows images on the title slide */
-h1.title {
-  min-height: 400px; /* Give the images room to exist */
-  display: block;   /* Ensure it's a block-level element */
-  background-image: url(assets/uv_checkerboard.png), url(assets/cat_96.png);
-  background-repeat: no-repeat;
-  background-position: 10% 75%, 90% 75%; /* Adjusts the position of each image */
-  background-size: 200px, 200px;
-}
+
 
 .highlighted {
   background-color: rgba(255, 255, 0, 0.4);
