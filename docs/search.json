@@ -18,7 +18,7 @@
     "href": "cat_slides.html#arnolds-cat-map",
     "title": "Cat Dynamics are Manifold",
     "section": "Arnold’s Cat Map",
-    "text": "Arnold’s Cat Map\n\nVladimir Arnold - (1937 - 2010)"
+    "text": "Arnold’s Cat Map\n\\[\\begin{bmatrix}x' \\\\\ny'\\end{bmatrix} = \\begin{bmatrix}1 & 1 \\\\\n1 & 2\\end{bmatrix} \\begin{bmatrix}x \\\\\ny\\end{bmatrix} \\mod 1\\]\n\n\n\n\nTheorem\n\n\nA point on the cat map is periodic if and only if its coordinates are rational.\nLet \\(A\\) be the matrix above. If a point \\(x\\) is periodic, then there exist a positive integer \\(n\\) such that \\[A^n x - x \\in \\mathbb{Z}^2, \\mbox{ i.e., } (A^n - I)x  = y \\in \\mathbb{Z}^2.\\]\nSince \\(A\\) has integer entries, the matrix \\(M = A^n - I\\) does too. Furthermore the determinant \\[\\det(M) = \\det(A^n - I) = \\prod_{i=1}^2 (\\lambda_i^n - 1)\\] where \\(\\lambda_i\\) are the eigenvalues of \\(A\\). The eigenvalues of \\(A\\) are real and irrational, thus \\(\\lambda_i^n - 1 \\neq 0\\) for all \\(n\\), so \\(\\det(M) \\neq 0\\).\nSince \\(M\\) is an integer matrix with nonzero determinant, it is invertible over the rationals, so \\(x = M^{-1} y\\) so \\(x\\) is rational.\n\n\n\n\n\n\n\nConversely, if \\(x\\) is rational, we can factor out the common denominator \\(d\\) of the entries of \\(z\\) to get \\(x = \\frac{1}{d} z\\) for some \\(z \\in \\mathbb{Z}\\). Then by linearity \\[A^n x - x = \\frac{1}{d} (A^n z - z) = \\frac{1}{d} (A^n - I) z.\\] If the entries of \\(A^n - I\\) are all multiples of \\(d\\), then this becomes an integer vector, thus congruent to 0 modulo 1 implying that \\(x\\) is periodic. So we want to show that there exist a positive integer \\(n\\) such that \\[A^n \\equiv I \\mod d.\\]\nWe’ll use the pigeonhole principle.\nPigeons: matrices \\(A^{n_i}\\)\nPigeonholes: matrices \\(A^{n_i}\\) modulo \\(d\\)\nEach entry of \\(A^{n_i}\\) modulo \\(d\\) gives \\(d\\) possible values, so there are \\(d^4\\) possible pigeonholes. The entries of \\(A^{n_i}\\) are (increasing) Fibonacci numbers so clearly there are more pigeons than pigeonholes, so by the pigeonhole principle there must be exist a pair of integers \\(n_i\\) and \\(n_j\\) such that \\(A^{n_i} \\equiv A^{n_j} \\mod d\\).\nSince \\(A\\) is invertible, we can multiply both sides by \\(A^{-n_j}\\) to get \\(A^{n_i - n_j} \\equiv I \\mod d\\).\n\n\n\n\n\n\n\nExample\n\n\nFor example, if \\[x = \\begin{bmatrix} \\frac{2}{3} \\\\ \\frac{7}{5} \\end{bmatrix}\\] then we rewrite \\[x = \\frac{1}{15} \\begin{bmatrix} 10 \\\\ 21 \\end{bmatrix}\\] so \\(d = 15\\).\nWe want to find \\(n\\) such that \\[A^n \\equiv I \\mod 15.\\]\nFor then \\[A^n = \\begin{bmatrix} 15k + 1 & 15m \\\\ 15p & 15q + 1 \\end{bmatrix}\\] for some integers \\(k, m, p, q\\) and thus \\[A^n x =\n\\frac{1}{15} \\begin{bmatrix} 10(15k + 1) + 21(15m) \\\\ 10(15p) + 21(15q + 1) \\end{bmatrix} =\n\\frac{1}{15} \\begin{bmatrix} 150k + 10 + 315m \\\\ 150p + 315q + 21 \\end{bmatrix}\\] so \\[A^n x - x = \\frac{1}{15} \\begin{bmatrix} 150k + 315m \\\\ 150p + 315q \\end{bmatrix} = \\begin{bmatrix} 10k + 21m \\\\ 10p + 21q \\end{bmatrix}\\] as desired."
   },
   {
     "objectID": "index.html",
@@ -165,14 +165,14 @@
     "href": "cat_slides.html#section-6",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "Black Mountain College (Notices of AMS, Vol. 64, No. 11)"
+    "text": "Image: Workshop on Max Dehn"
   },
   {
     "objectID": "cat_slides.html#section-7",
     "href": "cat_slides.html#section-7",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "Max Dehn (photo: Online Journal of BMC Studies (16))"
+    "text": "Black Mountain College (Notices of AMS, Vol. 64, No. 11)"
   },
   {
     "objectID": "cat_slides.html#arnolds-cat-map-.background-imageassetsarnold.jpg-background-sizecover-background-positioncenter",
@@ -186,7 +186,7 @@
     "href": "cat_slides.html#section-8",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "Vladimir Arnold - (1937 - 2010)"
+    "text": "Max Dehn (photo: Online Journal of BMC Studies (16))"
   },
   {
     "objectID": "cat_slides.html#innumumarcy-the-fires-of-the-inquisition",
@@ -207,13 +207,48 @@
     "href": "cat_slides.html#section-9",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "gomboc"
+    "text": "Vladimir Arnold - (1937 - 2010)"
   },
   {
     "objectID": "cat_slides.html#gomboc",
     "href": "cat_slides.html#gomboc",
     "title": "Cat Dynamics are Manifold",
-    "section": "gomboc",
-    "text": "gomboc"
+    "section": "\\(G\\\"{o}mbo\\\"{c}\\)",
+    "text": "\\(G\\\"{o}mbo\\\"{c}\\)"
+  },
+  {
+    "objectID": "cat_slides.html#göomböoc",
+    "href": "cat_slides.html#göomböoc",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Göomböoc",
+    "text": "Göomböoc"
+  },
+  {
+    "objectID": "cat_slides.html#gömböc",
+    "href": "cat_slides.html#gömböc",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Gömböc",
+    "text": "Gömböc"
+  },
+  {
+    "objectID": "cat_slides.html#deformations-of-a-torus-1",
+    "href": "cat_slides.html#deformations-of-a-torus-1",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Deformations of a Torus",
+    "text": "Deformations of a Torus\n\n\nFirst, a riddle:\nHow is this talk like - publically stating that Gauss, born on April 30, 1777 was called the “Prince of Mathematicians” because he lived in a castle and has a theorem called Purple Rain?\n\n\n\n\n\n\n\n\n\nGauss\n\n\n\n\n\n\n\nPrince\n\n\n\n\n\n\nFigure 1"
+  },
+  {
+    "objectID": "cat_slides.html#defamations-of-a-taurus",
+    "href": "cat_slides.html#defamations-of-a-taurus",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Defamations of a Taurus",
+    "text": "Defamations of a Taurus\nOr …\n\npublically stating that Henri Poincaré, born April 29, 1854 was too clumsy to draw accurately - so he invented topology; and was so careless he actually had to pay to have his own error-laden papers suppressed.\n\n\n\n\n\n\n\n\n\nPoincaré\n\n\n\n\n\n\n\nChaos\n\n\n\n\n\n\nFigure 2"
+  },
+  {
+    "objectID": "cat_slides.html#maryam-mirzakhani",
+    "href": "cat_slides.html#maryam-mirzakhani",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Maryam Mirzakhani",
+    "text": "Maryam Mirzakhani\n\nIranian mathematician, born in 1977, died in 2017 (cancer)\nFirst woman and first Iranian to win the Fields Medal (2014) for: “her outstanding contributions to the dynamics and geometry of Riemann surfaces and their moduli spaces”\nfilm: secrets of the surface"
   }
 ]

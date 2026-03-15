@@ -14,14 +14,14 @@ execute:
   message: false
 ---
 
-## {.center background-image="assets/maryam.png"}
+# {.center background-image="assets/maryam.png"}
 
 ::: {style="margin-top: 500px; font-size: 2em; color: white; text-shadow: 2px 2px 4px #000000; position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
 March is Women's History Month
 :::
 
 
-# Maryam Mirzakhani
+## Maryam Mirzakhani
 
 - Iranian mathematician, born in 1977, died in 2017 (cancer)
 - First woman and first Iranian to win the Fields Medal (2014) for:
@@ -33,7 +33,7 @@ March is Women's History Month
 
 
 
-# Deformations of a Torus
+## Deformations of a Torus
 
 :::{.incremental}
 * First, a riddle:
@@ -49,7 +49,7 @@ March is Women's History Month
 
 :::
 
-# Defamations of a Taurus
+## Defamations of a Taurus
 
 Or ... 
 
@@ -91,10 +91,16 @@ Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.
 Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.math.cnrs.fr/)
 :::
 
-## {background-image="assets/math_people.jpg" background-size="cover" background-position="center"}
+# {background-image="assets/math_people.jpg" background-size="cover" background-position="center"}
 
-::: {style="position: absolute; bottom: 10px; left: 150px; font-size: 0.5em; color: white;"}
-photo: Jalowetz Aronson Family Collection.
+::: {.footer}
+[Source: Astabricot's Classroom](https://mathoverflow.net/questions/98548/in-search-of-an-early-picture-of-max-dehn){style="font-size: 1em; color: #eee; text-shadow: 2px 2px 4px #000000;"} 
+:::
+
+# {background-image="assets/math_people2.png" background-size="contain" background-position="center"}
+
+::: {.footer}
+[Source: <u>Max Dehn Polyphonic Portrait</u> (AMS)](https://www.ams.org/books/hmath/046/hmath046-endmatter.pdf){style="font-size: 1em; color: #eee; text-shadow: 2px 2px 4px #000000;"} 
 :::
 
 ## {background-image="assets/max_dehn_bio.png" background-size="contain" background-position="center"}
@@ -126,7 +132,7 @@ Vladimir Arnold - (1937 - 2010)
 :::
 
 
-## gomboc
+## G&ouml;mb&ouml;c
 
 ![](assets/click.png){style="position: absolute; bottom: 10px; left: 30px; width: 20%;"}
 
@@ -153,7 +159,7 @@ Vladimir Arnold - (1937 - 2010)
 Read the full article [here](https://mat.fsv.cvut.cz/soukenkam/ArnoldInquisition.pdf) 
 
 
-## The Map
+## Arnold's Cat Map
 
 $$\begin{bmatrix}x' \\
 y'\end{bmatrix} = \begin{bmatrix}1 & 1 \\
@@ -203,6 +209,9 @@ so
 $$A^n x - x = \frac{1}{15} \begin{bmatrix} 150k + 315m \\ 150p + 315q \end{bmatrix} = \begin{bmatrix} 10k + 21m \\ 10p + 21q \end{bmatrix}$$ as desired.
 :::
 
+# 
 
-Follow this [link](https://joshtanga.github.io/torus/anosov/)
-visualize the cat map. 
+Visualize the Cat Map
+
+# {background-iframe="https://joshtanga.github.io/torus/anosov/"  background-interactive=true}
+
