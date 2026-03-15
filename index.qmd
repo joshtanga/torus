@@ -6,7 +6,7 @@ format:
       toc: false
 ---
 
-Some examples of torus automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
+Examples of torus automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
 
 
 ![torus in open3D](../assets/torus_1.png){width=300px}
