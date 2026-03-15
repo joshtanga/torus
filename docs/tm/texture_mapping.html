@@ -203,13 +203,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The pseudocode for the texture mapping is below.</p>
-<div id="6be7fc37" class="cell" data-execution_count="1">
+<div id="a425fefe" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> load_image</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> pixel_coordinates(img)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a mesh is a collection of vertices, edges, and faces that define the shape of a 3D object.  In this case, we are using a torus mesh from open3D.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> o3d.geometry.TriangleMesh.create_torus()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>show(img, map_x, map_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the vertices of the mesh are the points in 3D space that define the shape of the torus.  We can access them as a numpy array for easier manipulation.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>verts <span class="op">=</span> np.asarray(mesh.vertices)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance from the center of the torus in the XY plane</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>distance_xy <span class="op">=</span> np.sqrt(verts[:, <span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> verts[:, <span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># the u_angle is the angle around the central hole of the torus, and the v_angle is the angle around the tube of the torus.  We can compute them using the arctan2 function, which gives us the angle in radians between the positive x-axis and the point (x,y). </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>u_angle <span class="op">=</span> np.arctan2(verts[:, <span class="dv">1</span>], verts[:, <span class="dv">0</span>])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>v_angle <span class="op">=</span> np.arctan2(verts[:, <span class="dv">2</span>], distance_xy <span class="op">-</span> R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="troubleshooting" class="level1">

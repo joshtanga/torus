@@ -50,10 +50,18 @@ The pseudocode for the texture mapping is below.
 #| eval: false
 #| code-fold: true
 
-img = load_image
-x,y = pixel_coordinates(img)
+# a mesh is a collection of vertices, edges, and faces that define the shape of a 3D object.  In this case, we are using a torus mesh from open3D.
+mesh = o3d.geometry.TriangleMesh.create_torus()
 
-show(img, map_x, map_y)
+# the vertices of the mesh are the points in 3D space that define the shape of the torus.  We can access them as a numpy array for easier manipulation.
+verts = np.asarray(mesh.vertices)
+
+# Distance from the center of the torus in the XY plane
+distance_xy = np.sqrt(verts[:, 0]**2 + verts[:, 1]**2)
+
+# the u_angle is the angle around the central hole of the torus, and the v_angle is the angle around the tube of the torus.  We can compute them using the arctan2 function, which gives us the angle in radians between the positive x-axis and the point (x,y). 
+u_angle = np.arctan2(verts[:, 1], verts[:, 0])
+v_angle = np.arctan2(verts[:, 2], distance_xy - R)
 ```
 
 # Troubleshooting
