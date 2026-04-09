@@ -217,9 +217,67 @@ so
 $$A^n x - x = \frac{1}{15} \begin{bmatrix} 150k + 315m \\ 150p + 315q \end{bmatrix} = \begin{bmatrix} 10k + 21m \\ 10p + 21q \end{bmatrix}$$ as desired.
 :::
 
-# 
+# Trace Trichotomy {.center background-image="assets/conic2_rotated.png" background-size="30%" background-position="right" background-opacity=0.5}
 
-Visualize the Discrete Cat Map
+:::: {.columns}
+
+::: {.column width="70%" style="text-align=center;"}
+
+![](assets/trichotomy.png){height="275px" fig-align="center"}
+
+$$\text{tr} \left(\begin{bmatrix}
+1 & 1 \\
+1 & 2
+\end{bmatrix}\right) > 2
+$$
+
+<center>The Cat Map is Anosov</center>
+
+:::
+
+::::
+
+# {.center background-image="assets/eigen_catmap.png" background-size="contain" background-position="center"}
+
+# {.center background-image="assets/computation.png" background-size="50%" background-position="right"}
+:::: {.columns}
+
+::: {.column width="40%"}
+$$A = \begin{bmatrix}
+1 & 1 \\
+1 & 2
+\end{bmatrix}
+$$
+
+- Fibonacci numbers in $A^n$ 
+
+:::
+::::
+
+
+
+# {.center background-image="assets/eigen_golden.png" background-size="40%" background-position="right"}
+:::: {.columns}
+
+::: {.column width="40%"}
+$$A = \begin{bmatrix}
+1 & 1 \\
+1 & 2
+\end{bmatrix}
+$$
+
+- Eigen values = $\frac{3 \pm \sqrt{5}}{2}$ thus  $$\lambda_1 * \lambda_2 = 1$$ 
+- $\lambda_1 = 1 + \phi$
+- $\lambda_2 = 2 - \phi$
+
+  ($\phi$ is the golden ratio)
+
+:::
+::::
+
+
+
+# Visualize the Discrete Cat Map
 
 # {background-iframe="https://joshtanga.github.io/torus/anosov/"  background-interactive=true}
 
