@@ -25,19 +25,23 @@ March is Women's History Month
 
 - Iranian mathematician, born in 1977, died in 2017 (cancer)
 - First woman and first Iranian to win the Fields Medal (2014) for:
-  "her outstanding contributions to the dynamics and geometry of Riemann surfaces and their moduli spaces"
-- [film: secrets of the surface](https://www.zalafilms.com/secrets/production.html)
 
+"her outstanding contributions to the dynamics and geometry of Riemann surfaces and their moduli spaces"
+
+- documentarty [secrets of the surface](https://www.zalafilms.com/secrets/production.html): screening @ NMU Fall, 2026.  
+
+![](assets/secret_movie.png){width=50%}
 
 # Deformations of a Torus {background-video="assets/deform_torus.mov" background-size="cover" background-position="center" background-video-loop=true}
 
 
 
-## Deformations of a Torus
+## Defamation of a Taurus
 
-:::{.incremental}
-* First, a riddle:
-* How is this talk like  - *publically stating that Gauss, **born on April 30, 1777** was called the "Prince of Mathematicians" because he lived in a castle and has a theorem called Purple Rain?*
+Karl Friedric Gauss, **born on April 30, 1777** 
+
+- called the "Prince of Mathematicians"
+- born in a castle and has a theorem called Purple Rain
 
 ::: {#fig-gauss layout-ncol=2}
 
@@ -47,13 +51,13 @@ March is Women's History Month
 
 :::
 
-:::
-
 ## Defamations of a Taurus
 
-Or ... 
+Henri Poincar&eacute;, **born April 29, 1854** 
 
-- *publically stating that Henri Poincar&eacute;, **born April 29, 1854** was too clumsy to draw accurately - so he invented topology; and was so careless he actually had to pay to have his own error-laden papers suppressed.* 
+- too clumsy to draw accurately 
+- so he invented topology
+- was so careless he paid to have his own error-laden papers suppressed.
 
 ::: {#fig-gauss layout-ncol=2}
 
@@ -62,8 +66,6 @@ Or ...
 ![Chaos](assets/chaos2.png){width=50%}
 
 :::
-
-
 
 
 
@@ -102,6 +104,8 @@ Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.
 ::: {.footer}
 [Source: <u>Max Dehn Polyphonic Portrait</u> (AMS)](https://www.ams.org/books/hmath/046/hmath046-endmatter.pdf){style="font-size: 1em; color: #eee; text-shadow: 2px 2px 4px #000000;"} 
 :::
+
+<!-- https://www.ams.org/publications/journals/notices/201711/rnoti-p1313.pdf -->
 
 ## {background-image="assets/max_dehn_bio.png" background-size="contain" background-position="center"}
 
@@ -153,10 +157,14 @@ Vladimir Arnold - (1937 - 2010)
 
 > "Even more important than the ability to add fractions is the fact that <span class = "highlighted">a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one </span>. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s."
 
-> — Vladimir Arnold
+> — Vladimir Arnold (1998)
 :::
 
 Read the full article [here](https://mat.fsv.cvut.cz/soukenkam/ArnoldInquisition.pdf) 
+
+
+# [Arnold's Cat Map]{style="font-size: 0.9em;"} {.left background-image="assets/arnold_cat_fig.png" background-size="contain" background-position="right"}
+
 
 
 ## Arnold's Cat Map
@@ -211,7 +219,7 @@ $$A^n x - x = \frac{1}{15} \begin{bmatrix} 150k + 315m \\ 150p + 315q \end{bmatr
 
 # 
 
-Visualize the Cat Map
+Visualize the Discrete Cat Map
 
 # {background-iframe="https://joshtanga.github.io/torus/anosov/"  background-interactive=true}
 
