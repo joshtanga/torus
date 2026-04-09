@@ -86,13 +86,6 @@ Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.
 Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.math.cnrs.fr/)
 :::
 
-
-## {background-video="assets/dehn_twist_indiras.mov" background-size="contain" background-position="center" background-video-loop=true}
-
-::: {style="position: absolute; bottom: 10px; left: 30px; font-size: 0.5em; color: #7f8c8d;"}
-Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.math.cnrs.fr/)
-:::
-
 # {background-image="assets/math_people.jpg" background-size="cover" background-position="center"}
 
 ::: {.footer}
@@ -145,9 +138,6 @@ Vladimir Arnold - (1937 - 2010)
 <img src="assets/gomboc.png" class="glow-button" style="width: 100%;">
 </a>
 </div>
-
-
-
 
 ## Innumumarcy & the Fires of the Inquisition
 
@@ -240,6 +230,7 @@ $$
 # {.center background-image="assets/eigen_catmap.png" background-size="contain" background-position="center"}
 
 # {.center background-image="assets/computation.png" background-size="50%" background-position="right"}
+
 :::: {.columns}
 
 ::: {.column width="40%"}
@@ -257,9 +248,11 @@ $$
 
 
 # {.center background-image="assets/eigen_golden.png" background-size="40%" background-position="right"}
+
 :::: {.columns}
 
 ::: {.column width="40%"}
+
 $$A = \begin{bmatrix}
 1 & 1 \\
 1 & 2
@@ -281,10 +274,10 @@ $$
 
 # {background-iframe="https://joshtanga.github.io/torus/anosov/"  background-interactive=true}
 
----
-
 ## Pisano Periods $\pi(N)$
-### Period of Fibonacci numbers modulo $N$
+
+
+Period of Fibonacci numbers modulo $N$
 
 :::: {.columns}
 
@@ -294,9 +287,29 @@ $$
 * For $N=2^{k}$, the period of the cat map is $$\frac{1}{2} \pi(2^k) =  3 \cdot 2^{k-2}$$
 :::
 
-::: {.column width="60%" style="text-align: center;"}
+::: {.column width="40%"}
 ![](assets/computation.png){width="100%"}
+:::
+
 ::::
 
 ---
 
+
+## {background-video="assets/dehn_twist_indiras.mov" background-size="contain" background-position="center" background-video-loop=true}
+
+::: {style="position: absolute; bottom: 10px; left: 30px; font-size: 0.5em; color: #7f8c8d;"}
+Indira Chatterji: [https://chatterj.perso.math.cnrs.fr/](https://chatterj.perso.math.cnrs.fr/)
+:::
+
+Dehn Twists
+
+# {background-iframe="https://joshtanga.github.io/torus/dehn_twist/"  background-interactive=true}
+
+---
+
+### Periodic Mappings on the Torus
+
+# {background-iframe="https://joshtanga.github.io/torus/periodic/"  background-interactive=true}
+
+---

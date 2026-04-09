@@ -165,14 +165,14 @@
     "href": "cat_slides.html#section-6",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "Image: Workshop on Max Dehn"
+    "text": "Black Mountain College (Notices of AMS, Vol. 64, No. 11)"
   },
   {
     "objectID": "cat_slides.html#section-7",
     "href": "cat_slides.html#section-7",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "Black Mountain College (Notices of AMS, Vol. 64, No. 11)"
+    "text": "Max Dehn (photo: Online Journal of BMC Studies (16))"
   },
   {
     "objectID": "cat_slides.html#arnolds-cat-map-.background-imageassetsarnold.jpg-background-sizecover-background-positioncenter",
@@ -186,7 +186,7 @@
     "href": "cat_slides.html#section-8",
     "title": "Cat Dynamics are Manifold",
     "section": "",
-    "text": "Max Dehn (photo: Online Journal of BMC Studies (16))"
+    "text": "Vladimir Arnold - (1937 - 2010)"
   },
   {
     "objectID": "cat_slides.html#innumumarcy-the-fires-of-the-inquisition",
@@ -313,5 +313,12 @@
     "title": "Cat Dynamics are Manifold",
     "section": "Pisano Periods \\(\\pi(N)\\)",
     "text": "Pisano Periods \\(\\pi(N)\\)\nPeriod of Fibonacci numbers modulo \\(N\\)\n\n\n\nKnown for some \\(N\\), e.g., \\(\\pi(2^k) = 3 \\cdot 2^{k-1}\\)\nMatrix entries have two Fibonacci steps: \\(F_{2n-1}, F_{2n}, F_{2n+1}\\)\nFor \\(N=2^{k}\\), the period of the cat map is \\[\\frac{1}{2} \\pi(2^k) =  3 \\cdot 2^{k-2}\\]"
+  },
+  {
+    "objectID": "cat_slides.html#section-13",
+    "href": "cat_slides.html#section-13",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Indira Chatterji: https://chatterj.perso.math.cnrs.fr/\n\nDehn Twists"
   }
 ]
