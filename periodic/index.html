@@ -5,45 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Torus Automorphism Visualization</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com"></script>
-    <style>
-    body {
-        margin: 0;
-        font-family: sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: #f5f5f5;
-        padding-bottom: 50px;
-    }
-    header { padding: 20px; text-align: center; }
-
-    /* Changed from #container to .container for multiple uses */
-    .container {
-        width: 90vw;
-        height: 70vh;
-        background: #ffffff;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        overflow: hidden;
-        margin-bottom: 30px;
-    }
-    model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
-
-    /* New style for side-by-side images */
-    .image-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin: 20px 0;
-    }
-    .image-container img {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-    }
-    p { max-width: 800px; line-height: 1.6; padding: 0 20px; }
-</style>
+    
     <script>
       window.MathJax = {
         tex: {
@@ -53,129 +15,126 @@
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        body { 
+            margin: 0; 
+            font-family: sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            background: #f5f5f5; 
+            padding: 20px;
+        }
+        header { padding: 20px; text-align: center; }
+        
+        /* Flex container to hold the 3D models side-by-side */
+        .viewer-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 95vw;
+            margin: 20px 0;
+        }
 
-    <link rel="stylesheet" href="../styles.css">
+        /* Adjusted container size for 3-column layout */
+        .container { 
+            width: 30vw; 
+            height: 50vh; 
+            background: #ffffff; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+        }
+
+        model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+
+        .image-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+            margin: 20px 0;
+        }
+        
+        .image-container img { 
+            width: 250px; 
+            border-radius: 8px; 
+            border: 1px solid #ccc;
+        }
+
+        p { max-width: 900px; text-align: center; line-height: 1.6; }
+        h2 { font-size: 1.2rem; text-align: center; margin-bottom: 10px; }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Torus under the Identity Map</h1>
+    <h1>Torus Automorphism: Period 3 Orbit</h1>
+    <p>
+        Visualizing the periodic map defined by 
+        $$\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}$$
+        applied to a UV checkerboard texture.
+    </p>
 </header>
 
-<p> This image from the open3D docs is mapped onto a torus. </p>
-<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
+<div class="viewer-row">
+    
+    <div class="column">
+        <h2>Iteration 1</h2>
+        <div class="container">
+            <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
+                alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
+        </div>
+    </div>
 
+    <div class="column">
+        <h2>Iteration 2</h2>
+        <div class="container">
+            <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb" 
+                alt="Torus Iteration 2" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
+        </div>
+    </div>
 
-<div id="container">
-    <model-viewer 
-        src="../assets/uv_checkerboard_res_1024_iter_0_period_3_map.glb" 
-        alt="A 3D textured torus" 
-        auto-rotate 
-        camera-controls 
-        ar 
-        shadow-intensity="1" 
-        exposure="1" 
-        environment-image="neutral">
-    </model-viewer>
+    <div class="column">
+        <h2>Iteration 3 (Identity)</h2>
+        <div class="container">
+            <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
+                alt="Torus Iteration 3" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
+        </div>
+    </div>
+
 </div>
-
-<p> A periodic map of period 3, specically the one defined by the matrix 
-
-$$\left[\begin{array}[c]{rr}
-  0 &  1 \\ 
--1 & -1 
-\end{array}\right]$$ 
-
-is applied to the same image as before, which is a UV checkerboard texture commonly used for testing in 3D graphics. It is then mapped onto the torus. </p>
-
-
-
-<div class="image-container">
-<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-<img src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-</div>
-
 
 <header>
-    <h1>Torus after the First Iteration</h1>
+    <h2>Texture Transformation Comparison</h2>
 </header>
-
-<div id="container">
-    <model-viewer 
-        src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
-        alt="A 3D textured torus" 
-        auto-rotate 
-        camera-controls 
-        ar 
-        shadow-intensity="1" 
-        exposure="1" 
-        environment-image="neutral">
-    </model-viewer>
-</div>
-
-
-<p> The periodic map of period 3
-
-$$\begin{bmatrix} 
- 0 & 1 \\ 
--1 & -1 
-\end{bmatrix}$$ 
-
-is applied again to the transformed image </p>
-
-Initially, the image is transformed like this:
 
 <div class="image-container">
-<img src="../assets/period_3_map.png" alt="orbit of the periodic map" style="width: 300px; margin-bottom: 20px;">
+    <figure>
+        <img src="../assets/uv_checkerboard.png" alt="Original">
+        <figcaption align="center">Original Texture</figcaption>
+    </figure>
+    <figure>
+        <img src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.png" alt="Iter 1">
+        <figcaption align="center">Iter 1 Texture</figcaption>
+    </figure>
+    <figure>
+        <img src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.png" alt="Iter 2">
+        <figcaption align="center">Iter 2 Texture</figcaption>
+    </figure>
 </div>
-
-
-<div class="image-container">
-<img src="../assets/uv_checkerboard.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-<img src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-<img src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.png" alt="UV Checkerboard Texture" style="width: 300px; margin-bottom: 20px;">
-</div>
-
-
-
-<header>
-    <h1>Torus after the Second Iteration</h1>
-</header>
-
-<div id="image-container">
-    <model-viewer 
-        src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb" 
-        alt="A 3D textured torus" 
-        auto-rotate 
-        camera-controls 
-        ar 
-        shadow-intensity="1" 
-        exposure="1" 
-        environment-image="neutral">
-    </model-viewer>
-</div>
-
-
-<header>
-    <h1>Torus under the Third Iteration</h1>
-</header>
-
-<div id="image-container">
-    <model-viewer 
-        src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
-        alt="A 3D textured torus" 
-        auto-rotate 
-        camera-controls 
-        ar 
-        shadow-intensity="1" 
-        exposure="1" 
-        environment-image="neutral">
-    </model-viewer>
-</div>
-
 
 <footer>
-    <p>Use your mouse to rotate • Scroll to zoom</p>
+    <p>Use your mouse to rotate each torus independently • Scroll to zoom</p>
 </footer>
 
 </body>
