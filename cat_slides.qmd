@@ -281,3 +281,22 @@ $$
 
 # {background-iframe="https://joshtanga.github.io/torus/anosov/"  background-interactive=true}
 
+---
+
+## Pisano Periods $\pi(N)$
+### Period of Fibonacci numbers modulo $N$
+
+:::: {.columns}
+
+::: {.column width="60%" style="text-align: center;"}
+* Known for some $N$, e.g., $\pi(2^k) = 3 \cdot 2^{k-1}$
+* Matrix entries have **two** Fibonacci steps: $F_{2n-1}, F_{2n}, F_{2n+1}$
+* For $N=2^{k}$, the period of the cat map is $$\frac{1}{2} \pi(2^k) =  3 \cdot 2^{k-2}$$
+:::
+
+::: {.column width="60%" style="text-align: center;"}
+![](assets/computation.png){width="100%"}
+::::
+
+---
+

@@ -271,5 +271,47 @@
     "title": "Cat Dynamics are Manifold",
     "section": "Trace Trichotomy",
     "text": "Trace Trichotomy\n\n\n\n\\[\\mbox{trace} \\left(\\begin{bmatrix}\n1 & 1 \\\\\n1 & 2\n\\end{bmatrix}\\right) &gt; 2\n\\implies A \\mbox{ is hyperbolic (Anosov)}\\]"
+  },
+  {
+    "objectID": "cat_slides.html#the-matrix-identity",
+    "href": "cat_slides.html#the-matrix-identity",
+    "title": "Cat Dynamics are Manifold",
+    "section": "The Matrix Identity",
+    "text": "The Matrix Identity\nWhy \\([1\\ 1; 1\\ 2]\\) is different\n\n\n\nThis is the Fibonacci-step matrix\nEntries are tied to \\(F_{2n-1}, F_{2n}, F_{2n+1}\\)\nIt effectively “double-steps” through the transformation compared to the standard \\(\\begin{bmatrix} 2 & 1 \\\\ 1 & 1 \\end{bmatrix}\\)\n\n\n\\[\\begin{bmatrix} 1 & 1 \\\\ 1 & 2 \\end{bmatrix} = \\begin{bmatrix} 1 & 1 \\\\ 1 & 0 \\end{bmatrix}^2\\]"
+  },
+  {
+    "objectID": "cat_slides.html#the-power-of-2",
+    "href": "cat_slides.html#the-power-of-2",
+    "title": "Cat Dynamics are Manifold",
+    "section": "The Power of 2",
+    "text": "The Power of 2\nCalculating the Period for \\(N=1024\\)\n\n\nFor a grid size \\(N = 2^k\\), the discrete period \\(P(N)\\) follows:\n\\[P(2^k) = 3 \\cdot 2^{k-2}\\]\n\nAt \\(k=10\\) (\\(N=1024\\)): \\[3 \\cdot 2^{10-2} = 3 \\cdot 256 = \\mathbf{768}\\]\n\n\nNote: The standard map uses \\(3 \\cdot 2^{k-1} = 1536\\)."
+  },
+  {
+    "objectID": "cat_slides.html#the-magic-number",
+    "href": "cat_slides.html#the-magic-number",
+    "title": "Cat Dynamics are Manifold",
+    "section": "768: The Magic Number",
+    "text": "768: The Magic Number\nPoincaré Recurrence in Action\n\n\n\nDigital Recurrence: On a finite lattice, chaos is an illusion.\nThe “Ghost” Cat: Look for a mirrored state at iteration 384.\nThe Punchline: Our cat is speed-running its recurrence—returning home in half the time of the standard map."
+  },
+  {
+    "objectID": "cat_slides.html#pisano-periods",
+    "href": "cat_slides.html#pisano-periods",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Pisano Periods",
+    "text": "Pisano Periods\nPeriod of Fibonacci numbers modulo \\(N\\)\n\n\n\nFor \\(N=2^{k}\\), the Pisano period is \\(3 \\cdot 2^{k-1}\\)\nMatrix entries have two Fibonacci steps: \\(F_{2n-1}, F_{2n}, F_{2n+1}\\)\nFor \\(N=2^{k}\\), the period of the cat map is \\(3 \\cdot 2^{k-2}\\) (half the Pisano period)\n\n\n\n\nThe Power of 2\nCalculating the Period for \\(N=1024\\)\n\n\nFor a grid size \\(N = 2^k\\), the discrete period \\(P(N)\\) follows:\n\\[P(2^k) = 3 \\cdot 2^{k-2}\\]\n\nAt \\(k=10\\) (\\(N=1024\\)): \\[3 \\cdot 2^{10-2} = 3 \\cdot 256 = \\mathbf{768}\\]\n\n\nNote: The standard map uses \\(3 \\cdot 2^{k-1} = 1536\\).\n\n\n\n\n768: The Magic Number\nPoincaré Recurrence in Action\n\n\n\nDigital Recurrence: On a finite lattice, chaos is an illusion.\nThe “Ghost” Cat: Look for a mirrored state at iteration 384.\nThe Punchline: Our cat is speed-running its recurrence—returning home in half the time of the standard map."
+  },
+  {
+    "objectID": "cat_slides.html#pisano-periods-n",
+    "href": "cat_slides.html#pisano-periods-n",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Pisano Periods $(N)",
+    "text": "Pisano Periods $(N)\nPeriod of Fibonacci numbers modulo \\(N\\)\n\n\n\nKnown for some \\(N\\), e.g., \\(\\pi(2^k) = 3 \\cdot 2^{k-1}\\)\nMatrix entries have two Fibonacci steps: \\(F_{2n-1}, F_{2n}, F_{2n+1}\\)\nFor \\(N=2^{k}\\), the period of the cat map is \\(3 \\cdot 2^{k-2}\\) (\\(\\frac{1}{2} \\pi(2^k)\\))\n\n\n\n\nThe Power of 2\nCalculating the Period for \\(N=1024\\)\n\n\nFor a grid size \\(N = 2^k\\), the discrete period \\(P(N)\\) follows:\n\\[P(2^k) = 3 \\cdot 2^{k-2}\\]\n\nAt \\(k=10\\) (\\(N=1024\\)): \\[3 \\cdot 2^{10-2} = 3 \\cdot 256 = \\mathbf{768}\\]\n\n\nNote: The standard map uses \\(3 \\cdot 2^{k-1} = 1536\\).\n\n\n\n\n768: The Magic Number\nPoincaré Recurrence in Action\n\n\n\nDigital Recurrence: On a finite lattice, chaos is an illusion.\nThe “Ghost” Cat: Look for a mirrored state at iteration 384.\nThe Punchline: Our cat is speed-running its recurrence—returning home in half the time of the standard map."
+  },
+  {
+    "objectID": "cat_slides.html#pisano-periods-pin",
+    "href": "cat_slides.html#pisano-periods-pin",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Pisano Periods \\(\\pi(N)\\)",
+    "text": "Pisano Periods \\(\\pi(N)\\)\nPeriod of Fibonacci numbers modulo \\(N\\)\n\n\n\nKnown for some \\(N\\), e.g., \\(\\pi(2^k) = 3 \\cdot 2^{k-1}\\)\nMatrix entries have two Fibonacci steps: \\(F_{2n-1}, F_{2n}, F_{2n+1}\\)\nFor \\(N=2^{k}\\), the period of the cat map is \\[\\frac{1}{2} \\pi(2^k) =  3 \\cdot 2^{k-2}\\]"
   }
 ]
