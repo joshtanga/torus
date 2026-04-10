@@ -11,13 +11,15 @@ Examples of torus automorphisms, and their applications to texture mapping. Thes
 
 ![torus in open3D](../assets/torus_1.png){width=300px}
 
-::: {layout-ncol=2}
+::: {layout-ncol=3}
 
-# Homeomorphisms
-- [isotopy](swirl/main.html)
+# Mapping Classes
 - [periodic](../periodic/)
 - [dehn twist](../dehn_twist/)
 - [anosov](../anosov/)
+
+# Isotopies
+- [isotopy](swirl/main.html)
 - [deformed_torus](deformed_torus.html)
 - [isotopy](../isotopy/)
 - [changes to geometry](geometry_changes.html)

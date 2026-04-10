@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Torus Automorphisms & Texture Mapping",
     "section": "",
-    "text": "Examples of torus automorphisms, and their applications to texture mapping. These were made using these tools.\n\n\n\ntorus in open3D\n\n\n\n\n\n\n\n\nHomeomorphisms\n\nisotopy\nperiodic\ndehn twist\nanosov\ndeformed_torus\nisotopy\nchanges to geometry\n\n\n\nRelated\n\ntexture mapping\npython code\nslides\nbike gang"
+    "text": "Examples of torus automorphisms, and their applications to texture mapping. These were made using these tools.\n\n\n\ntorus in open3D\n\n\n\n\n\nMapping Classes\n\nperiodic\ndehn twist\nanosov\n\n\n\nIsotopies\n\nisotopy\ndeformed_torus\nisotopy\nchanges to geometry\n\n\n\nRelated\n\nmoduli of tori\ntexture mapping\npython code\nslides\nbike gang"
   },
   {
     "objectID": "swirl/main.html",
