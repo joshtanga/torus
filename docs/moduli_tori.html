@@ -224,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
         const j = parseInt(document.querySelector('#slider-r').value);
         
         // This must match the resolution from your Python script (e.g., 6 for 0-5 sliders)
-        const RESOLUTION = 6; 
+        const RESOLUTION = 10; 
         const idx = (i * RESOLUTION) + j;
         const currentData = frameStats[idx];
     
@@ -238,7 +238,6 @@ ul.task-list li input[type="checkbox"] {
             histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
     
             // 3. THE QUICK FIX: Update the text spans
-            // In manifest.csv, 'r' usually corresponds to Major and 'major_radius' to Minor 
             // because of how R's clean_names() handles the columns.
             document.querySelector('#val-R').innerText = currentData.r_major.toFixed(2);
             document.querySelector('#val-r').innerText = currentData.r_minor.toFixed(2);
