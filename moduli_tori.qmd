@@ -43,11 +43,6 @@ The histogram below represents the distribution of area change across all faces.
   <img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 
-<div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="distortion-scrubber" src="assets/torus_grid_sweep/r_dist_plot_x0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
-</div>
-
-
 
 
 :::
@@ -112,7 +107,7 @@ library(jsonlite)
 # 1. Load the files
 # manifest contains filenames/radii, ratios_data contains the actual area numbers
 manifest <- read_csv('assets/torus_grid_sweep/manifest.csv') |> janitor::clean_names()
-ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv') |> janitor::clean_names()
+ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv')
 
 # 2. Calculate stats only on the numeric ratio columns
 dist_stats_tidy <- ratios |> 
@@ -148,7 +143,6 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const histImg = document.querySelector('#hist-scrubber');
-    const distortionImg = document.querySelector('#distortion-scrubber');
     const sliderR = document.querySelector('#slider-R');
     const sliderSmallR = document.querySelector('#slider-r');
     
@@ -171,9 +165,7 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
     
             // 2. Update the Histogram Image
             const histImg = document.querySelector('#hist-scrubber');
-            const distortionImg = document.querySelector('#dist-scrubber');
             histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
-            distortionImg.src = `assets/torus_grid_sweep/r_dist_plot_x${idx}.png`;
     
             // 3. THE QUICK FIX: Update the text spans
             // because of how R's clean_names() handles the columns.
