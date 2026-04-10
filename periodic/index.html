@@ -64,17 +64,8 @@ model-viewer {
 <body>
 
 <header>
-    <h1>Torus Automorphism: Period 3 Orbit</h1>
-    <p>
-        Visualizing the periodic map defined by 
-        $$\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}$$
-        applied to a UV checkerboard texture.
-    </p>
+    <h1>Orbit of $\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}$
 </header>
-            <model-viewer 
-                src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
-                alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
-            </model-viewer>
 
 <div class="triangle-grid">
   <div class="viewer-container pos-top">
@@ -83,7 +74,7 @@ model-viewer {
                 alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
             </model-viewer>
 
-    <p>Identity / Base</p>
+    <p>$\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}^3$</p>
   </div>
   
   <div class="viewer-container pos-left">
@@ -92,7 +83,7 @@ model-viewer {
                 alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
             </model-viewer>
 
-    <p>Transformation $T$</p>
+    <p>$\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}^1$</p>
   </div>
   
   <div class="viewer-container pos-right">
@@ -100,7 +91,7 @@ model-viewer {
                 src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
                 alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
             </model-viewer>
-    <p>Transformation $S$</p>
+    <p>$\begin{bmatrix} 0 & 1 \\ -1 & -1 \end{bmatrix}^2$</p>
   </div>
 </div>
 
@@ -108,19 +99,25 @@ model-viewer {
     <h2>Texture Transformation Comparison</h2>
 </header>
 
-<div class="image-container">
+<div class="triangle-grid">
+  <div class="viewer-container pos-top">
     <figure>
         <img src="../assets/uv_checkerboard.png" alt="Original">
         <figcaption align="center">Original Texture</figcaption>
     </figure>
+  </div>
+  <div class="viewer-container pos-left">
     <figure>
         <img src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.png" alt="Iter 1">
         <figcaption align="center">Iter 1 Texture</figcaption>
     </figure>
+  </div>
+  <div class="viewer-container pos-right">
     <figure>
         <img src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.png" alt="Iter 2">
         <figcaption align="center">Iter 2 Texture</figcaption>
     </figure>
+  </div>
 </div>
 
 <footer>
