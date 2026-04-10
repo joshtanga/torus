@@ -22,32 +22,28 @@
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <script>
-    // Select elements for the Left side
-    const sliderLeft = document.querySelector('#slider-left');
-    const viewLeft = document.querySelector('#view-left');
-    const labelLeft = document.querySelector('#label-left');
+        const viewer1 = document.querySelector('#torus-player1');
+        const viewer2 = document.querySelector('#torus-player2');
+        const slider1 = document.querySelector('#deform-slider1');
+        const slider2 = document.querySelector('#deform-slider2');
     
-    // Select elements for the Right side
-    const sliderRight = document.querySelector('#slider-right');
-    const viewRight = document.querySelector('#view-right');
-    const labelRight = document.querySelector('#label-right');
+        slider1.addEventListener('input', (event) => {
+            const frame = event.target.value;
+            // Update the source of the 3D model
+            viewer1.src = `assets/torus_area_analysis/step_${val}.glb`;
+        });
     
-    // Update Left
-    sliderLeft.addEventListener('input', (e) => {
-        const val = e.target.value;
-        // Assuming you have an array of R_values from your Python/R code
-        labelLeft.innerText = (5 + (val * 0.34)).toFixed(2); 
-        viewLeft.src = `assets/torus_area_analysis/step_${val}.glb`;
-    });
+        slider2.addEventListener('input', (event) => {
+            const frame = event.target.value;
+            // Update the source of the 3D model
+            viewer2.src = `../assets/sequence/torus_${val}.glb`;
+        });
     
-    // Update Right
-    sliderRight.addEventListener('input', (e) => {
-        const val = e.target.value;
-        labelRight.innerText = (5 + (val * 0.34)).toFixed(2);
-        viewer.src = `../assets/sequence/torus_${val}.glb`;
-    });
     </script>
+
+
     <style>
     .dual-container {
       display: flex;
@@ -107,7 +103,7 @@
     </model-viewer>
 
     <div class="controls">
-      <input type="range" id="slider-left" min="0" max="19" value="0">
+      <input type="range" id="deform-slider1" min="0" max="19" value="0">
       <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
@@ -127,7 +123,7 @@
     </model-viewer>
 
     <div class="controls">
-      <input type="range" id="slider-right" min="0" max="29" value="0">
+      <input type="range" id="deform-slider2" min="0" max="29" value="0">
       <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
@@ -136,27 +132,6 @@
     </div>
   </div>
 </div>
-
-
-<script>
-    const viewer1 = document.querySelector('#torus-player1');
-    const viewer2 = document.querySelector('#torus-player2');
-    const slider1 = document.querySelector('#deform-slider1');
-    const slider2 = document.querySelector('#deform-slider2');
-
-    slider1.addEventListener('input', (event) => {
-        const frame = event.target.value;
-        // Update the source of the 3D model
-        viewer1.src = `step_${frame}.glb`;
-    });
-
-    slider2.addEventListener('input', (event) => {
-        const frame = event.target.value;
-        // Update the source of the 3D model
-        viewer2.src = `step_${frame}.glb`;
-    });
-
-</script>
 
 </body>
 </html>
