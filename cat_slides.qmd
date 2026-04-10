@@ -331,7 +331,7 @@ References:
 
 1. Slides/Code + : ![qr-code](assets/qr_code_cat_slides.png){width=100px}  and [https://joshtanga.github.io/torus/](https://joshtanga.github.io/torus/)
 2. Math: Primer on Mapping Class Groups by Farb & Margalit
-3. Software: Python/R + Open3D, Quarto/Markdown + RevealJS
+3. Software/Toools: Python/R + Open3D, Quarto/Markdown + RevealJS
 
 
  

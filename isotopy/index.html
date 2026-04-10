@@ -38,14 +38,14 @@
         const val = e.target.value;
         // Assuming you have an array of R_values from your Python/R code
         labelLeft.innerText = (5 + (val * 0.34)).toFixed(2); 
-        viewLeft.src = `assets/torus_sweep_R${val}.glb`;
+        viewLeft.src = `assets/torus_area_analysis/step_${val}.glb`;
     });
     
     // Update Right
     sliderRight.addEventListener('input', (e) => {
         const val = e.target.value;
         labelRight.innerText = (5 + (val * 0.34)).toFixed(2);
-        viewRight.src = `assets/torus_sweep_R${val}.glb`;
+        viewer.src = `../assets/sequence/torus_${val}.glb`;
     });
     </script>
     <style>
@@ -100,7 +100,7 @@
     
     <model-viewer 
         id="torus-player1"
-        src="step_0.glb"
+        src= 'assets/torus_area_analysis/step_0.glb';
         alt="A deforming torus"
         camera-controls
         style="width: 500px; height: 500px; background-color: #ffffff; border: 1px solid #ddd;">
