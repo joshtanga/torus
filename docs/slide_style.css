@@ -52,12 +52,12 @@
 
 /* allows images on the title slide */
 h1.title {
-  min-height: 400px; /* Give the images room to exist */
+  min-height: 500px; /* Give the images room to exist */
   display: block;   /* Ensure it's a block-level element */
-  background-image: url(assets/uv_checkerboard.png), url(assets/cat_96.png);
+  background-image: url(assets/uv_checkerboard.png), url(assets/cat_96.png), url(assets/qr_code_cat_slides.png);
   background-repeat: no-repeat;
-  background-position: 10% 75%, 90% 75%; /* Adjusts the position of each image */
-  background-size: 200px, 200px;
+  background-position: 10% 75%, 90% 75%, 50% 95%; /* Adjusts the position of each image */
+  background-size: 200px, 200px, 150px;
 }
 
 .highlighted {

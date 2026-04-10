@@ -6,10 +6,10 @@ format:
       toc: false
 ---
 
-Examples of torus automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
+Examples of toral automorphisms, and their applications to texture mapping. These were made using these [tools](ref/references.html).
 
 
-![torus in open3D](../assets/torus_1.png){width=300px}
+![](../assets/torus_1.png){width=300px}
 
 ::: {layout-ncol=3}
 
@@ -20,8 +20,8 @@ Examples of torus automorphisms, and their applications to texture mapping. Thes
 
 # Isotopies
 - [isotopy of texture](swirl/main.html)
-- [deformed_torus](deformed_torus.html)
 - [isotopy of structure](../isotopy/)
+- [deformed_torus](deformed_torus.html)
 - [changes to geometry](geometry_changes.html)
 
 # Related

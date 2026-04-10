@@ -22,63 +22,121 @@
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+    <script>
+    // Select elements for the Left side
+    const sliderLeft = document.querySelector('#slider-left');
+    const viewLeft = document.querySelector('#view-left');
+    const labelLeft = document.querySelector('#label-left');
+    
+    // Select elements for the Right side
+    const sliderRight = document.querySelector('#slider-right');
+    const viewRight = document.querySelector('#view-right');
+    const labelRight = document.querySelector('#label-right');
+    
+    // Update Left
+    sliderLeft.addEventListener('input', (e) => {
+        const val = e.target.value;
+        // Assuming you have an array of R_values from your Python/R code
+        labelLeft.innerText = (5 + (val * 0.34)).toFixed(2); 
+        viewLeft.src = `assets/torus_sweep_R${val}.glb`;
+    });
+    
+    // Update Right
+    sliderRight.addEventListener('input', (e) => {
+        const val = e.target.value;
+        labelRight.innerText = (5 + (val * 0.34)).toFixed(2);
+        viewRight.src = `assets/torus_sweep_R${val}.glb`;
+    });
+    </script>
+    <style>
+    .dual-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 20px 0;
+    }
+    
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #eee; /* Subtle border for clarity */
+      padding: 15px;
+      background: white;
+    }
+    
+    model-viewer {
+      width: 100%;
+      height: 400px;
+    }
+    
+    .controls {
+      width: 80%;
+      margin-top: 15px;
+      text-align: center;
+    }
+    
+    input[type=range] {
+      width: 100%;
+    }
+    </style>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
 <header>
-    <h1>Torus under the Identity Map</h1>
-    <p>Resolution: 1024x1024</p>
+    <h1>Visualizing an Isotopy </h1>
 </header>
 
-<p> Visualizing an Isotopy </p>
-
-<!--
-<div id="container">
-    <model-viewer 
-        src="step_0.glb"
-        alt="A 3D textured torus" 
-        auto-rotate 
-        camera-controls 
-        ar 
-        shadow-intensity="1" 
-        exposure="1" 
-        environment-image="neutral">
-    </model-viewer>
-</div>
-
--->
-
-<p> An isotopy is applied to the image.  An isotopy is can be thought of as a continuous deformation through time.  
+<p> An isotopy is a continuous deformation through time.  The colors below correspond to intrinsic changes to the metric on the torus.
 </p>
 
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+<div class="dual-container">
+  <div class="column">
+    <h3>Configuration 1</h3>
     
     <model-viewer 
         id="torus-player"
         src="step_0.glb"
         alt="A deforming torus"
         camera-controls
-        style="width: 600px; height: 600px; background-color: #ffffff; border: 1px solid #ddd;">
+        style="width: 500px; height: 500px; background-color: #ffffff; border: 1px solid #ddd;">
     </model-viewer>
 
-    <div style="width: 80%;">
-        <label for="deform-slider" style="font-family: sans-serif; font-weight: bold;">
-            Deformation Progress
-        </label>
-        <input 
-            type="range" 
-            id="deform-slider" 
-            min="0" max="20" value="0" step="1"
-            style="width: 100%; cursor: pointer;">
-        <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
+    <div class="controls">
+      <input type="range" id="slider-left" min="0" max="29" value="0">
+      <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
-        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="column">
+    <h3>Configuration 2</h3>
+    
+    <model-viewer 
+        id="torus-player"
+        src="../assets/sequence/torus_0.glb"
+        alt="A deforming torus"
+        camera-controls
+        style="width: 500px; height: 500px; background-color: #ffffff; border: 1px solid #ddd;">
+    </model-viewer>
+
+    <div class="controls">
+      <input type="range" id="slider-right" min="0" max="29" value="0">
+      <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
+            <span>Square-ish</span>
+            <span>Fully Deformed</span>
+      </div>
+
+    </div>
+  </div>
 </div>
+
 
 <script>
     const viewer = document.querySelector('#torus-player');

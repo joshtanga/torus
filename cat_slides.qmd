@@ -51,7 +51,7 @@ Karl Friedric Gauss, **born on April 30, 1777**
 
 :::
 
-## Defamations of a Taurus
+## Defamation of a Taurus
 
 Henri Poincar&eacute;, **born April 29, 1854** 
 
@@ -326,6 +326,13 @@ The mapping seen heretofore are all *mapping classes*.
 ---
 
 # Thank You!
+
+References:
+
+1. Slides/Code + : ![qr-code](assets/qr_code_cat_slides.png){width=100px}  and [https://joshtanga.github.io/torus/](https://joshtanga.github.io/torus/)
+2. Math: Primer on Mapping Class Groups by Farb & Margalit
+3. Software: Python/R + Open3D, Quarto/Markdown + RevealJS
+
 
  
 
