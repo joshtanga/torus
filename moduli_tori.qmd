@@ -157,11 +157,11 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
         if (currentData) {
             // 1. Update the 3D Model
             const viewer = document.querySelector('#torus-scrubber');
-            viewer.src = 'assets/torus_grid_sweep/torus_R${i}_r${j}.glb';
+            viewer.src = `assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
     
             // 2. Update the Histogram Image
             const histImg = document.querySelector('#hist-scrubber');
-            histImg.src = 'assets/torus_plots/dist_plot_${idx}.png';
+            histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
     
             // 3. THE QUICK FIX: Update the text spans
             // In manifest.csv, 'r' usually corresponds to Major and 'major_radius' to Minor 
