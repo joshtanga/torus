@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="./styles.css">
 </head>
@@ -161,36 +132,21 @@ window.Quarto = {
 
 <section id="moduli-of-tori" class="level3">
 <h3 class="anchored" data-anchor-id="moduli-of-tori">Moduli of Tori</h3>
-<p>Here we view different geometric structures on a torus. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation. This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
-<p>Visual Clarity: The color mapping now uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue.</p>
-<p>One Practical Notes:</p>
-<p>Since you are varying the Minor Radius (<span class="math inline">\(r\)</span>), the total surface area of the torus changes significantly (<span class="math inline">\(Area = 4\pi^2 R r\)</span>).In your histograms, the “Ratio” will likely shift entirely to the right (all faces getting larger) as you increase <span class="math inline">\(r\)</span>. This is a great way to show the difference between a Conformal map (which preserves angles) and an Equiareal map (which preserves area). Your sweep is neither, so the “drift” of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!</p>
+<p>Here we view different geometric structures on a torus. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
+<p>The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
+<p>Note: The “drift” of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!</p>
 <div class="quarto-layout-panel" data-layout="[60, 40]">
 <div class="quarto-layout-row">
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
 <div style="background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
-<pre><code>&lt;script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"&gt;&lt;/script&gt;
-
-&lt;model-viewer 
-    id="torus-scrubber" 
-    src="assets/torus_grid_sweep/torus_R0_r0.glb"
-    camera-controls 
-    style="width: 100%; height: 400px;"&gt;
-&lt;/model-viewer&gt;
-
-&lt;div style="margin-top: 20px;"&gt;
-    &lt;label&gt;&lt;strong&gt;Major Radius (R):&lt;/strong&gt;&lt;/label&gt;
-    &lt;input type="range" id="slider-R" min="0" max="10" value="0" style="width: 100%;"&gt;
-    
-    &lt;label&gt;&lt;strong&gt;Minor Radius (r):&lt;/strong&gt;&lt;/label&gt;
-    &lt;input type="range" id="slider-r" min="0" max="10" value="0" style="width: 100%;"&gt;
-&lt;/div&gt;
-
-&lt;p style="text-align: center; margin-top: 10px;"&gt;
-    &lt;strong&gt;Current Parameters:&lt;/strong&gt; 
-    R = &lt;span id="val-R"&gt;...&lt;/span&gt;, 
-    r = &lt;span id="val-r"&gt;...&lt;/span&gt;
-&lt;/p&gt;</code></pre>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<p><model-viewer id="torus-scrubber" src="assets/torus_grid_sweep/torus_R0_r0.glb" camera-controls="" style="width: 100%; height: 400px;"> </model-viewer></p>
+<div style="margin-top: 20px;">
+<label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="0" style="width: 100%;"> <label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="0" style="width: 100%;">
+</div>
+<p style="text-align: center; margin-top: 10px;">
+<strong>Current Parameters:</strong> R = <span id="val-R">…</span>, r = <span id="val-r">…</span>
+</p>
 </div>
 </div>
 <div id="second-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
