@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="./styles.css">
 </head>
@@ -133,16 +162,35 @@ ul.task-list li input[type="checkbox"] {
 <section id="moduli-of-tori" class="level3">
 <h3 class="anchored" data-anchor-id="moduli-of-tori">Moduli of Tori</h3>
 <p>Here we view different geometric structures on a torus. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation. This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
+<p>Visual Clarity: The color mapping now uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue.</p>
+<p>One Practical Notes:</p>
+<p>Since you are varying the Minor Radius (<span class="math inline">\(r\)</span>), the total surface area of the torus changes significantly (<span class="math inline">\(Area = 4\pi^2 R r\)</span>).In your histograms, the “Ratio” will likely shift entirely to the right (all faces getting larger) as you increase <span class="math inline">\(r\)</span>. This is a great way to show the difference between a Conformal map (which preserves angles) and an Equiareal map (which preserves area). Your sweep is neither, so the “drift” of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!</p>
 <div class="quarto-layout-panel" data-layout="[60, 40]">
 <div class="quarto-layout-row">
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
-<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-<p><model-viewer id="torus-scrubber" src="../assets/torus_radii_sweep/step_0.glb" camera-controls="" style="width: 100%; height: 400px;"> </model-viewer></p>
-<input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
-<p>
-<strong>Slide to change modulus:</strong> <span id="frame-val">0</span>
-</p>
+<div style="background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+<pre><code>&lt;script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"&gt;&lt;/script&gt;
+
+&lt;model-viewer 
+    id="torus-scrubber" 
+    src="assets/torus_grid_sweep/torus_R0_r0.glb"
+    camera-controls 
+    style="width: 100%; height: 400px;"&gt;
+&lt;/model-viewer&gt;
+
+&lt;div style="margin-top: 20px;"&gt;
+    &lt;label&gt;&lt;strong&gt;Major Radius (R):&lt;/strong&gt;&lt;/label&gt;
+    &lt;input type="range" id="slider-R" min="0" max="10" value="0" style="width: 100%;"&gt;
+    
+    &lt;label&gt;&lt;strong&gt;Minor Radius (r):&lt;/strong&gt;&lt;/label&gt;
+    &lt;input type="range" id="slider-r" min="0" max="10" value="0" style="width: 100%;"&gt;
+&lt;/div&gt;
+
+&lt;p style="text-align: center; margin-top: 10px;"&gt;
+    &lt;strong&gt;Current Parameters:&lt;/strong&gt; 
+    R = &lt;span id="val-R"&gt;...&lt;/span&gt;, 
+    r = &lt;span id="val-r"&gt;...&lt;/span&gt;
+&lt;/p&gt;</code></pre>
 </div>
 </div>
 <div id="second-column" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
@@ -150,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="geometric-distortion">Geometric Distortion</h3>
 <p>The histogram below represents the distribution of area change across all faces. An area-preserving map would result in a single spike at <strong>1.0</strong>.</p>
 <div style="flex: 1; min-width: 300px; text-align: center;">
-<p><img id="hist-scrubber" src="../moduli_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
+<p><img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
 </div>
 </section>
 </div>
@@ -205,30 +253,49 @@ ul.task-list li input[type="checkbox"] {
     <span id="max-val" class="stat-value">1.000</span>
 </div>
 </div>
-<script>var frameStats = [{"frame":"x0","mean":1,"max":1,"min":1},{"frame":"x1","mean":1.1398,"max":1.1737,"min":1.1061},{"frame":"x2","mean":1.289,"max":1.3615,"min":1.2176},{"frame":"x3","mean":1.4475,"max":1.5635,"min":1.3344},{"frame":"x4","mean":1.6153,"max":1.7797,"min":1.4566},{"frame":"x5","mean":1.7925,"max":2.01,"min":1.5841},{"frame":"x6","mean":1.979,"max":2.2544,"min":1.717},{"frame":"x7","mean":2.1749,"max":2.513,"min":1.8552},{"frame":"x8","mean":2.3801,"max":2.7858,"min":1.9988},{"frame":"x9","mean":2.5946,"max":3.0727,"min":2.1477},{"frame":"x10","mean":2.8185,"max":3.3737,"min":2.302},{"frame":"x11","mean":3.0517,"max":3.6889,"min":2.4617},{"frame":"x12","mean":3.2943,"max":4.0182,"min":2.6266},{"frame":"x13","mean":3.5461,"max":4.3616,"min":2.797},{"frame":"x14","mean":3.8074,"max":4.7192,"min":2.9727},{"frame":"x15","mean":4.078,"max":5.0909,"min":3.1537},{"frame":"x16","mean":4.3579,"max":5.4768,"min":3.3401},{"frame":"x17","mean":4.6471,"max":5.8768,"min":3.5318},{"frame":"x18","mean":4.9457,"max":6.291,"min":3.7289},{"frame":"x19","mean":5.2536,"max":6.7193,"min":3.9313},{"frame":"x20","mean":5.5709,"max":7.1617,"min":4.1391},{"frame":"x21","mean":5.8975,"max":7.6183,"min":4.3523},{"frame":"x22","mean":6.2335,"max":8.089,"min":4.5707},{"frame":"x23","mean":6.5787,"max":8.5738,"min":4.7946},{"frame":"x24","mean":6.9334,"max":9.0728,"min":5.0238},{"frame":"x25","mean":7.2973,"max":9.586,"min":5.2583},{"frame":"x26","mean":7.6706,"max":10.1132,"min":5.4982},{"frame":"x27","mean":8.0533,"max":10.6546,"min":5.7435},{"frame":"x28","mean":8.4453,"max":11.2102,"min":5.9941},{"frame":"x29","mean":8.8466,"max":11.7799,"min":6.25}];</script>
+<script>var frameStats = [{"file":"torus_R0_r0.glb","r_idx":0,"r_idx_2":0,"r":5,"r_2":1,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R0_r1.glb","r_idx":0,"r_idx_2":1,"r":5,"r_2":2,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R0_r2.glb","r_idx":0,"r_idx_2":2,"r":5,"r_2":3,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R0_r3.glb","r_idx":0,"r_idx_2":3,"r":5,"r_2":4,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R0_r4.glb","r_idx":0,"r_idx_2":4,"r":5,"r_2":5,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R1_r0.glb","r_idx":1,"r_idx_2":0,"r":7.5,"r_2":1,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R1_r1.glb","r_idx":1,"r_idx_2":1,"r":7.5,"r_2":2,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R1_r2.glb","r_idx":1,"r_idx_2":2,"r":7.5,"r_2":3,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R1_r3.glb","r_idx":1,"r_idx_2":3,"r":7.5,"r_2":4,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R1_r4.glb","r_idx":1,"r_idx_2":4,"r":7.5,"r_2":5,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R2_r0.glb","r_idx":2,"r_idx_2":0,"r":10,"r_2":1,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R2_r1.glb","r_idx":2,"r_idx_2":1,"r":10,"r_2":2,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R2_r2.glb","r_idx":2,"r_idx_2":2,"r":10,"r_2":3,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R2_r3.glb","r_idx":2,"r_idx_2":3,"r":10,"r_2":4,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R2_r4.glb","r_idx":2,"r_idx_2":4,"r":10,"r_2":5,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R3_r0.glb","r_idx":3,"r_idx_2":0,"r":12.5,"r_2":1,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R3_r1.glb","r_idx":3,"r_idx_2":1,"r":12.5,"r_2":2,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R3_r2.glb","r_idx":3,"r_idx_2":2,"r":12.5,"r_2":3,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R3_r3.glb","r_idx":3,"r_idx_2":3,"r":12.5,"r_2":4,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R3_r4.glb","r_idx":3,"r_idx_2":4,"r":12.5,"r_2":5,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R4_r0.glb","r_idx":4,"r_idx_2":0,"r":15,"r_2":1,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R4_r1.glb","r_idx":4,"r_idx_2":1,"r":15,"r_2":2,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R4_r2.glb","r_idx":4,"r_idx_2":2,"r":15,"r_2":3,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R4_r3.glb","r_idx":4,"r_idx_2":3,"r":15,"r_2":4,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]},{"file":"torus_R4_r4.glb","r_idx":4,"r_idx_2":4,"r":15,"r_2":5,"NA":[1,1,1,1.9588,2.3333,1.5,2.8763,4,1.5,3.7526,6,1,4.5876,8.3333,0,1.5103,1.625,1.4167,2.9794,3.1667,2.75,4.4072,5.25,3.375,5.7938,7.6667,3.5,7.1391,10.4167,3.125,2.0206,2.25,1.8333,4,4,4,5.9381,6.5,5.25,7.835,9.3333,6,9.6907,12.5,6.25,2.5309,2.875,2.25,5.0206,5.25,4.8333,7.4691,7.75,7.125,9.8763,11,8.5,12.2422,14.5833,9.375,3.0412,3.5,2.6667,6.0412,6.5,5.6667,9,9,9,11.9175,12.6667,11,14.7938,16.6667,12.5]}];</script>
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const histImg = document.querySelector('#hist-scrubber');
-    const slider = document.querySelector('#master-slider');
-    const label = document.querySelector('#frame-val');
+    const sliderR = document.querySelector('#slider-R');
+    const sliderSmallR = document.querySelector('#slider-r');
+    
+    const displayR = document.querySelector('#val-R');
+    const displaySmallR = document.querySelector('#val-r');
 
-    slider.addEventListener('input', (e) => {
-        const val = e.target.value;
-        
-        // Update 3D Model
-        viewer.src = `../assets/torus_radii_sweep/step_${val}.glb`;
-        
-        // Update Histogram Image
-        histImg.src = `../moduli_hist/histogram_${val}.png`;
-        
-        // Update label
-        label.innerText = val;
+    // This must match the 'resolution' used in your Python script
+    const RESOLUTION = 11; 
 
-        // Access the stats for the current frame
-        document.querySelector('#max-val').innerText  = frameStats[val].max.toFixed(3);
-        document.querySelector('#mean-val').innerText = frameStats[val].mean.toFixed(3);
-        document.querySelector('#min-val').innerText  = frameStats[val].min.toFixed(3);
-    });
+    function updateVisualization() {
+        const i = parseInt(sliderR.value);
+        const j = parseInt(sliderSmallR.value);
+        
+        // Calculate the flat index for the frameStats array
+        const idx = (i * RESOLUTION) + j;
+        const currentData = frameStats[idx];
+
+        // 1. Update 3D Model (using the grid naming convention)
+        viewer.src = `assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
+        
+        // 2. Update Histogram (using the flat index)
+        histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
+        
+        // 3. Update Text Labels
+        displayR.innerText = currentData.r.toFixed(2); // Major from manifest
+        displaySmallR.innerText = currentData.major_radius.toFixed(2); // Minor from manifest
+        
+        // 4. Update Area Distortion Stats
+        document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
+        document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
+        document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
+    }
+
+    // Listen to both sliders
+    sliderR.addEventListener('input', updateVisualization);
+    sliderSmallR.addEventListener('input', updateVisualization);
+
+    // Initialize on load
+    window.addEventListener('load', updateVisualization);
 </script>
 
 

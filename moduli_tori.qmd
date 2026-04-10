@@ -10,21 +10,38 @@ format:
 
 Here we view different geometric structures on a torus.  One aspect of this change is the **metric distortion** — how much the surface area of small neighborhoods stretches or shrinks during the transformation.  This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching.  The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.
 
+Visual Clarity: The color mapping now uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue.
+
+One Practical Notes:
+
+Since you are varying the Minor Radius ($r$), the total surface area of the torus changes significantly ($Area = 4\pi^2 R r$).In your histograms, the "Ratio" will likely shift entirely to the right (all faces getting larger) as you increase $r$. This is a great way to show the difference between a Conformal map (which preserves angles) and an Equiareal map (which preserves area). Your sweep is neither, so the "drift" of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!
+
 ::: {layout="[60, 40]"}
 ::: {#first-column}
 
-<div style="background: #fdfdfd; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<div style="background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-<model-viewer 
-    id="torus-scrubber" 
-    src="../assets/torus_radii_sweep/step_0.glb"
-    camera-controls 
-    style="width: 100%; height: 400px;">
-</model-viewer>
+    <model-viewer 
+        id="torus-scrubber" 
+        src="assets/torus_grid_sweep/torus_R0_r0.glb"
+        camera-controls 
+        style="width: 100%; height: 400px;">
+    </model-viewer>
 
-<input type="range" id="master-slider" min="0" max="19" value="0" style="width: 100%;">
-<p><strong>Slide to change modulus:</strong> <span id="frame-val">0</span></p>
+    <div style="margin-top: 20px;">
+        <label><strong>Major Radius (R):</strong></label>
+        <input type="range" id="slider-R" min="0" max="10" value="0" style="width: 100%;">
+        
+        <label><strong>Minor Radius (r):</strong></label>
+        <input type="range" id="slider-r" min="0" max="10" value="0" style="width: 100%;">
+    </div>
+
+    <p style="text-align: center; margin-top: 10px;">
+        <strong>Current Parameters:</strong> 
+        R = <span id="val-R">...</span>, 
+        r = <span id="val-r">...</span>
+    </p>
 </div>
 
 :::
@@ -34,7 +51,7 @@ Here we view different geometric structures on a torus.  One aspect of this chan
 The histogram below represents the distribution of area change across all faces. An area-preserving map would result in a single spike at **1.0**.
 
 <div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="hist-scrubber" src="../moduli_hist/histogram_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
+  <img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 :::
 :::
@@ -94,58 +111,79 @@ The histogram below represents the distribution of area change across all faces.
 library(tidyverse)
 library(jsonlite)
 
-orig_areas <- read_csv('moduli_hist/og_areas.csv') |> janitor::clean_names()
-face_data <- read_csv("moduli_hist/ratios.csv") |> janitor::clean_names()
+# 1. Load the files
+# manifest contains filenames/radii, ratios_data contains the actual area numbers
+manifest <- read_csv('assets/torus_grid_sweep/manifest.csv') |> janitor::clean_names()
+ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv')
 
-# Calculate stats for all columns
-dist_stats <- face_data |> 
+# 2. Calculate stats only on the numeric ratio columns
+dist_stats_tidy <- ratios |> 
   summarise(across(
-    everything(), 
+    where(is.numeric), 
     list(
       mean = \(x) mean(x, na.rm = TRUE),
       max  = \(x) max(x, na.rm = TRUE),
       min  = \(x) min(x, na.rm = TRUE)
     ),
-    .names = "{.col}_{.fn}" # Creates names like "step_0_max"
-  ))
-
-# Pivot to make it readable (Long format)
-dist_stats_tidy <- dist_stats |> 
+    .names = "{.col}_{.fn}"
+  )) |> 
   pivot_longer(
     everything(), 
-    names_to = c("frame", "stat"), 
-    names_pattern = "(.*)_(.*)"
+    names_to = c("column_index", "stat"), 
+    names_pattern = "v(.*)_(.*)" # Matches "v0_mean", "v1_mean", etc.
   ) |> 
-  pivot_wider(names_from = stat, values_from = value)
+  pivot_wider(names_from = stat, values_from = value) |>
+  mutate(column_index = as.numeric(column_index)) |>
+  arrange(column_index)
 
-# Convert the tidy table to a JSON object where 'frame' is the key
-stats_json <- jsonlite::toJSON(dist_stats_tidy)
+# 3. Bind the radii and filenames from the manifest to the calculated stats
+# This ensures each row has: file, r_idx, r_major, r_minor, mean, max, min
+combined_payload <- bind_cols(manifest, dist_stats_tidy |> select(-column_index))
+
+# 4. Inject into JS
+stats_json <- jsonlite::toJSON(combined_payload)
 cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
 ```
-
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const histImg = document.querySelector('#hist-scrubber');
-    const slider = document.querySelector('#master-slider');
-    const label = document.querySelector('#frame-val');
+    const sliderR = document.querySelector('#slider-R');
+    const sliderSmallR = document.querySelector('#slider-r');
+    
+    const displayR = document.querySelector('#val-R');
+    const displaySmallR = document.querySelector('#val-r');
 
-    slider.addEventListener('input', (e) => {
-        const val = e.target.value;
-        
-        // Update 3D Model
-        viewer.src = `../assets/torus_radii_sweep/step_${val}.glb`;
-        
-        // Update Histogram Image
-        histImg.src = `../moduli_hist/histogram_${val}.png`;
-        
-        // Update label
-        label.innerText = val;
+    // This must match the 'resolution' used in your Python script
+    const RESOLUTION = 11; 
 
-        // Access the stats for the current frame
-        document.querySelector('#max-val').innerText  = frameStats[val].max.toFixed(3);
-        document.querySelector('#mean-val').innerText = frameStats[val].mean.toFixed(3);
-        document.querySelector('#min-val').innerText  = frameStats[val].min.toFixed(3);
-    });
+    function updateVisualization() {
+        const i = parseInt(sliderR.value);
+        const j = parseInt(sliderSmallR.value);
+        
+        // Calculate the flat index for the frameStats array
+        const idx = (i * RESOLUTION) + j;
+        const currentData = frameStats[idx];
+
+        // 1. Update 3D Model (using the grid naming convention)
+        viewer.src = `assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
+        
+        // 2. Update Histogram (using the flat index)
+        histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
+        
+        // 3. Update Text Labels
+        displayR.innerText = currentData.r.toFixed(2); // Major from manifest
+        displaySmallR.innerText = currentData.major_radius.toFixed(2); // Minor from manifest
+        
+        // 4. Update Area Distortion Stats
+        document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
+        document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
+        document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
+    }
+
+    // Listen to both sliders
+    sliderR.addEventListener('input', updateVisualization);
+    sliderSmallR.addEventListener('input', updateVisualization);
+
+    // Initialize on load
+    window.addEventListener('load', updateVisualization);
 </script>
-
-
