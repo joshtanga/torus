@@ -15,50 +15,51 @@
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <style>
-        body { 
-            margin: 0; 
-            font-family: sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            background: #f5f5f5; 
-            padding: 20px;
-        }
-        header { padding: 20px; text-align: center; }
-        
-        .triangle-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr; /* Two equal columns */
-          gap: 20px;
-          max-width: 900px;
-          margin: 0 auto;
-          align-items: center;
-        }
-        
-        .viewer-container {
-          text-align: center;
-        }
-        model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
 
-        .image-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 10px; 
-            flex-wrap: wrap; 
-            margin: 20px 0;
-        }
-        
-        .image-container img { 
-            width: 250px; 
-            border-radius: 8px; 
-            border: 1px solid #ccc;
-        }
+<style>
+.triangle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-template-rows: auto auto;      /* Two rows */
+  gap: 10px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
 
-        p { max-width: 900px; text-align: center; line-height: 1.6; }
-        h2 { font-size: 1.2rem; text-align: center; margin-bottom: 10px; }
-    </style>
+.viewer-container {
+  text-align: center;
+}
+
+/* Position the top viewer in the 2nd column of the 1st row */
+.pos-top {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Position the bottom viewers in the 1st and 3rd columns of the 2nd row */
+.pos-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.pos-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+model-viewer {
+  width: 100%;
+  height: 320px;
+  --poster-color: transparent;
+}
+
+.triangle-grid p {
+  font-family: serif; /* Better for math symbols */
+  font-size: 1.1em;
+  margin-top: 0;
+}
+</style>
+
 </head>
 <body>
 
@@ -70,21 +71,36 @@
         applied to a UV checkerboard texture.
     </p>
 </header>
+            <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
+                alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
 
 <div class="triangle-grid">
-  <div class="viewer-container top">
-    <model-viewer id="viewer-1" src="assets/torus_1.glb" shadow-intensity="1" camera-controls></model-viewer>
-    <p>Transformation A</p>
+  <div class="viewer-container pos-top">
+                <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_1_period_3_map.glb" 
+                alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
+
+    <p>Identity / Base</p>
   </div>
   
-  <div class="viewer-container bottom-left">
-    <model-viewer id="viewer-2" src="assets/torus_2.glb" shadow-intensity="1" camera-controls></model-viewer>
-    <p>Transformation B</p>
+  <div class="viewer-container pos-left">
+            <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_2_period_3_map.glb" 
+                alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
+
+    <p>Transformation $T$</p>
   </div>
   
-  <div class="viewer-container bottom-right">
-    <model-viewer id="viewer-3" src="assets/torus_3.glb" shadow-intensity="1" camera-controls></model-viewer>
-    <p>Transformation C</p>
+  <div class="viewer-container pos-right">
+            <model-viewer 
+                src="../assets/uv_checkerboard_res_1024_iter_3_period_3_map.glb" 
+                alt="Torus Iteration 1" auto-rotate camera-controls shadow-intensity="1">
+            </model-viewer>
+    <p>Transformation $S$</p>
   </div>
 </div>
 
