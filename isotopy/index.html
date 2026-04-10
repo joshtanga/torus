@@ -100,14 +100,14 @@
     
     <model-viewer 
         id="torus-player1"
-        src= 'assets/torus_area_analysis/step_0.glb';
+        src= '../assets/torus_area_analysis/step_0.glb';
         alt="A deforming torus"
         camera-controls
         style="width: 500px; height: 500px; background-color: #ffffff; border: 1px solid #ddd;">
     </model-viewer>
 
     <div class="controls">
-      <input type="range" id="deform-slider1" min="0" max="29" value="0">
+      <input type="range" id="slider-left" min="0" max="19" value="0">
       <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
@@ -127,7 +127,7 @@
     </model-viewer>
 
     <div class="controls">
-      <input type="range" id="deform-slider2" min="0" max="29" value="0">
+      <input type="range" id="slider-right" min="0" max="29" value="0">
       <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
