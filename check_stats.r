@@ -4,7 +4,7 @@ library(jsonlite)
 # 1. Load the files
 # manifest contains filenames/radii, ratios_data contains the actual area numbers
 manifest <- read_csv('assets/torus_grid_sweep/manifest.csv') |> janitor::clean_names()
-ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv')
+ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv') |> janitor::clean_names()
 
 # 2. Calculate stats only on the numeric ratio columns
 dist_stats_tidy <- ratios |> 
@@ -20,7 +20,7 @@ dist_stats_tidy <- ratios |>
   pivot_longer(
     everything(), 
     names_to = c("column_index", "stat"), 
-    names_pattern = "v(.*)_(.*)" # Matches "v0_mean", "v1_mean", etc.
+    names_pattern = "x(.*)_(.*)" # Matches "v0_mean", "v1_mean", etc.
   ) |> 
   pivot_wider(names_from = stat, values_from = value) |>
   mutate(column_index = as.numeric(column_index)) |>

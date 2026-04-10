@@ -46,6 +46,7 @@ The histogram below represents the distribution of area change across all faces.
 
 :::
 
+### Summary Statistics of the Mapping
 <style>
   .stats-container {
     display: flex;
@@ -80,7 +81,6 @@ The histogram below represents the distribution of area change across all faces.
 </style>
 
 ```{=html}
-<!--
 <div class="stats-container">
 <div class="stat-box">
     <span class="stat-label">Min Ratio</span>
@@ -95,7 +95,6 @@ The histogram below represents the distribution of area change across all faces.
     <span id="max-val" class="stat-value">1.000</span>
 </div>
 </div>
--->
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results = 'asis'}
@@ -121,7 +120,7 @@ dist_stats_tidy <- ratios |>
   pivot_longer(
     everything(), 
     names_to = c("column_index", "stat"), 
-    names_pattern = "v(.*)_(.*)" # Matches "v0_mean", "v1_mean", etc.
+    names_pattern = "x(.*)_(.*)" # Matches "x0_mean", "v1_mean", etc.
   ) |> 
   pivot_wider(names_from = stat, values_from = value) |>
   mutate(column_index = as.numeric(column_index)) |>
