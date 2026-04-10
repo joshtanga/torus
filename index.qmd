@@ -19,13 +19,13 @@ Examples of torus automorphisms, and their applications to texture mapping. Thes
 - [anosov](../anosov/)
 
 # Isotopies
-- [isotopy](swirl/main.html)
+- [isotopy of texture](swirl/main.html)
 - [deformed_torus](deformed_torus.html)
-- [isotopy](../isotopy/)
+- [isotopy of structure](../isotopy/)
 - [changes to geometry](geometry_changes.html)
 
 # Related
-- [moduli of tori](../moduli_tori/)
+- [moduli of tori](moduli_tori.html)
 - [texture mapping](tm/texture_mapping.html)
 - [python code](tm/tm_code.html)
 - [slides](cat_slides.html)
