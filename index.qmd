@@ -21,7 +21,6 @@ Examples of toral automorphisms, and their applications to texture mapping. Thes
 # Isotopies
 - [isotopy of texture](swirl/main.html)
 - [isotopy of structure](../isotopy/)
-- [deformed_torus](deformed_torus.html)
 - [changes to geometry](geometry_changes.html)
 
 # Related
