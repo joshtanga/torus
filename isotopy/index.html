@@ -96,10 +96,10 @@
 
 <div class="dual-container">
   <div class="column">
-    <h3>Configuration 1</h3>
+    <h3>Colors Indicate Change to Metric</h3>
     
     <model-viewer 
-        id="torus-player"
+        id="torus-player1"
         src="step_0.glb"
         alt="A deforming torus"
         camera-controls
@@ -107,7 +107,7 @@
     </model-viewer>
 
     <div class="controls">
-      <input type="range" id="slider-left" min="0" max="29" value="0">
+      <input type="range" id="slider1" min="0" max="29" value="0">
       <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
@@ -116,10 +116,10 @@
   </div>
 
   <div class="column">
-    <h3>Configuration 2</h3>
+    <h3>Deformation with Texture</h3>
     
     <model-viewer 
-        id="torus-player"
+        id="torus-player2"
         src="../assets/sequence/torus_0.glb"
         alt="A deforming torus"
         camera-controls
@@ -127,7 +127,7 @@
     </model-viewer>
 
     <div class="controls">
-      <input type="range" id="slider-right" min="0" max="29" value="0">
+      <input type="range" id="slider2" min="0" max="29" value="0">
       <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
             <span>Square-ish</span>
             <span>Fully Deformed</span>
@@ -139,14 +139,23 @@
 
 
 <script>
-    const viewer = document.querySelector('#torus-player');
-    const slider = document.querySelector('#deform-slider');
+    const viewer1 = document.querySelector('#torus-player1');
+    const viewer2 = document.querySelector('#torus-player2');
+    const slider1 = document.querySelector('#deform-slider1');
+    const slider2 = document.querySelector('#deform-slider2');
 
-    slider.addEventListener('input', (event) => {
+    slider1.addEventListener('input', (event) => {
         const frame = event.target.value;
         // Update the source of the 3D model
-        viewer.src = `step_${frame}.glb`;
+        viewer1.src = `step_${frame}.glb`;
     });
+
+    slider2.addEventListener('input', (event) => {
+        const frame = event.target.value;
+        // Update the source of the 3D model
+        viewer2.src = `step_${frame}.glb`;
+    });
+
 </script>
 
 </body>
