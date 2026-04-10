@@ -130,8 +130,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="moduli-of-tori" class="level3">
-<h3 class="anchored" data-anchor-id="moduli-of-tori">Moduli of Tori</h3>
 <p>Here we view different geometric structures on a torus. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
 <p>The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
 <p>Note: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.</p>
@@ -142,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 <p><model-viewer id="torus-scrubber" src="assets/torus_grid_sweep/torus_R0_r0.glb" camera-controls="" style="width: 100%; height: 400px;"> </model-viewer></p>
 <div style="margin-top: 20px;">
-<label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="4" step="1" style="width: 100%;"> <label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="4" step="1" style="width: 100%;">
+<label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;"> <label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;">
 </div>
 <p style="text-align: center; margin-top: 10px;">
 <strong>Current Parameters:</strong> R = <span id="val-R">…</span>, r = <span id="val-r">…</span>
@@ -265,7 +263,6 @@ document.querySelector('#slider-r').addEventListener('input', updateVisualizatio
 </script>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
