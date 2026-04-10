@@ -23,7 +23,7 @@ Note: The "drift" of the histogram away from 1.0 perfectly quantifies how much t
 
 <model-viewer 
     id="torus-scrubber" 
-    src="assets/torus_grid_sweep/torus_R0_r0.glb"
+    src="../assets/torus_grid_sweep/torus_R0_r0.glb"
     camera-controls 
     style="width: 100%; height: 400px;">
 </model-viewer>
