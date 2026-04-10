@@ -131,6 +131,9 @@ dist_stats_tidy <- ratios |>
 # This ensures each row has: file, r_idx, r_major, r_minor, mean, max, min
 combined_payload <- bind_cols(manifest, dist_stats_tidy |> select(-column_index))
 
+# explort combined payload to csv for debugging
+write_csv(dist_stats_tidy, "assets/torus_grid_sweep/combined_payload.csv")
+
 # 4. Inject into JS
 stats_json <- jsonlite::toJSON(combined_payload)
 cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
