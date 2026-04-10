@@ -316,11 +316,11 @@ Dehn Twists
 
 ### Deformations of the Geometry of the Torus
 
-The mapping seen heretofore are all *mapping classes*.  
+The mapping seen heretofore are all <u>mapping classes</u>.  
 
 # {background-iframe="https://joshtanga.github.io/torus/docs/geometry_changes.html"  background-interactive=true}
 
----
+### Moduli of Tori
 
 # {background-iframe="https://joshtanga.github.io/torus/docs/moduli_tori.html"  background-interactive=true}
 
