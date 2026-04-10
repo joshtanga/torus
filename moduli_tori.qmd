@@ -13,7 +13,7 @@ Here we view different geometric structures on a torus.  One aspect of this chan
 
 The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.
 
-Note: The "drift" of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!
+Note: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.
 
 ::: {layout="[60, 40]"}
 
@@ -48,7 +48,7 @@ The histogram below represents the distribution of area change across all faces.
 
 :::
 
-### Summary Statistics of the Mapping
+### Summary Statistics 
 <style>
   .stats-container {
     display: flex;
