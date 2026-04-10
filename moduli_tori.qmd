@@ -15,9 +15,9 @@ The color mapping uses coolwarm centered at 1.0. This means if a face has the sa
 Note: The "drift" of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!
 
 ::: {layout="[60, 40]"}
+
 ::: {#first-column}
 
-```{html}
 <div style="background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
@@ -32,9 +32,9 @@ Note: The "drift" of the histogram away from 1.0 perfectly quantifies how much t
 <label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="0" style="width: 100%;"></div>
 <p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
 </div>
-```
 
 :::
+
 ::: {#second-column}
 
 ### Geometric Distortion
@@ -44,6 +44,7 @@ The histogram below represents the distribution of area change across all faces.
   <img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 :::
+
 :::
 
 ### Summary Statistics of the Mapping
