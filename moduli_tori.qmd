@@ -112,7 +112,7 @@ library(jsonlite)
 # 1. Load the files
 # manifest contains filenames/radii, ratios_data contains the actual area numbers
 manifest <- read_csv('assets/torus_grid_sweep/manifest.csv') |> janitor::clean_names()
-ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv')
+ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv') |> janitor::clean_names()
 
 # 2. Calculate stats only on the numeric ratio columns
 dist_stats_tidy <- ratios |> 
@@ -148,7 +148,7 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
 <script>
     const viewer = document.querySelector('#torus-scrubber');
     const histImg = document.querySelector('#hist-scrubber');
-    const distortionImg = document.querySelector('#dist-scrubber');
+    const distortionImg = document.querySelector('#distortion-scrubber');
     const sliderR = document.querySelector('#slider-R');
     const sliderSmallR = document.querySelector('#slider-r');
     
