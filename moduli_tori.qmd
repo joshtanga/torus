@@ -148,6 +148,7 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
     const RESOLUTION = 11; 
 
     function updateVisualization() {
+        console.log(currentData); // This will show you exactly what the names are in the browser console
         const i = parseInt(sliderR.value);
         const j = parseInt(sliderSmallR.value);
         
