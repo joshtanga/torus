@@ -148,31 +148,45 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
     const RESOLUTION = 11; 
 
     function updateVisualization() {
-        console.log(currentData); // This will show you exactly what the names are in the browser console
-        const i = parseInt(sliderR.value);
-        const j = parseInt(sliderSmallR.value);
+        const i = parseInt(document.querySelector('#slider-R').value);
+        const j = parseInt(document.querySelector('#slider-r').value);
         
-        // Calculate the flat index for the frameStats array
+        // This must match the resolution from your Python script (e.g., 6 for 0-5 sliders)
+        const RESOLUTION = 6; 
         const idx = (i * RESOLUTION) + j;
         const currentData = frameStats[idx];
-
-        // 1. Update 3D Model (using the grid naming convention)
-        viewer.src = '../assets/torus_grid_sweep/torus_R${i}_r${j}.glb';
-        
-        // 2. Update Histogram (using the flat index)
-        histImg.src = '../assets/torus_plots/dist_plot_${idx}.png';
-        
-        // 3. Update Text Labels
-        displayR.innerText = currentData.r.toFixed(2); // Major from manifest
-        displaySmallR.innerText = currentData.major_radius.toFixed(2); // Minor from manifest
-        
-        // 4. Update Area Distortion Stats
-        document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
-        document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
-        document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
+    
+        if (currentData) {
+            // 1. Update the 3D Model
+            const viewer = document.querySelector('#torus-scrubber');
+            viewer.src = `../assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
+    
+            // 2. Update the Histogram Image
+            const histImg = document.querySelector('#hist-scrubber');
+            histImg.src = `../assets/torus_plots/dist_plot_${idx}.png`;
+    
+            // 3. THE QUICK FIX: Update the text spans
+            // In manifest.csv, 'r' usually corresponds to Major and 'major_radius' to Minor 
+            // because of how R's clean_names() handles the columns.
+            document.querySelector('#val-R').innerText = currentData.r.toFixed(2);
+            document.querySelector('#val-r').innerText = currentData.major_radius.toFixed(2);
+    
+            // 4. Update the Stats boxes
+            document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
+            document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
+            document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
+            
+            // Debugging: This helps us see if the data is actually there
+            console.log("Current Frame Data:", currentData);
+        } else {
+            console.error("Could not find data for index:", idx);
+        }
     }
 
-    // Listen to both sliders
+// Attach the function to the sliders
+document.querySelector('#slider-R').addEventListener('input', updateVisualization);
+document.querySelector('#slider-r').addEventListener('input', updateVisualization);
+   // Listen to both sliders
     sliderR.addEventListener('input', updateVisualization);
     sliderSmallR.addEventListener('input', updateVisualization);
 
