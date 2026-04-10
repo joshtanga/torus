@@ -32,6 +32,25 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 <p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
 </div>
 
+
+```{=html}
+<div class="stats-container">
+<div class="stat-box">
+    <span class="stat-label">Min Ratio</span>
+    <span id="min-val" class="stat-value">1.000</span>
+</div>
+<div class="stat-box">
+    <span class="stat-label">Mean Ratio</span>
+    <span id="mean-val" class="stat-value">1.000</span>
+</div>
+<div class="stat-box">
+    <span class="stat-label">Max Ratio</span>
+    <span id="max-val" class="stat-value">1.000</span>
+</div>
+</div>
+```
+
+
 :::
 
 ::: {#second-column}
@@ -87,23 +106,6 @@ The histogram below represents the distribution of area change across all faces.
   #max-val { color: #e74c3c; } /* Red for Max stretch */
   #min-val { color: #f1c40f; } /* Yellow for Min squeeze */
 </style>
-
-```{=html}
-<div class="stats-container">
-<div class="stat-box">
-    <span class="stat-label">Min Ratio</span>
-    <span id="min-val" class="stat-value">1.000</span>
-</div>
-<div class="stat-box">
-    <span class="stat-label">Mean Ratio</span>
-    <span id="mean-val" class="stat-value">1.000</span>
-</div>
-<div class="stat-box">
-    <span class="stat-label">Max Ratio</span>
-    <span id="max-val" class="stat-value">1.000</span>
-</div>
-</div>
-```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results = 'asis'}
 library(tidyverse)
