@@ -33,12 +33,12 @@
             slider1.addEventListener('input', (event) => {
                 const val = event.target.value; // Changed 'frame' to 'val'
                 // Ensure the path matches your actual folder structure
-                viewer1.src = `../assets/torus_area_analysis/step_${frame}.glb`;
+                viewer1.src = `../assets/torus_area_analysis/step_${val}.glb`;
             });
     
             slider2.addEventListener('input', (event) => {
                 const val = event.target.value; // Changed 'frame' to 'val'
-                viewer2.src = `../assets/sequence/torus_${frame}.glb`;
+                viewer2.src = `../assets/sequence/torus_${val}.glb`;
             });
         });
     </script>
