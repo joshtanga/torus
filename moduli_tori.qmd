@@ -156,10 +156,10 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
         const currentData = frameStats[idx];
 
         // 1. Update 3D Model (using the grid naming convention)
-        viewer.src = `../assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
+        viewer.src = '../assets/torus_grid_sweep/torus_R${i}_r${j}.glb';
         
         // 2. Update Histogram (using the flat index)
-        histImg.src = `../assets/torus_plots/dist_plot_${idx}.png`;
+        histImg.src = '../assets/torus_plots/dist_plot_${idx}.png';
         
         // 3. Update Text Labels
         displayR.innerText = currentData.r.toFixed(2); // Major from manifest
