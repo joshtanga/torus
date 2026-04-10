@@ -317,6 +317,7 @@ Dehn Twists
 ### Deformations of the Geometry of the Torus
 
 The mapping seen heretofore are all *mapping classes*.  
+
 # {background-iframe="https://joshtanga.github.io/torus/docs/geometry_changes.html"  background-interactive=true}
 
 ---
