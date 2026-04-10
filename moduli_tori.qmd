@@ -75,7 +75,6 @@ Bottom: distribution of area change across the current surface
 
 :::
 
-### Summary Statistics of the Mapping
 <style>
   .stats-container {
     display: flex;
