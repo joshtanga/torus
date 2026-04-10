@@ -1,0 +1,7 @@
+# Created by Open3D 
+# object name: linear_uv_checkerboard_res_1024_iter_0_period_3_map
+newmtl linear_uv_checkerboard_res_1024_iter_0_period_3_map_0
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Kd linear_uv_checkerboard_res_1024_iter_0_period_3_map_0.png

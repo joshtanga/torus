@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+project-resources:
+  - "assets/**"
+
 website:
   title: "torus visualizations"
   navbar:

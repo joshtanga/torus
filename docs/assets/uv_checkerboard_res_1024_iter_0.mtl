@@ -1,0 +1,7 @@
+# Created by Open3D 
+# object name: uv_checkerboard_res_1024_iter_0
+newmtl uv_checkerboard_res_1024_iter_0_0
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Kd uv_checkerboard_res_1024_iter_0_0.png
