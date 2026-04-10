@@ -48,7 +48,6 @@ The histogram below represents the distribution of area change across all faces.
 
 :::
 
-### Summary Statistics 
 <style>
   .stats-container {
     display: flex;
