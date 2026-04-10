@@ -22,27 +22,26 @@
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <script>
-        const viewer1 = document.querySelector('#torus-player1');
-        const viewer2 = document.querySelector('#torus-player2');
-        const slider1 = document.querySelector('#deform-slider1');
-        const slider2 = document.querySelector('#deform-slider2');
+        // Use DOMContentLoaded to make sure the HTML is finished loading first
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewer1 = document.querySelector('#torus-player1');
+            const viewer2 = document.querySelector('#torus-player2');
+            const slider1 = document.querySelector('#deform-slider1');
+            const slider2 = document.querySelector('#deform-slider2');
     
-        slider1.addEventListener('input', (event) => {
-            const frame = event.target.value;
-            // Update the source of the 3D model
-            viewer1.src = `assets/torus_area_analysis/step_${val}.glb`;
+            slider1.addEventListener('input', (event) => {
+                const val = event.target.value; // Changed 'frame' to 'val'
+                // Ensure the path matches your actual folder structure
+                viewer1.src = `../assets/torus_area_analysis/step_${frame}.glb`;
+            });
+    
+            slider2.addEventListener('input', (event) => {
+                const val = event.target.value; // Changed 'frame' to 'val'
+                viewer2.src = `../assets/sequence/torus_${frame}.glb`;
+            });
         });
-    
-        slider2.addEventListener('input', (event) => {
-            const frame = event.target.value;
-            // Update the source of the 3D model
-            viewer2.src = `../assets/sequence/torus_${val}.glb`;
-        });
-    
     </script>
-
 
     <style>
     .dual-container {
