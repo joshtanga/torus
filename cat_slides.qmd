@@ -323,9 +323,7 @@ The mapping seen heretofore are all <u>mapping classes</u>.
 
 # {background-iframe="https://joshtanga.github.io/torus/docs/moduli_tori.html"  background-interactive=true}
 
-# Thank You!
-
-![qr-code](assets/qr_code_cat_slides.png){width=100px}
+# Thank You! ![](assets/qr_code_cat_slides.png){width=100px}
 
 1. [https://joshtanga.github.io/torus/](https://joshtanga.github.io/torus/)
 2. Math: <u>Primer on Mapping Class Groups</u> by Farb & Margalit
