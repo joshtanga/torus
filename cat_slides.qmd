@@ -313,3 +313,9 @@ Dehn Twists
 # {background-iframe="https://joshtanga.github.io/torus/periodic/"  background-interactive=true}
 
 ---
+
+### Deformations of the Geometry of the Torus
+
+# {background-iframe="https://joshtanga.github.io/torus/docs/geometry_changes.html"  background-interactive=true}
+
+

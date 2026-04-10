@@ -320,5 +320,12 @@
     "title": "Cat Dynamics are Manifold",
     "section": "",
     "text": "Indira Chatterji: https://chatterj.perso.math.cnrs.fr/\n\nDehn Twists"
+  },
+  {
+    "objectID": "moduli_tori.html",
+    "href": "moduli_tori.html",
+    "title": "Exploring Moduli of Tori: Isotopies and Area Distortion",
+    "section": "",
+    "text": "Moduli of Tori\nHere we view different geometric structures on a torus. One aspect of this change is the metric distortion — how much the surface area of small neighborhoods stretches or shrinks during the transformation. This is indicated by the color of the faces in the 3D model, where blue indicates shrinking and red indicates stretching. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.\n\n\n\n\n\n \n\n\nSlide to change modulus: 0\n\n\n\n\n\nGeometric Distortion\nThe histogram below represents the distribution of area change across all faces. An area-preserving map would result in a single spike at 1.0.\n\n\n\n\n\n\n\n\n\nSummary Statistics of the Mapping\n\n\n\n    Min Ratio\n    1.000\n\n\n    Mean Ratio\n    1.000\n\n\n    Max Ratio\n    1.000"
   }
 ]

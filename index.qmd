@@ -23,6 +23,7 @@ Examples of torus automorphisms, and their applications to texture mapping. Thes
 - [changes to geometry](geometry_changes.html)
 
 # Related
+- [moduli of tori](../moduli_tori/)
 - [texture mapping](tm/texture_mapping.html)
 - [python code](tm/tm_code.html)
 - [slides](cat_slides.html)
