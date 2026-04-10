@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="moduli-of-tori">Moduli of Tori</h3>
 <p>Here we view different geometric structures on a torus. One aspect of this change is the <strong>metric distortion</strong> — how much the surface area of small neighborhoods stretches or shrinks during the transformation.</p>
 <p>The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.</p>
-<p>Note: The “drift” of the histogram away from 1.0 perfectly quantifies how much the geometry is stretching!</p>
+<p>Note: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.</p>
 <div class="quarto-layout-panel" data-layout="[60, 40]">
 <div class="quarto-layout-row">
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
@@ -161,8 +161,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="summary-statistics-of-the-mapping" class="level3">
-<h3 class="anchored" data-anchor-id="summary-statistics-of-the-mapping">Summary Statistics of the Mapping</h3>
+<section id="summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h3>
 <style>
   .stats-container {
     display: flex;
@@ -218,9 +218,6 @@ ul.task-list li input[type="checkbox"] {
     
     const displayR = document.querySelector('#val-R');
     const displaySmallR = document.querySelector('#val-r');
-
-    // This must match the 'resolution' used in your Python script
-    const RESOLUTION = 11; 
 
     function updateVisualization() {
         const i = parseInt(document.querySelector('#slider-R').value);

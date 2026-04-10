@@ -145,9 +145,6 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
     const displayR = document.querySelector('#val-R');
     const displaySmallR = document.querySelector('#val-r');
 
-    // This must match the 'resolution' used in your Python script
-    const RESOLUTION = 11; 
-
     function updateVisualization() {
         const i = parseInt(document.querySelector('#slider-R').value);
         const j = parseInt(document.querySelector('#slider-r').value);
