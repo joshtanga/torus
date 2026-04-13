@@ -61,11 +61,11 @@ Top: histogram representing the distribution of area change across all faces. An
 Bottom: distribution of area change across the current surface
 
 <div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="hist-scrubber" src="assets/texture_torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
+  <img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 
 <div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="distortion-scrubber" src="assets/texture_torus_grid_sweep/r_dist_plot_x0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
+  <img id="distortion-scrubber" src="assets/torus_grid_sweep/r_dist_plot_x0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
 </div>
 
 
@@ -174,9 +174,9 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
     
             // 2. Update the Histogram Image & Distortion Image
             const histImg = document.querySelector('#hist-scrubber');
-            histImg.src = `assets/texture_torus_plots/dist_plot_${idx}.png`;
+            histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
             const distortionImg = document.querySelector('#distortion-scrubber');
-            distortionImg.src = `assets/texture_torus_grid_sweep/r_dist_plot_x${idx}.png`;
+            distortionImg.src = `assets/torus_grid_sweep/r_dist_plot_x${idx}.png`;
     
             // 3. THE QUICK FIX: Update the text spans
             // because of how R's clean_names() handles the columns.

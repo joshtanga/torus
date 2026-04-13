@@ -167,10 +167,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Top: histogram representing the distribution of area change across all faces. An area-preserving map would result in a single spike at <strong>1.0</strong></p>
 <p>Bottom: distribution of area change across the current surface</p>
 <div style="flex: 1; min-width: 300px; text-align: center;">
-<p><img id="hist-scrubber" src="assets/texture_torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
+<p><img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
 </div>
 <div style="flex: 1; min-width: 300px; text-align: center;">
-<p><img id="distortion-scrubber" src="assets/texture_torus_grid_sweep/r_dist_plot_x0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
+<p><img id="distortion-scrubber" src="assets/torus_grid_sweep/r_dist_plot_x0.png" style="width: 100%; max-width: 450px; border-radius: 8px;"></p>
 </div>
 </section>
 </div>
@@ -235,9 +235,9 @@ ul.task-list li input[type="checkbox"] {
     
             // 2. Update the Histogram Image & Distortion Image
             const histImg = document.querySelector('#hist-scrubber');
-            histImg.src = `assets/texture_torus_plots/dist_plot_${idx}.png`;
+            histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
             const distortionImg = document.querySelector('#distortion-scrubber');
-            distortionImg.src = `assets/texture_torus_grid_sweep/r_dist_plot_x${idx}.png`;
+            distortionImg.src = `assets/torus_grid_sweep/r_dist_plot_x${idx}.png`;
     
             // 3. THE QUICK FIX: Update the text spans
             // because of how R's clean_names() handles the columns.
