@@ -60,7 +60,7 @@
     "href": "texture_tori.html",
     "title": "Exploring Moduli of Tori via Textures:",
     "section": "",
-    "text": "Here we view different geometric structures on a torus. One aspect of this change is the metric distortion — how much the surface area of small neighborhoods stretches or shrinks during the transformation.\nThe color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.\nNote: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.\n\n\n\n \n\n\n \n\n\n\n\n\n    Min Ratio\n    1.000\n\n\n    Mean Ratio\n    1.000\n\n\n    Max Ratio\n    1.000\n\n\n\nMajor Radius (R): Minor Radius (r):\n\n\nCurrent Parameters: R = …, r = …"
+    "text": "Here we view different geometric structures on a torus. One aspect of this change is the metric distortion — how much the surface area of small neighborhoods stretches or shrinks during the transformation.\nThe color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue.\n\n\n\n \n\n\n \n\n\n\n\n\n    Min Ratio\n    1.000\n\n\n    Mean Ratio\n    1.000\n\n\n    Max Ratio\n    1.000\n\n\n\nMajor Radius (R): Minor Radius (r):\n\n\nCurrent Parameters: R = …, r = …"
   },
   {
     "objectID": "ref/references.html",
