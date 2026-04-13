@@ -13,26 +13,29 @@ The color mapping uses coolwarm centered at 1.0. This means if a face has the sa
 
 Note: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.
 
-::: {layout="[60, 40]"}
+::: {layout="[50, 50]"}
 
 ::: {#first-column}
-
-<div style="background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-
+### Texture Mapping
 <model-viewer 
-    id="torus-scrubber" 
-    src="assets/texture_torus_R0_r0.glb"
+    id="torus-scrubber-1" 
+    src="assets/texture_torus_grid_sweep/texture_torus_R0_r0.glb"
     camera-controls 
     style="width: 100%; height: 400px;">
 </model-viewer>
+:::
 
+::: {#second-column}
+### Area Distortion
+<model-viewer 
+    id="torus-scrubber-2" 
+    src="assets/texture_torus_grid_sweep/torus_R0_r0.glb"
+    camera-controls 
+    style="width: 100%; height: 400px;">
+</model-viewer>
+:::
 
-<div style="margin-top: 20px;"><label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;">
-<label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;"></div>
-<p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
-</div>
-
+:::
 
 ```{=html}
 <div class="stats-container">
@@ -52,35 +55,12 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 ```
 
 
-:::
-
-::: {#second-column}
-
-### Geometric Distortion
-
-<!--
-Top: histogram representing the distribution of area change across all faces. An area-preserving map would result in a single spike at **1.0**
-
-Bottom: distribution of area change across the current surface
-<div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="hist-scrubber" src="assets/torus_plots/dist_plot_0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
+<div style="margin-top: 20px;"><label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;">
+<label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;"></div>
+<p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
 </div>
 
-<div style="flex: 1; min-width: 300px; text-align: center;">
-  <img id="distortion-scrubber" src="assets/torus_grid_sweep/r_dist_plot_x0.png" style="width: 100%; max-width: 450px; border-radius: 8px;">
-</div>
--->
 
-<model-viewer 
-    id="torus-scrubber" 
-    src="assets/torus_grid_sweep/torus_R0_r0.glb"
-    camera-controls 
-    style="width: 100%; height: 400px;">
-</model-viewer>
-
-:::
-
-:::
 
 <style>
   .stats-container {
@@ -156,62 +136,42 @@ stats_json <- jsonlite::toJSON(combined_payload)
 cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
 ```
 <script>
-    const viewer = document.querySelector('#torus-scrubber');
-    const viewer2 = document.querySelector('#torus-scrubber');
-    const histImg = document.querySelector('#hist-scrubber');
-    const distortionImg = document.querySelector('#distortion-scrubber');
-    const sliderR = document.querySelector('#slider-R');
-    const sliderSmallR = document.querySelector('#slider-r');
-    
-    const displayR = document.querySelector('#val-R');
-    const displaySmallR = document.querySelector('#val-r');
-
     function updateVisualization() {
+        // Use parseInt to ensure we have clean indices
         const i = parseInt(document.querySelector('#slider-R').value);
         const j = parseInt(document.querySelector('#slider-r').value);
         
-        // This must match the resolution from your Python script (e.g., 6 for 0-5 sliders)
         const RESOLUTION = 10; 
         const idx = (i * RESOLUTION) + j;
         const currentData = frameStats[idx];
     
         if (currentData) {
-            // 1. Update the 3D Model
-            const viewer = document.querySelector('#torus-scrubber');
-            const viewer2 = document.querySelector('#torus-scrubber');
-            viewer.src = `assets/texture_torus_R${i}_r${j}.glb`;
-            viewer2.src = `assets/torus_R${i}_r${j}.glb`;
+            // Update BOTH viewers using their unique IDs
+            const viewer1 = document.querySelector('#torus-scrubber-1');
+            const viewer2 = document.querySelector('#torus-scrubber-2');
+            
+            // Adjust paths based on where your Python script actually saved files
+            viewer1.src = `assets/texture_torus_grid_sweep/texture_torus_R${i}_r${j}.glb`;
+            viewer2.src = `assets/texture_torus_grid_sweep/torus_R${i}_r${j}.glb`;
     
-            // 2. Update the Histogram Image & Distortion Image
-            const histImg = document.querySelector('#hist-scrubber');
-            histImg.src = `assets/torus_plots/dist_plot_${idx}.png`;
-            const distortionImg = document.querySelector('#distortion-scrubber');
-            distortionImg.src = `assets/torus_grid_sweep/r_dist_plot_x${idx}.png`;
-    
-            // 3. THE QUICK FIX: Update the text spans
-            // because of how R's clean_names() handles the columns.
+            // Update Text
             document.querySelector('#val-R').innerText = currentData.r_major.toFixed(2);
             document.querySelector('#val-r').innerText = currentData.r_minor.toFixed(2);
     
-            // 4. Update the Stats boxes
+            // Update Stats
             document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
             document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
             document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
-            
-            // Debugging: This helps us see if the data is actually there
-            console.log("Current Frame Data:", currentData);
-        } else {
-            console.error("Could not find data for index:", idx);
         }
     }
 
-// Attach the function to the sliders
-document.querySelector('#slider-R').addEventListener('input', updateVisualization);
-document.querySelector('#slider-r').addEventListener('input', updateVisualization);
-   // Listen to both sliders
-    sliderR.addEventListener('input', updateVisualization);
-    sliderSmallR.addEventListener('input', updateVisualization);
+    // Fix sliders: max should be RESOLUTION - 1
+    const sR = document.querySelector('#slider-R');
+    const sr = document.querySelector('#slider-r');
+    sR.max = 9; sR.step = 1;
+    sr.max = 9; sr.step = 1;
 
-    // Initialize on load
+    sR.addEventListener('input', updateVisualization);
+    sr.addEventListener('input', updateVisualization);
     window.addEventListener('load', updateVisualization);
 </script>
