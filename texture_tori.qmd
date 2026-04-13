@@ -1,5 +1,5 @@
 ---
-title: "Exploring Moduli of Tori via Textures"
+title: "Exploring Moduli of Tori via Textures:"
 format: 
   html:
     page-layout: full
@@ -7,11 +7,11 @@ resources:
   - assets
 ---
 
-Here we view different geometric structures on a torus. One aspect of this change is the **metric distortion** — how much the surface area of small neighborhoods stretches or shrinks during the transformation.  
+Here we view different geometric structures on a torus.  One aspect of this change is the **metric distortion** — how much the surface area of small neighborhoods stretches or shrinks during the transformation.  
 
-The color mapping uses `coolwarm` centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. 
+The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.
 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+Note: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.
 
 ::: {layout="[50, 50]" layout-valign="top"}
 
@@ -36,31 +36,133 @@ The color mapping uses `coolwarm` centered at 1.0. This means if a face has the 
 :::
 
 :::
-
 ```{=html}
 <div class="stats-container">
-    <div class="stat-box">
-        <span class="stat-label">Min Ratio</span>
-        <span id="min-val" class="stat-value">1.000</span>
-    </div>
-    <div class="stat-box">
-        <span class="stat-label">Mean Ratio</span>
-        <span id="mean-val" class="stat-value">1.000</span>
-    </div>
-    <div class="stat-box">
-        <span class="stat-label">Max Ratio</span>
-        <span id="max-val" class="stat-value">1.000</span>
-    </div>
+<div class="stat-box">
+    <span class="stat-label">Min Ratio</span>
+    <span id="min-val" class="stat-value">1.000</span>
 </div>
+<div class="stat-box">
+    <span class="stat-label">Mean Ratio</span>
+    <span id="mean-val" class="stat-value">1.000</span>
+</div>
+<div class="stat-box">
+    <span class="stat-label">Max Ratio</span>
+    <span id="max-val" class="stat-value">1.000</span>
+</div>
+</div>
+```
 
-<div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin-top: 20px;">
-    <label><strong>Major Radius (R):</strong></label>
-    <input type="range" id="slider-R" min="0" max="9" value="4" step="1" style="width: 100%;">
+<style>
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .stat-box {
+    text-align: center;
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #3498db; /* A nice highlight blue */
+  }
+  #max-val { color: #e74c3c; } /* Red for Max stretch */
+  #min-val { color: #f1c40f; } /* Yellow for Min squeeze */
+</style>
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = 'asis'}
+library(tidyverse)
+library(jsonlite)
+
+# 1. Load the files
+# manifest contains filenames/radii, ratios_data contains the actual area numbers
+manifest <- read_csv('assets/torus_grid_sweep/manifest.csv') |> janitor::clean_names()
+ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv') |> janitor::clean_names()
+
+# 2. Calculate stats only on the numeric ratio columns
+dist_stats_tidy <- ratios |> 
+  summarise(across(
+    where(is.numeric), 
+    list(
+      mean = \(x) mean(x, na.rm = TRUE),
+      max  = \(x) max(x, na.rm = TRUE),
+      min  = \(x) min(x, na.rm = TRUE)
+    ),
+    .names = "{.col}_{.fn}"
+  )) |> 
+  pivot_longer(
+    everything(), 
+    names_to = c("column_index", "stat"), 
+    names_pattern = "x(.*)_(.*)" # Matches "x0_mean", "v1_mean", etc.
+  ) |> 
+  pivot_wider(names_from = stat, values_from = value) |>
+  mutate(column_index = as.numeric(column_index)) |>
+  arrange(column_index)
+
+# 3. Bind the radii and filenames from the manifest to the calculated stats
+# This ensures each row has: file, r_idx, r_major, r_minor, mean, max, min
+combined_payload <- bind_cols(manifest, dist_stats_tidy |> select(-column_index))
+
+# explort combined payload to csv for debugging
+write_csv(dist_stats_tidy, "assets/torus_grid_sweep/combined_payload.csv")
+
+# 4. Inject into JS
+stats_json <- jsonlite::toJSON(combined_payload)
+cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
+```
+<script>
+    function updateVisualization() {
+        // Use parseInt to ensure we have clean indices
+        const i = parseInt(document.querySelector('#slider-R').value);
+        const j = parseInt(document.querySelector('#slider-r').value);
+        
+        const RESOLUTION = 10; 
+        const idx = (i * RESOLUTION) + j;
+        const currentData = frameStats[idx];
     
-    <label style="margin-top: 10px; display: block;"><strong>Minor Radius (r):</strong></label>
-    <input type="range" id="slider-r" min="0" max="9" value="4" step="1" style="width: 100%;">
+        if (currentData) {
+            // Update BOTH viewers using their unique IDs
+            const viewer1 = document.querySelector('#torus-scrubber-1');
+            const viewer2 = document.querySelector('#torus-scrubber-2');
+            
+            // Adjust paths based on where your Python script actually saved files
+            viewer1.src = `assets/tt/texture_torus_R${i}_r${j}.glb`;
+            viewer2.src = `assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
     
-    <p style="text-align: center; margin-top: 15px; font-size: 1.1rem;">
-        <strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span>
-    </p>
-</div>
+            // Update Text
+            document.querySelector('#val-R').innerText = currentData.r_major.toFixed(2);
+            document.querySelector('#val-r').innerText = currentData.r_minor.toFixed(2);
+    
+            // Update Stats
+            document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
+            document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
+            document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
+        }
+    }
+
+    // Fix sliders: max should be RESOLUTION - 1
+    const sR = document.querySelector('#slider-R');
+    const sr = document.querySelector('#slider-r');
+    sR.max = 9; sR.step = 1;
+    sr.max = 9; sr.step = 1;
+
+    sR.addEventListener('input', updateVisualization);
+    sr.addEventListener('input', updateVisualization);
+    window.addEventListener('load', updateVisualization);
+</script>
