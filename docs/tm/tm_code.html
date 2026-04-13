@@ -367,7 +367,7 @@ window.Quarto = {
 </section>
 <section id="t-o-r-u-s-m-e-s-h-s-e-t-u-p" class="level1">
 <h1>– – T O R U S – M E S H – S E T U P – –</h1>
-<div id="9d0ec7e4" class="cell" data-execution_count="9">
+<div id="9285bbd0" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> o3d.geometry.TriangleMesh.create_torus()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R is the (default) major radius (distance from center of donut to center of tube)</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fl">1.0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -376,7 +376,7 @@ window.Quarto = {
 <section id="l-e-a-r-n-h-o-w-v-e-r-t-i-c-e-s-m-a-p-t-o-t-r-i-a-n-g-l-e-s" class="level1">
 <h1>– L E A R N H O W V E R T I C E S M A P T O T R I A N G L E S – – –</h1>
 <p>These lines help you understand how the vertices of the mesh are connected to the trianlges.</p>
-<div id="f3edfd34" class="cell" data-execution_count="10">
+<div id="01e3eb75" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign the texture to the mesh using the triangles of the mesh</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>triangles <span class="op">=</span> np.asarray(mesh.triangles)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -407,7 +407,7 @@ These triangles connect these vertices:
 </div>
 <section id="c-a-l-c-u-l-a-t-e-u-v-s-f-o-r-t-o-r-u-s-m-e-s-h" class="level2">
 <h2 class="anchored" data-anchor-id="c-a-l-c-u-l-a-t-e-u-v-s-f-o-r-t-o-r-u-s-m-e-s-h">– – – C A L C U L A T E U V S F O R T O R U S M E S H – – –</h2>
-<div id="ee4e91f4" class="cell" data-execution_count="11">
+<div id="5ea4a68c" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>verts <span class="op">=</span> np.asarray(mesh.vertices)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance from the center of the donut in the XY plane</span></span>
@@ -432,7 +432,7 @@ These triangles connect these vertices:
 </section>
 <section id="create-initial-uvs" class="level1">
 <h1>3. Create initial UVs</h1>
-<div id="2010cad4" class="cell" data-execution_count="12">
+<div id="027a9aa1" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>v_uvs <span class="op">=</span> np.stack([u_norm, v_norm], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>triangles <span class="op">=</span> np.asarray(mesh.triangles)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>final_uvs <span class="op">=</span> v_uvs[triangles.flatten()].reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
@@ -464,7 +464,7 @@ These triangles connect these vertices:
 </section>
 <section id="normalize" class="level1">
 <h1>normalize</h1>
-<div id="59136d14" class="cell" data-execution_count="13">
+<div id="2283e6ea" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>uvs <span class="op">=</span> np.asarray(mesh.triangle_uvs)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># normalize uvs to [0,1]</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>uvs_min <span class="op">=</span> uvs.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>)</span>
@@ -484,7 +484,7 @@ These triangles connect these vertices:
 </section>
 <section id="f-i-x-s-e-a-m-c-r-o-s-s-i-n-g-t-r-i-a-n-g-l-e-s" class="level1">
 <h1>– – – F I X S E A M C R O S S I N G T R I A N G L E S – – –</h1>
-<div id="bfe3677c" class="cell" data-execution_count="14">
+<div id="a2cec8b1" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                     attempt to fix seam wrapping</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,7 +522,7 @@ These triangles connect these vertices:
 </section>
 <section id="a-d-d-r-e-d-d-o-t-s-a-t-f-i-x-e-d-p-o-i-n-t-s" class="level1">
 <h1>– – – A D D R E D D O T S A T F I X E D P O I N T S – – –</h1>
-<div id="feb16a89" class="cell" data-execution_count="15">
+<div id="3d775fcc" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open3D textures are stored as o3d.geometry.Image</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Define your points and dot size</span></span>
@@ -554,13 +554,13 @@ These triangles connect these vertices:
 <section id="v-i-s-u-a-l-i-z-e-t-h-e-t-e-x-t-u-r-e-d-m-e-s-h" class="level1">
 <h1>– – – V I S U A L I Z E T H E T E X T U R E D M E S H – – –</h1>
 <p>This is how to visualize a texture mesh using Open3D. The <em>material</em> below is created using the <code>rendering.MaterialRecord</code> to specify the shader and texture. This viewer using an active python kernel, so you can interact with the mesh and see the texture applied in real time. You can also rotate the view to see how the texture wraps around the torus. To export the mesh with the texture for viewing outside of Open3D, see the next section below.</p>
-<div id="7cea0ae6" class="cell" data-execution_count="16">
+<div id="a062c142" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>o3d.visualization.draw({<span class="st">'name'</span>: <span class="st">'textured_torus'</span>, <span class="st">'geometry'</span>: mesh, <span class="st">'material'</span>: material})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="e-x-p-o-r-t-t-h-e-m-e-s-h-t-e-x-t-u-r-e" class="level1">
 <h1>– – – E X P O R T T H E M E S H + T E X T U R E – – –</h1>
-<div id="4d7088d2" class="cell" data-execution_count="17">
+<div id="d0f0ecd5" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open3D uses the filename to determine the format</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This will generate 'anosov.obj' AND 'anosov.mtl'</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ensure the texture is in the correct format (uint8)</span></span>
