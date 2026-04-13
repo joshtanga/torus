@@ -7,6 +7,8 @@ resources:
   - assets
 ---
 
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
 Here we view different geometric structures on a torus.  One aspect of this change is the **metric distortion** — how much the surface area of small neighborhoods stretches or shrinks during the transformation.  
 
 The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.
@@ -15,7 +17,6 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 
 ::: {layout="[50, 50]" layout-valign="top"}
 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
 ::: {#first-column}
 
@@ -55,7 +56,8 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 </div>
 ```
 
-<div style="margin-top: 20px;"><label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;">
+<div style="margin-top: 20px;">
+<label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;">
 <label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;"></div>
 <p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
 </div>
