@@ -13,18 +13,15 @@ The color mapping uses coolwarm centered at 1.0. This means if a face has the sa
 
 Note: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.
 
-::: {layout="[50, 50]"}
-
-
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+::: {layout="[50, 50]" layout-valign="top"}
 
 ::: {#first-column}
 ### Texture Mapping
 <model-viewer 
     id="torus-scrubber-1" 
-    src="assets/tt/texture_torus_R0_r0.glb"
+    src="assets/texture_torus_grid_sweep/texture_torus_R0_r0.glb"
     camera-controls 
-    style="width: 100%; height: 400px;">
+    style="width: 100%; height: 400px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
 </model-viewer>
 :::
 
@@ -32,14 +29,13 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 ### Area Distortion
 <model-viewer 
     id="torus-scrubber-2" 
-    src="assets/torus_grid_sweep/torus_R0_r0.glb"
+    src="assets/texture_torus_grid_sweep/torus_R0_r0.glb"
     camera-controls 
-    style="width: 100%; height: 400px;">
+    style="width: 100%; height: 400px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
 </model-viewer>
 :::
 
 :::
-
 ```{=html}
 <div class="stats-container">
 <div class="stat-box">
