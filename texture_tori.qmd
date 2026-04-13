@@ -15,6 +15,8 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 
 ::: {layout="[50, 50]" layout-valign="top"}
 
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
 ::: {#first-column}
 ### Texture Mapping
 <model-viewer 
