@@ -1,0 +1,132 @@
+---
+title: "Cat Dynamics are Manifold"
+toc: false
+execute: 
+    freeze:
+        auto
+---
+Introduction:
+
+- people (mirzakhani, chatterji, dehn, arnold)
+- math (maps of the torus to itself, casual nods to topology, geometry, dynamics, chaos, parameter spaces)
+- code (python, open3d, quarto, javascript, revealjs)
+
+# Maryam's Picture
+
+- women's history month
+- We met several times, she organized MSRI conference
+- survived math olympiad-bus crash
+- immigrated to US from Iran for school
+- Rowe & She share contact
+- (other quotes from movie)
+
+# Maryam Mirzakhani
+
+- upcoming screening of the film at United Conference
+- studied (among other things) the dynamics of the deformation space of surfaces, where points are different "deformations" of a surface
+
+# Deformations of a Torus 
+
+- today we consider various deformations of a torus
+- this is an example of an isotopy I made in open3d via python
+
+# Defamations of a Taurus
+
+- Gauss
+
+# Defamations of a Taurus
+
+- Terrible eyesight, incredible memory
+- Poincare' moved from problem to problme (like a bee moving from flower to flower) and thought his subconcious would work on the problems in the background. 
+- Maybe the "last universalist": the last person to take on all of math and shape it)
+- Poincare' conjecture: any simply connected, closed 3-manifold is homeomorphic to the 3-sphere.  (proved by Perelman in 2003)
+- Perhapps the father of topology and certainly the father of dynamical systems and chaos theory.
+
+# Torus as quotient of square
+
+- this talk is about visualizing maps of the torus to itself
+- I learned a good deal of fancy coding tricks (with the help of a.i. - but alas here we are) 
+
+# Genus 2 quotient surface
+
+- graphics like this show that you actually don't need fancy coding to visualize these things, just a good understanding of the math and a good eye for aesthetics.
+- indira shout out
+
+# Dehn Twist 
+
+- this one is the dehn twist, named after Max Dehn, who introduced it in 1910 as a way to study the mapping class group of surfaces.
+
+# Math people
+
+Who is Max Dehn?
+
+- Pioneer of geometric group theory, topology, and combinatorial group theory.
+- Studied under David Hilbert, long career in Germany before fleeing persecution in 1930's.  
+- Solved Hilbert's third problem: showed that two polyhedra of equal volume are not necessarily equidecomposable (can't be cut into finite pieces and reassembled to form each other).
+- One of his students was Ruth Moufang.
+
+Here we also see Felix Klein, 
+
+  - Klein bottle
+  - Erlangen Program: geometry is the study of invariants under a group of transformations 
+  - Vladimir Arnold (of cat map fame) used this group-theoretic perspective to unify geometry and dynamics
+
+# Dehn's Timeline
+
+- arrested right after Kristallnacht, released somehow (WWI veteran? connections? prison was overcrowded?)
+- went into hiding for a while, then fled to Denmark, then Norway, then Sweden, then US (can't go via Atlantic because of the war?)
+
+It was fitting that Dehn ended up in Black Mountain College
+
+- small school in the mountains of North Carolina
+- no grades
+- focused on the arts
+- dehn embraceed connections between math, art & nature
+
+
+# More Dehn 
+
+Link to my Dehn Twists
+
+
+## Arnold's Cat Map - Vladimir
+
+- Russian, father studied under Emmy Noether.
+- geometry, dynamical systems, catastrophe theory, math education, et al.
+- Studied under:
+  + Kolmogorov 
+  + Pontryagin (totally blind @ 14)
+  + Alexandrov
+- Arnold's principle: 
+  + "Discoveries are rarely attributed to the correct person"
+- gomboc: the first known homogeneous object with one stable and one unstable point of equilibrium, solved a problem posed by Aristotle about 2000 years ago.  Arnold's principle applies here: the gomboc was discovered by a team of researchers in 2006, but it was actually first described by Russian mathematician Vladimir Arnold in 1995.
+
+
+## Arnold
+
+- Solved Hilbert's 13th problem at age 19. (any continuous function of three variables can be represented as a superposition of continuous functions of two variables)
+-  Only a few years later his work on the problem of small denominators in dynamical systems provided the finishing touches on the long elusive explanation of the stability of the solar system (the problem for which Poincaré won the King Oscar Prize in mathematics in 1889 when he discovered chaotic dynamics ).  This theory is known as KAM-theory, using the first initials of the names of Kolmogorov, Arnold and Moser.
+- Critic of Bourbaki, 1900's trend toward higher abstraction in mathematics.
+- 1974: nominated for Field's Medal, but then ...
+- 1999: bike accident in Paris, TBI, amnesia, then full recovery.
+
+## Innumumarcy & the Fires of the Inquisition
+
+
+::: {style="font-family: 'Courier New', monospace; font-size: 1em;"}
+> "We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance."
+
+> "Even more important than the ability to add fractions is the fact that <u>a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one</u>. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s."
+
+> — Vladimir Arnold
+:::
+
+
+## The Map
+
+## Visualizbne
+
+
+# people
+
+this [link](https://mathoverflow.net/questions/98548/in-search-of-an-early-picture-of-max-dehn) suggests the photo was made in 1985 to promote the journal.

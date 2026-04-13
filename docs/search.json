@@ -334,5 +334,54 @@
     "title": "Cat Dynamics are Manifold",
     "section": "Defamation of a Taurus",
     "text": "Defamation of a Taurus\nHenri Poincaré, born April 29, 1854\n\ntoo clumsy to draw accurately\nso he invented topology\nwas so careless he paid to have his own error-laden papers suppressed.\n\n\n\n\n\n\n\n\n\nPoincaré\n\n\n\n\n\n\n\nChaos\n\n\n\n\n\n\nFigure 2"
+  },
+  {
+    "objectID": "cat_talk_script.html",
+    "href": "cat_talk_script.html",
+    "title": "Cat Dynamics are Manifold",
+    "section": "",
+    "text": "Introduction:"
+  },
+  {
+    "objectID": "cat_talk_script.html#arnolds-cat-map---vladimir",
+    "href": "cat_talk_script.html#arnolds-cat-map---vladimir",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Arnold’s Cat Map - Vladimir",
+    "text": "Arnold’s Cat Map - Vladimir\n\nRussian, father studied under Emmy Noether.\ngeometry, dynamical systems, catastrophe theory, math education, et al.\nStudied under:\n\nKolmogorov\nPontryagin (totally blind @ 14)\nAlexandrov\n\nArnold’s principle:\n\n“Discoveries are rarely attributed to the correct person”\n\ngomboc: the first known homogeneous object with one stable and one unstable point of equilibrium, solved a problem posed by Aristotle about 2000 years ago. Arnold’s principle applies here: the gomboc was discovered by a team of researchers in 2006, but it was actually first described by Russian mathematician Vladimir Arnold in 1995."
+  },
+  {
+    "objectID": "cat_talk_script.html#arnold",
+    "href": "cat_talk_script.html#arnold",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Arnold",
+    "text": "Arnold\n\nSolved Hilbert’s 13th problem at age 19. (any continuous function of three variables can be represented as a superposition of continuous functions of two variables)\nOnly a few years later his work on the problem of small denominators in dynamical systems provided the finishing touches on the long elusive explanation of the stability of the solar system (the problem for which Poincaré won the King Oscar Prize in mathematics in 1889 when he discovered chaotic dynamics ). This theory is known as KAM-theory, using the first initials of the names of Kolmogorov, Arnold and Moser.\nCritic of Bourbaki, 1900’s trend toward higher abstraction in mathematics.\n1974: nominated for Field’s Medal, but then …\n1999: bike accident in Paris, TBI, amnesia, then full recovery."
+  },
+  {
+    "objectID": "cat_talk_script.html#innumumarcy-the-fires-of-the-inquisition",
+    "href": "cat_talk_script.html#innumumarcy-the-fires-of-the-inquisition",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Innumumarcy & the Fires of the Inquisition",
+    "text": "Innumumarcy & the Fires of the Inquisition\n\n\n“We live in an insane world, in which most governments behave like the pigs under an oak tree in the fable by Krylov, both eating the acorns and digging up its roots, thus destroying the source of their very sustenance.”\n\n\n“Even more important than the ability to add fractions is the fact that a basic acquaintance with mathematics allows one to distinguish a correct argument from a faulty one. Without this ability, a society turns into a herd, easily manipulated by demagogues. According to Western experts, in the current situation in Russia, the assumption of power by a Hitler is even more likely than it was in Germany in the 1920s.”\n\n\n— Vladimir Arnold"
+  },
+  {
+    "objectID": "cat_talk_script.html#the-map",
+    "href": "cat_talk_script.html#the-map",
+    "title": "Cat Dynamics are Manifold",
+    "section": "The Map",
+    "text": "The Map"
+  },
+  {
+    "objectID": "cat_talk_script.html#visualizbne",
+    "href": "cat_talk_script.html#visualizbne",
+    "title": "Cat Dynamics are Manifold",
+    "section": "Visualizbne",
+    "text": "Visualizbne"
+  },
+  {
+    "objectID": "texture_tori.html",
+    "href": "texture_tori.html",
+    "title": "Exploring Moduli of Tori via Textures:",
+    "section": "",
+    "text": "Here we view different geometric structures on a torus. One aspect of this change is the metric distortion — how much the surface area of small neighborhoods stretches or shrinks during the transformation.\nThe color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue. The histogram on the right quantifies this distortion across all faces, showing the distribution of area change.\nNote: The drift of the histogram away from 1.0 quantifies how much the geometry is stretching.\n\n\n\n\n\n \n\nMajor Radius (R): Minor Radius (r):\n\n\nCurrent Parameters: R = …, r = …\n\n\n\n\n    Min Ratio\n    1.000\n\n\n    Mean Ratio\n    1.000\n\n\n    Max Ratio\n    1.000\n\n\n\n\n\nGeometric Distortion\nTop: histogram representing the distribution of area change across all faces. An area-preserving map would result in a single spike at 1.0\nBottom: distribution of area change across the current surface"
   }
 ]
