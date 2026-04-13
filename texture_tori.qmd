@@ -180,7 +180,7 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
             const viewer = document.querySelector('#torus-scrubber');
             const viewer2 = document.querySelector('#torus-scrubber');
             viewer.src = `assets/texture_torus_R${i}_r${j}.glb`;
-            viewer2.src = `assets/texture_torus_R${i}_r${j}.glb`;
+            viewer2.src = `assets/torus_R${i}_r${j}.glb`;
     
             // 2. Update the Histogram Image & Distortion Image
             const histImg = document.querySelector('#hist-scrubber');
