@@ -18,7 +18,7 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
 ::: {#first-column}
-### Texture Mapping
+
 <model-viewer 
     id="torus-scrubber-1" 
     src="assets/texture_torus_grid_sweep/texture_torus_R0_r0.glb"
@@ -28,7 +28,7 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 :::
 
 ::: {#second-column}
-### Area Distortion
+
 <model-viewer 
     id="torus-scrubber-2" 
     src="assets/texture_torus_grid_sweep/torus_R0_r0.glb"
