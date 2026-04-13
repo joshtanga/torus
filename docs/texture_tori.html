@@ -162,6 +162,13 @@ ul.task-list li input[type="checkbox"] {
     <span id="max-val" class="stat-value">1.000</span>
 </div>
 </div>
+<div style="margin-top: 20px;">
+<label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;"> <label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;">
+</div>
+<p style="text-align: center; margin-top: 10px;">
+<strong>Current Parameters:</strong> R = <span id="val-R">…</span>, r = <span id="val-r">…</span>
+</p>
+</main></div>
 <style>
   .stats-container {
     display: flex;
@@ -238,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</main> <!-- /main -->
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -639,7 +646,7 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-</div> <!-- /content -->
+ <!-- /content -->
 
 
 

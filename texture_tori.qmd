@@ -55,6 +55,12 @@ Note: The drift of the histogram away from 1.0 quantifies how much the geometry 
 </div>
 ```
 
+<div style="margin-top: 20px;"><label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;">
+<label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;"></div>
+<p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
+</div>
+
+
 <style>
   .stats-container {
     display: flex;
