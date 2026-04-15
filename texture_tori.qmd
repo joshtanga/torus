@@ -10,9 +10,9 @@ resources:
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-Here we view different geometric structures on a torus.  We use color to represent the **metric distortion** — how much the surface area of small neighborhoods differs from the initial torus (R=10, r=3). 
+Here we view different geometric structures on a torus.  We use color to represent the **metric distortion** — how much the surface area of small neighborhoods differs from the initial torus (R=10, r=3). The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. 
 
-The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. 
+The image projected onto the torus is stretched in some places and compressed in others.  The colors on the right torus indicate this distortion.
 
 
 ::: {layout="[50, 50]" layout-valign="top"}
@@ -104,7 +104,6 @@ library(jsonlite)
 # 1. Load the files
 # this was created in tt_compute_stats.r
 combined_payload = read_csv("assets/torus_grid_sweep/combined_payload.csv")
-head(combined_payload)
 
 # 4. Inject into JS
 stats_json <- jsonlite::toJSON(combined_payload)

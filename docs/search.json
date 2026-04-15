@@ -60,7 +60,7 @@
     "href": "texture_tori.html",
     "title": "Exploring Moduli of Tori via Textures:",
     "section": "",
-    "text": "Here we view different geometric structures on a torus. We use color to represent the metric distortion — how much the surface area of small neighborhoods differs from the initial torus (R=10, r=3).\nThe color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue.\n\n\n\n \n\n\n \n\n\n\n\n\n    Min Ratio\n    1.000\n\n\n    Mean Ratio\n    1.000\n\n\n    Max Ratio\n    1.000\n\n\n\nMajor Radius (R): …  Minor Radius (r): …"
+    "text": "Here we view different geometric structures on a torus. We use color to represent the metric distortion — how much the surface area of small neighborhoods differs from the initial torus (R=10, r=3). The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it’s larger, it turns red; if smaller, it turns blue.\nThe image projected onto the torus is stretched in some places and compressed in others. The colors on the right torus indicate this distortion.\n\n\n\n \n\n\n \n\n\n\n\n\n    Min Ratio\n    1.000\n\n\n    Mean Ratio\n    1.000\n\n\n    Max Ratio\n    1.000\n\n\n\nMajor Radius (R): …  Minor Radius (r): …"
   },
   {
     "objectID": "ref/references.html",
@@ -130,7 +130,7 @@
     "href": "index.html",
     "title": "Torus Automorphisms & Texture Mapping",
     "section": "",
-    "text": "Examples of toral automorphisms, and their applications to texture mapping. These were made using these tools.\n\n\n\n\nMapping Classes\n\nperiodic\ndehn twist\nanosov\n\n\n\nIsotopies\n\nisotopy of texture\nisotopy of structure\nchanges to geometry\n\n\n\nRelated\n\nmoduli of tori\ntexture mapping\npython code\nslides\nbike gang"
+    "text": "Examples of toral automorphisms, and their applications to texture mapping. These were made using these tools.\n\n\n\n\nMapping Classes\n\nperiodic\ndehn twist\nanosov\n\n\n\nIsotopies\n\nisotopy of texture\nisotopy of structure\nchanges to geometry\n\n\n\nRelated\n\nmoduli of tori\nmoduli of tori with textures\ntexture mapping\npython code\nslides\nbike gang"
   },
   {
     "objectID": "elliptic.html",

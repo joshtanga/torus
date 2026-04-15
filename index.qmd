@@ -25,6 +25,7 @@ Examples of toral automorphisms, and their applications to texture mapping. Thes
 
 # Related
 - [moduli of tori](moduli_tori.html)
+- [moduli of tori with textures](texture_tori.html)
 - [texture mapping](tm/texture_mapping.html)
 - [python code](tm/tm_code.html)
 - [slides](cat_slides.html)
