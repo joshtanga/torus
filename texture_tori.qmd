@@ -7,9 +7,10 @@ resources:
   - assets
 ---
 
+
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-Here we view different geometric structures on a torus.  One aspect of this change is the **metric distortion** — how much the surface area of small neighborhoods stretches or shrinks during the transformation.  
+Here we view different geometric structures on a torus.  We use color to represent the **metric distortion** — how much the surface area of small neighborhoods differs from the initial torus (R=10, r=3). 
 
 The color mapping uses coolwarm centered at 1.0. This means if a face has the same area as the baseline, it will appear grey/white. If it's larger, it turns red; if smaller, it turns blue. 
 
@@ -21,7 +22,7 @@ The color mapping uses coolwarm centered at 1.0. This means if a face has the sa
 <model-viewer 
     id="torus-scrubber-1" 
     src="assets/tt/texture_torus_R0_r0.glb"
-    exposure="0.5"
+    exposure="1.5"
     camera-controls 
     style="width: 100%; height: 400px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
 </model-viewer>
@@ -30,8 +31,7 @@ The color mapping uses coolwarm centered at 1.0. This means if a face has the sa
 ::: {#second-column}
 <model-viewer 
     id="torus-scrubber-2" 
-    src="assets/torus_grid_sweep/torus_R0_r0.glb"
-    exposure="0.5"
+    src="assets/tt30/R0_r0.glb"
     camera-controls 
     style="width: 100%; height: 400px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
 </model-viewer>
@@ -57,9 +57,10 @@ The color mapping uses coolwarm centered at 1.0. This means if a face has the sa
 ```
 
 <div style="margin-top: 20px;">
-<label><strong>Major Radius (R):</strong></label><input type="range" id="slider-R" min="0" max="10" value="9.4" step="1.11" style="width: 100%;">
-<label><strong>Minor Radius (r):</strong></label><input type="range" id="slider-r" min="0" max="10" value="2.78" step="0.45" style="width: 100%;"></div>
-<p style="text-align: center; margin-top: 10px;"><strong>Current Parameters:</strong> R = <span id="val-R">...</span>, r = <span id="val-r">...</span></p>
+<label><strong>Major Radius (R): <span id="val-R">...</span></strong></label>
+<input type="range" id="slider-R" min="0" max="30" value="15" step="1" style="width: 100%;">
+<label><strong>Minor Radius (r): <span id="val-r">...</span></strong></label>
+<input type="range" id="slider-r" min="0" max="30" value="15" step="1" style="width: 100%;"></div>
 </div>
 
 
@@ -101,36 +102,9 @@ library(tidyverse)
 library(jsonlite)
 
 # 1. Load the files
-# manifest contains filenames/radii, ratios_data contains the actual area numbers
-manifest <- read_csv('assets/torus_grid_sweep/manifest.csv') |> janitor::clean_names()
-ratios   <- read_csv('assets/torus_grid_sweep/ratios_data.csv') |> janitor::clean_names()
-
-# 2. Calculate stats only on the numeric ratio columns
-dist_stats_tidy <- ratios |> 
-  summarise(across(
-    where(is.numeric), 
-    list(
-      mean = \(x) mean(x, na.rm = TRUE),
-      max  = \(x) max(x, na.rm = TRUE),
-      min  = \(x) min(x, na.rm = TRUE)
-    ),
-    .names = "{.col}_{.fn}"
-  )) |> 
-  pivot_longer(
-    everything(), 
-    names_to = c("column_index", "stat"), 
-    names_pattern = "x(.*)_(.*)" # Matches "x0_mean", "v1_mean", etc.
-  ) |> 
-  pivot_wider(names_from = stat, values_from = value) |>
-  mutate(column_index = as.numeric(column_index)) |>
-  arrange(column_index)
-
-# 3. Bind the radii and filenames from the manifest to the calculated stats
-# This ensures each row has: file, r_idx, r_major, r_minor, mean, max, min
-combined_payload <- bind_cols(manifest, dist_stats_tidy |> select(-column_index))
-
-# explort combined payload to csv for debugging
-write_csv(dist_stats_tidy, "assets/torus_grid_sweep/combined_payload.csv")
+# this was created in tt_compute_stats.r
+combined_payload = read_csv("assets/torus_grid_sweep/combined_payload.csv")
+head(combined_payload)
 
 # 4. Inject into JS
 stats_json <- jsonlite::toJSON(combined_payload)
@@ -138,41 +112,40 @@ cat(paste0("<script>var frameStats = ", stats_json, ";</script>"))
 ```
 <script>
     function updateVisualization() {
-        // Use parseInt to ensure we have clean indices
+        // These now get an integer index (0-30)
         const i = parseInt(document.querySelector('#slider-R').value);
         const j = parseInt(document.querySelector('#slider-r').value);
         
-        // This must match the resolution from your Python script (e.g., 6 for 0-5 sliders)
-        const RESOLUTION = 30; 
+        // These are just for display purposes, showing the actual radius values from the manifest
+        const displayR = document.querySelector('#val-R');
+        const displaySmallR = document.querySelector('#val-r');
+
+        // Ensure this matches the number of 'r' steps in your Python sweep
+        const RESOLUTION = 31; 
         const idx = (i * RESOLUTION) + j;
         const currentData = frameStats[idx];
     
         if (currentData) {
-            // Update BOTH viewers using their unique IDs
             const viewer1 = document.querySelector('#torus-scrubber-1');
             const viewer2 = document.querySelector('#torus-scrubber-2');
             
-            // Adjust paths based on where your Python script actually saved files
             viewer1.src = `assets/tt/texture_torus_R${i}_r${j}.glb`;
-            viewer2.src = `assets/torus_grid_sweep/torus_R${i}_r${j}.glb`;
+            viewer2.src = `assets/tt30/R${i}_r${j}.glb`;
     
-            // Update Text
+            // This pulls the actual radius (e.g., 5.0, 15.0) from the manifest
             document.querySelector('#val-R').innerText = currentData.r_major.toFixed(2);
             document.querySelector('#val-r').innerText = currentData.r_minor.toFixed(2);
     
-            // Update Stats
             document.querySelector('#max-val').innerText  = currentData.max.toFixed(3);
             document.querySelector('#mean-val').innerText = currentData.mean.toFixed(3);
             document.querySelector('#min-val').innerText  = currentData.min.toFixed(3);
         }
     }
 
-    // Fix sliders: max should be RESOLUTION - 1
     const sR = document.querySelector('#slider-R');
     const sr = document.querySelector('#slider-r');
-    sR.max = 9; sR.step = 1;
-    sr.max = 9; sr.step = 1;
 
+    // Just ensure they match your actual data resolution
     sR.addEventListener('input', updateVisualization);
     sr.addEventListener('input', updateVisualization);
     window.addEventListener('load', updateVisualization);
